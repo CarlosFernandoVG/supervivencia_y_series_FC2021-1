@@ -302,7 +302,7 @@ De acuerdo a la gráfica anterior, ¿Existe algún indicio de que los datos sigu
 Si el modelo paramétrico es adecuado entonces los puntos:
 
 $$
-(S(t_j ;\hat{\theta}),\hat S(t_j))
+\left(S(t_j ;\hat{\theta}),\hat S(t_j)\right)
 $$
 
 Deberán caer en la recta identidad ($\hat S(t_j)$ es estimada por *K-M*). Es llamada *gráfica $P-P$* pues se gráfica *Probabilidad vs Probabilidad*.

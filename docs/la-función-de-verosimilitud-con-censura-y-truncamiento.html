@@ -492,7 +492,7 @@ Tiempo de recaida en meses
 </ul>
 <p>Entonces, su respectiva función de verosimilitud es de la forma:</p>
 <p><span class="math display">\[
-\mathscr{L} = \prod_{i}^{n}[\lambda \gamma(\lambda t_i)^{\gamma-1}e^{-(\lambda t_i)^\gamma}]^{\delta_i}[e^{-(\lambda t_i)^\gamma}]^{1-\delta_i} = \prod_{i}^{n}[\lambda \gamma(\lambda t_i)^{\gamma-1}]^{\delta_i}[e^{-(\lambda t_i)^\gamma}]
+\mathscr{L} = \prod_{i}^{n}\left[\lambda \gamma(\lambda t_i)^{\gamma-1}e^{-(\lambda t_i)^\gamma}\right]^{\delta_i}\left[e^{-(\lambda t_i)^\gamma}\right]^{1-\delta_i} = \prod_{i}^{n}\left[\lambda \gamma(\lambda t_i)^{\gamma-1}\right]^{\delta_i}\left[e^{-(\lambda t_i)^\gamma}\right]
 \]</span></p>
 <p>Por lo que:</p>
 <p><span class="math display">\[
@@ -507,14 +507,14 @@ Tiempo de recaida en meses
 \frac{\partial \ln(\mathscr{L})}{\partial \lambda}=r\frac{\gamma}{\lambda \gamma}+\frac{(\gamma-1)r}{\lambda}-\gamma \lambda^{\gamma -1}\sum_{i=1}^{n}t_i^{\gamma}=0
 \]</span></p>
 <p><span class="math display">\[
-\frac{\partial \ln(\mathscr{L})}{\partial \gamma}=r\frac{\lambda}{\lambda \gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-[\lambda^{\gamma}\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}+\lambda^\gamma \sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)]=0
+\frac{\partial \ln(\mathscr{L})}{\partial \gamma}=r\frac{\lambda}{\lambda \gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\left[\lambda^{\gamma}\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}+\lambda^\gamma \sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)\right]=0
 \]</span></p>
 <p>Simplificando ambas ecuaciones tenemos:</p>
 <p><span class="math display">\[
 r\gamma-\gamma \lambda^\gamma\sum_{i=1}^{n}t_i^\gamma=0
 \]</span></p>
 <p><span class="math display">\[
-\frac{r}{\gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\lambda^\gamma[\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}-\sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)]=0
+\frac{r}{\gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\lambda^\gamma\left[\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}-\sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)\right]=0
 \]</span></p>
 <p>Despejamos a <span class="math inline">\(\lambda\)</span> de la primera ecuación:</p>
 <p><span class="math display">\[

@@ -53,7 +53,7 @@ $$
 Z(\tau) = O(26)-\mathbb{E}(26) = 15-4.4740\implies T=\frac{(15-4.4740)^2}{4.4740} = 24.76457
 $$
 
-El $p-value$ de $T = 24.76457$ (`r 1-pchisq(24.76457, 1)`) es cercano a cero $\implies$ se rechaza la hipótesis nula. $\therefore$ La tasa de riesgo NO es similar a la tasa de mortalidad de Iowa en 1960.
+El $p-value$ de $T = 24.76457$ (`r formatC(1-pchisq(24.76457, 1), format = "e", digits = 7)`) es cercano a cero $\implies$ se rechaza la hipótesis nula. $\therefore$ La tasa de riesgo NO es similar a la tasa de mortalidad de Iowa en 1960.
 
 ## Prueba Log-Rank
 
@@ -262,7 +262,7 @@ Donde $J_{1-\alpha}$ es el cuantil $1-\alpha$ de una $\chi^2_{(1)}$.
 
 #### Ejercicio {-}
 
-Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del **Ejemplo 2.9.1.1**
+Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejempo de la sección anterior.
 
 ## Comparación de m Poblaciones
  

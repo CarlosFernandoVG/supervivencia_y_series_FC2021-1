@@ -203,7 +203,7 @@ Supongamos que se tienen los tiempos de fallo $T_{i}$ con censura, provenientes 
 Entonces, su respectiva función de verosimilitud es de la forma:
 
 $$
-\mathscr{L} = \prod_{i}^{n}[\lambda \gamma(\lambda t_i)^{\gamma-1}e^{-(\lambda t_i)^\gamma}]^{\delta_i}[e^{-(\lambda t_i)^\gamma}]^{1-\delta_i} = \prod_{i}^{n}[\lambda \gamma(\lambda t_i)^{\gamma-1}]^{\delta_i}[e^{-(\lambda t_i)^\gamma}]
+\mathscr{L} = \prod_{i}^{n}\left[\lambda \gamma(\lambda t_i)^{\gamma-1}e^{-(\lambda t_i)^\gamma}\right]^{\delta_i}\left[e^{-(\lambda t_i)^\gamma}\right]^{1-\delta_i} = \prod_{i}^{n}\left[\lambda \gamma(\lambda t_i)^{\gamma-1}\right]^{\delta_i}\left[e^{-(\lambda t_i)^\gamma}\right]
 $$
 
 Por lo que:
@@ -225,7 +225,7 @@ $$
 $$
 
 $$
-\frac{\partial \ln(\mathscr{L})}{\partial \gamma}=r\frac{\lambda}{\lambda \gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-[\lambda^{\gamma}\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}+\lambda^\gamma \sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)]=0
+\frac{\partial \ln(\mathscr{L})}{\partial \gamma}=r\frac{\lambda}{\lambda \gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\left[\lambda^{\gamma}\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}+\lambda^\gamma \sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)\right]=0
 $$
 
 Simplificando ambas ecuaciones tenemos:
@@ -235,7 +235,7 @@ r\gamma-\gamma \lambda^\gamma\sum_{i=1}^{n}t_i^\gamma=0
 $$
 
 $$
-\frac{r}{\gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\lambda^\gamma[\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}-\sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)]=0
+\frac{r}{\gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\lambda^\gamma\left[\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}-\sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)\right]=0
 $$
 
 Despejamos a $\lambda$ de la primera ecuación:
