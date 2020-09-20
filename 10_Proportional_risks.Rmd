@@ -47,7 +47,7 @@ $$
 
 \begin{equation}
 \Longrightarrow X_i^{'}\cdot\theta = ln \left({\frac{h_i(t)}{h_0(t)}}\right)
-\label{eq:cox-covariables-linear}
+(\#eq:cox-covariables-linear)
 \end{equation}
 
 Es decir, el cociente de la función de riesgo del individuo $i$ con respecto al riesgo base será igual a una forma lineal de las covariables.
@@ -467,6 +467,6 @@ $$
 la cuál dependerá del tiempo si $\beta_2 \ne 0$.
 
 [^10.1]: No hay dependencia con el tiempo.
-[^10.2]: Recordar que por la ecuación \@ref{eq:cox-covariables-linear}, el modelo esta asumiendo una forma lineal de las covariables.
+[^10.2]: Recordar que por la ecuación \@ref(eq:cox-covariables-linear), el modelo esta asumiendo una forma lineal de las covariables.
 [^10.3]: Para un mayor número de variables el $AIC\uparrow$ pero para variables más significativas $AIC\downarrow$.
 [^10.4]: Por el hecho de que se busca **proporcionalidad** y, por lo tanto, que la segregación separe completamente a la población.

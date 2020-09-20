@@ -260,9 +260,9 @@ h_i(t) = e^{X_i^{&#39;} \theta}\cdot h_0(t)
 <p><span class="math display">\[
 \ln(h_i(t)) = X_i^{&#39;}\theta + \ln(h_0(t))
 \]</span></p>
-<p><span class="math display">\[\begin{equation}
+<p><span class="math display" id="eq:cox-covariables-linear">\[\begin{equation}
 \Longrightarrow X_i^{&#39;}\cdot\theta = ln \left({\frac{h_i(t)}{h_0(t)}}\right)
-\label{eq:cox-covariables-linear}
+\tag{10.1}
 \end{equation}\]</span></p>
 <p>Es decir, el cociente de la función de riesgo del individuo <span class="math inline">\(i\)</span> con respecto al riesgo base será igual a una forma lineal de las covariables.</p>
 <p>El nombre de riesgos proporcionales se deriva del cociente de las funciones de riesgo de dos individuos:</p>
@@ -570,7 +570,7 @@ y se realiza la prueba de hipótesis para <span class="math inline">\(\beta_2=0\
 <hr />
 <ol start="5">
 <li id="fn5"><p>No hay dependencia con el tiempo.<a href="modelo-de-riesgos-proporcionales.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>Recordar que por la ecuación @ref{eq:cox-covariables-linear}, el modelo esta asumiendo una forma lineal de las covariables.<a href="modelo-de-riesgos-proporcionales.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Recordar que por la ecuación <a href="modelo-de-riesgos-proporcionales.html#eq:cox-covariables-linear">(10.1)</a>, el modelo esta asumiendo una forma lineal de las covariables.<a href="modelo-de-riesgos-proporcionales.html#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>Para un mayor número de variables el <span class="math inline">\(AIC\uparrow\)</span> pero para variables más significativas <span class="math inline">\(AIC\downarrow\)</span>.<a href="modelo-de-riesgos-proporcionales.html#fnref7" class="footnote-back">↩︎</a></p></li>
 <li id="fn8"><p>Por el hecho de que se busca <strong>proporcionalidad</strong> y, por lo tanto, que la segregación separe completamente a la población.<a href="modelo-de-riesgos-proporcionales.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>

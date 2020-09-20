@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Primera edición del bookdown  _Modelos de Supervivencia_ para su uso en la matearía Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.
+Primera edición del bookdown  _Modelos de Supervivencia_ para su uso en la materia Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.
 
 ### Objetivos {-}
 
