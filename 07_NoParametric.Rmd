@@ -98,7 +98,7 @@ Ej1 <- data_frame(Patient_number = 1:20,
            Hb = c(14.6,12,11.4,10.2,13.2,9.9,12.8,14,7.5,10.6,11.2,10.1,6.6,9.7,8.8,9.6,13,10.4,14,12.5),
            Pcells = c(18,100,33,30,66,45,11,70,47,27,41,46,66,25,23,80,8,49,9,90),
            Protein = c(1,0,1,1,0,0,1,1,0,0,0,1,rep(0,8)))
-Ej1%>% kable(booktabs = T, align=rep('c')) %>% kable_styling(bootstrap_options = c("striped", "responsive"), full_width = F)
+Ej1%>% kable(booktabs = T, align=rep('c')) %>% kable_styling(bootstrap_options = c("striped", "responsive", "condensed"), full_width = F)
 
 #tabla con que se trabaja los datos
 Ej1 <- data_frame(Patient_number = 1:48, 
