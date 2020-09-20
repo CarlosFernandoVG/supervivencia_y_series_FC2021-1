@@ -1,0 +1,291 @@
+# (PART) Estudio no paramétrico {-}
+
+# Modelos No Paramétricos para la Función de Supervivencia
+
+Los métodos estadísticos más utilizados en el análisis de supervivencia son los *No Paramétricos*. Debido a que sólo cuando se conoce la distribución que siguen los tiempos de falla, las estimaciones con métodos paramétricos será adecuada. La eficiencia de los métodos no paramétricos radica en que los datos no sigan una distribución teórica.
+
+Puesto que nuestro interés es estimar $S(t)$, en los métodos no paramétricos las curvas de supervivencia, por lo general, se producen usando uno de dos métodos: el **análisis actuarial** o el **método límite-producto de Kaplan-Meier**.
+
+Es importante mencionar que, cuando **no** hay datos censurados podemos estimar $S(t)$ de manera sencilla mediante la función empírica:
+
+$$
+\hat S(t) = \hat{\mathbb{P}}(T>t) = \frac{ \# t_{i}>t}{n}
+$$
+
+donde la muestra aleatoria es: $t_{(1)}\leq t_{(2)}\leq...\leq t_{(n)}$.
+
+En este caso, la función será escalonada con decrementos $\frac{1}{n}$ si todas las observaciones son distintas, o con decrementos $\frac{d}{n}$ si hay $d$ tiempos de falla iguales a $t$. 
+
+Los métodos que se presentan a continuación incluyen la percepción del censuramiento en los datos; quizá el alumno está familiarizado con alguno de ellos, pues se estudian en cursos previos.
+
+## Método Actuarial (Tabla de Vida)
+
+El análisis actuarial divide el tiempo en intervalos y calcula la supervivencia en cada intervalo. La longitud del intervalo depende de la frecuencia con que ocurre el suceso de interés.
+
+Se asume que:
+
++ Todos los abandonos durante un intervalo dado ocurren aleatoriamente durante dicho intervalo.
++ Las personas que se retiran del estudio tienen un destino parecido a las que se quedan.
++ El periodo de tiempo durante el cual una persona entra en el estudio no tiene efecto en la respuesta.
+
+Dividimos el eje del tiempo en $k+1$ intervalos $l_{j}=(a_{j-1},a_{j}]$. Entonces para cada elemento de una muestra aleatoria de tamaño $n$, se observa un tiempo de fallo $T$ o un valor censurado por la derecha $C$.
+
+Definimos:
+
++ $n_{j}$: número de individuos en riesgo (vivos o no censurados) al tiempo $a_{j-1}$.
++ $d_{j}$: número de fallas en el intervalo $l_{j}$.
++ $c_{j}$: número de individuos que se censuran en el intervalo $l_{j}$.
+
+El número de individuos sin falla al inicio de $l_{j}$ es $n_{j}$.
+
+Suponga que la función de supervivencia para los tiempos de falla es $S(t) = \mathbb{P}(T>t)$. Entonces:
+
+$$
+S(a_{j}) = \mathbb{P}(T>a_{j}) = \mathbb{P}(T>a_{0})\mathbb{P}(T>a_{1}|T>a_{0})...\mathbb{P}(T>a_{j}|T>a_{j-1})
+$$
+
+Sea: 
+ 
++ $S_{j} = S(a_{j})$
++ $p_{j} = \mathbb{P}(T>a_{j}|T>a_{j-1}) =\frac{S_{j}}{S_{j-1}}$ (Sobrevivencia hasta $a_{j}$ después de haber sobrevivido hasta $a_{j-1}$)
++ $q_{j} = 1-p_{j} = \mathbb{P}(T\leq a_{j}|T>a_{j-1}) = \frac{S_{j-1}-S_{j}}{S_{j-1}}$ (No sobrevivir hasta $a_{j}$ después de haber sobrevivido hasta $a_{j-1}$)
+
+Donde $S_{0} = 1$, $S_{k+1} = 0$, $q_{k+1} = 1$. Por lo tanto:
+
+$$
+S_{j} = p_{1}p_{2}...p_{j}
+$$
+
+El objetivo es estimar $S_j$ con base en la estimación de $p_j=1-q_j$.
+
+Si en $l_{j}$ **no** hay observaciones censuradas, entonces estimamos $S_j$ por medio de: 
+
+$$
+\hat{q_{j}} = \frac{d_{j}}{n_{j}}
+$$
+
+Por otro lado, si en $l_{j}$ **hay** observaciones censuradas, y suponiendo que las censuras se distribuyen uniformemente, entonces $S_j$ se puede obtener mediante:
+
+$$
+\hat{q_{j}} = \frac{d_{j}}{n_{j}-\frac{c_{j}}{2}}
+$$
+
+De modo que, para este caso, se tiene:
+
+$$
+\hat S_j=\prod_{i=1}^{j}\left(1-\frac{d_{i}}{n_{i}-\frac{c_{i}}{2}}\right)
+$$
+
+#### Ejemplo {-}
+
+El siguiente ejemplo es tomado del libro [@collett2015modelling], ejemplo 1.3 :
+
+Supervivencia de pacientes con myeloma múltiple.
+
+Myeloma múltiple es una enfermedad caracterizada por la acumulación múltiple de células plasmáticas anormales, un tipo de células blancas de la sangre, en la médula ósea. La proliferación de las células plasmáticas anormales dentro de los huesos causa dolor y la destrucción del tejido óseo. El objetivo de un estudio realizado en el Centro Médico de la Universidad del Oeste de Virginia, USA, fue examinar la asociación entre los valores de ciertas variables explicativas(covariables) y el tiempo de supervivencia de los pacientes. En el estudio, el tiempo de supervivencia fue medido en meses, desde el diagnóstico hasta la muerte por myeloma múltiple.
+
+La siguiente tabla muestra un **fragmento** de los resultados obtenidos en el estudio. En ésta se relaciona a un total de 48 pacientes, todos ellos estaban entre los 50 y 80 años. Algunos de estos pacientes no habían muerto durante el tiempo que el estudio fue completado, por lo que estos individuos contribuyeron con tiempos censurados por la derecha. La codificación del estatus de supervivencia de un individuo en la tabla es codificado con un $0$ si la observación es censurada y $1$ si fue muerte por myeloma.
+
+```{r}
+#tabla para mostrar
+Ej1 <- data_frame(Patient_number = 1:20, 
+           Survival_time = c(13,52,6,40,10,7,66,10,10,14,16,4,65,5,11,10,15,5,76,56),
+           Status = c(1,0,1,1,1,0,1,0,rep(1,6),0,1,0,1,0,0),
+           Age = c(66,66,53,69,65,57,52,60,70,70,68,50,59,60,66,51,55,67,60,66),
+           Sex = c(1,1,2,1,1,2,rep(1,5),2,1,1,2,2,1,2,1,1),
+           Bun =c(25,13,15,10,20,12,21,41,37,40,39,172,28,13,25,12,14,26,12,18),
+           Ca = c(10,11,13,10,10,8,10,9,12,11,10,9,9,10,9,9,9,8,12,11),
+           Hb = c(14.6,12,11.4,10.2,13.2,9.9,12.8,14,7.5,10.6,11.2,10.1,6.6,9.7,8.8,9.6,13,10.4,14,12.5),
+           Pcells = c(18,100,33,30,66,45,11,70,47,27,41,46,66,25,23,80,8,49,9,90),
+           Protein = c(1,0,1,1,0,0,1,1,0,0,0,1,rep(0,8)))
+Ej1%>% kable(booktabs = T, align=rep('c')) %>% kable_styling(bootstrap_options = "striped", full_width = F)
+
+#tabla con que se trabaja los datos
+Ej1 <- data_frame(Patient_number = 1:48, 
+           Survival_time = c(13,52,6,40,10,7,66,10,10,14,16,4,65,5,11,10,15,5,76,56,88,24,51,4,40,8,18,5,16,50,40,1,36,5,10,91,18,1,18,6,1,23,15,18,12,12,17,3),
+           Status = c(1,0,1,1,1,0,1,0,rep(1,6),0,1,0,1,0,0,rep(1,4),0,rep(1,11),0,1,0,rep(1,5),0,1,1,0),
+           Age = c(66,66,53,69,65,57,52,60,70,70,68,50,59,60,66,51,55,67,60,66,63,67,60,74,72,55,51,70,53,74,70,67,63,77,61,58,69,57,59,61,75,56,62,60,71,60,65,59),
+           Sex = c(1,1,2,1,1,2,rep(1,5),2,1,1,2,2,1,2,rep(1,4),2,rep(1,4),2,1,1,2,rep(1,4),2,2,1,2,2,1,rep(2,6),1),
+           Bun =c(25,13,15,10,20,12,21,41,37,40,39,172,28,13,25,12,14,26,12,18,21,10,10,48,57,53,12,130,17,37,14,165,40,23,13,27,21,20,21,11,56,20,21,18,46,6,28,90),
+           Ca = c(14.6,12.0,11.4,10.2,13.2,9.9,12.8,14,7.5,10.6,11.2,10.1,6.6,9.7,8.8,9.6,13,10.4,14,12.5,14,12.4,10.1,6.5,12.8,8.2,14.4,10.2,10,7.7,5,9.4,11,9,14,11,10.8,5.1,13,5.1,11.3,14.6,8.8,7.5,4.9,5.5,7.5,10.2),
+           Hb = c(14.6,12,11.4,10.2,13.2,9.9,12.8,14,7.5,10.6,11.2,10.1,6.6,9.7,8.8,9.6,13,10.4,14,12.5,12,12.4,10.1,6.5,12.8,8.2,14.4,10.2,10,7.7,5,9.4,11,9,14,11,10.8,5.1,13,5.1,11.3,14.6,8.8,7.5,4.9,5.5,7.5,10.2),
+           Pcells = c(18,100,33,30,66,45,11,70,47,27,41,46,66,25,23,80,8,49,9,90,42,44,45,54,28,55,100,23,28,11,22,90,16,29,19,26,33,100,100,100,18,3,5,85,62,25,8,6),
+           Protein = c(1,0,1,1,0,0,1,1,0,0,0,1,rep(0,8),1,0,1,0,1,rep(0,4),1,0,0,1,0,0,1,0,1,rep(0,5),1,0,0,0,1))
+```
+
+Ahora bien, se busca estimar $S(t)$ mediante la construcción de la tabla de vida. La información registrada en otras variables explicativas será ignorada.
+
+Se consideran los intervalos de tiempo, para cada uno se calcula el número de pacientes que fallecieron $d_{j}$,el número de datos censurados $c_{j}$, el número en riesgo de muerte al inicio de cada uno de estos intervalos $n_{j}$, y el número ajustado en riesgo $n_{j}^{*}=n_{j}-\frac{c_{j}}{2}$ (dado que hay datos censurados). Finalmente, la probabilidad de supervivencia en cada intervalo es estimada(multiplicando cada $p_j$).
+
+Los cálculos son presentados a continuación:
+
+```{r}
+Ej1$Interval <- Ej1$Survival_time
+Ej1$Interval[Ej1$Interval<12] <- 1
+Ej1$Interval[Ej1$Interval>=12 & Ej1$Interval<24] <- 2
+Ej1$Interval[Ej1$Interval>=24 & Ej1$Interval<36] <- 3
+Ej1$Interval[Ej1$Interval>=36 & Ej1$Interval<48] <- 4
+Ej1$Interval[Ej1$Interval>=48 & Ej1$Interval<60] <- 5
+Ej1$Interval[Ej1$Interval>=60] <- 6
+
+Ej4 <- Ej1 %>% 
+  group_by(Interval) %>%
+  mutate(d_j = sum(Status)) %>% 
+  ungroup() %>% 
+  mutate(Status = 1-Status) %>% 
+  group_by(Interval) %>% 
+  mutate(C_j = sum(Status)) %>% 
+  group_by(Interval,d_j,C_j) %>% 
+  summarise(n_j = n()) %>%
+  ungroup() %>% 
+  mutate(n_j = suma_a_saltos(n_j)) %>%
+  mutate(n_j_p = n_j-C_j/2) %>% 
+  mutate(p_j = (n_j_p-d_j)/n_j_p) %>% 
+  mutate("S(t)" = cumprod(p_j), "Time period" = c("0-", "12-", "24-", "36-", "48-", "60-")) %>%
+  select(Interval, "Time period", d_j, C_j, n_j, n_j_p, p_j, "S(t)")
+
+#Se hace una copia para evitar problemas con la gráfica
+Ej4_1 <- Ej4
+colnames(Ej4_1)[3:8] <- c("$d_j$", "$c_j$", "$n_j$", "$n_j^{*}$", "$p_j$", "$S(t)$")
+
+Ej4_1 %>% kable(escape = FALSE, booktabs = T, align=rep('c')) %>% kable_styling(bootstrap_options = "striped", full_width = F)
+```
+
+Y la curva de supervivencia es la dada en la figura \@ref(fig:survival-actuar-example):
+
+```{r survival-actuar-example, fig.cap='Supervivencia estimada para los pacientes con myeloma múltiple con el método actuarial'}
+Ej4 %>% 
+  mutate(Time = c(0,12,24,36,48,60)) %>% 
+  rename(S="S(t)") %>% 
+  ggplot(aes(y = S, x = Time)) + 
+  geom_step() + 
+  ggtitle("Curva de Supervivencia. Tabla de Vida.") +
+  labs(x = "Tiempo de supervivencia", y = "Supervivencia estimada") +
+  general_theme
+```
+
+## Estimador Producto-Límite (Kaplan-Meier)
+
+El estimador producto-límite fue propuesto por Kaplan y Meier en 1958 como el estimador máximo-verosímil de la función de supervivencia.
+
+El método de Kaplan-Meier calcula la supervivencia cada vez que un paciente muere. Da proporciones exactas de supervivencia debido a que utiliza tiempos de supervivencia precisos.
+
+La característica distintiva del análisis con este método, es que la proporción acumulada que sobrevive se calcula para el tiempo de supervivencia individual de cada paciente, en contraste con la agrupación de los tiempos de supervivencia en intervalos hechos en la tabla de vida. Por esta razón es especialmente útil para estudios que utilizan un número pequeño de pacientes.
+
+Este método asume que:
+
++ Las personas que se retiran del estudio tienen un destino parecido a las que se quedan.
++ El periodo de tiempo durante el cual una persona entra en el estudio no tiene efecto independiente en la respuesta.
+
+### Construcción del Estimador K-M
+
+Es natural pensar a $T$ como una variable aleatoria continua, y por tanto, teóricamente no es posible tener observaciones iguales. No obstante, en la práctica los tiempos de supervivencia son medidos en escalas como: días, meses, años, etcétera; por lo que, hay posibilidad de tener observaciones repetidas. Por esta razón conviene modelar a $T$ como una variable aleatoria discreta. La idea del estimador *K-M* es la siguiente:
+
+Sea $T_{1}, T_{2},...,T_{n}$ una m.a. de una población discreta con soporte en $\{u_{1}, u_{2},...\}$.
+
+La muestra observada de $T$ se puede representar como $(t_{i},\delta_{i})$ para $i=1,2,...,n$ donde:
+
+$$
+\delta_{i} = \left\{
+\begin{array}{ll}
+0 & \mbox{si }  t_i \ es \ censurado\\
+1 & \mbox{si }  t_{i} \ no \ es \ censurado
+\end{array}
+\right.
+$$
+Entonces la función de verosimilitud será:
+
+$$ 
+\mathscr{L} = \prod^{n}_{i=1}f(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}} 
+$$
+
+Desarrollando la expresión anterior tenemos 
+
+$$
+\mathscr{L} =\prod^{n}_{i=1}(h(u_{k})S(u_{k-1})\mathbb{1}_{t_{i}=u_{k}})^{\delta_{i}} (S(u_{k})\mathbb{1}_{k=max\{j:u_{j}\leq t_i\}})^{1-\delta_{i}}
+$$
+
+Sea 
+
+$$
+\begin{split}
+ & d_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}=u_{k},\delta_{i}=1)} \mbox{  (numero de tiempos de fallo iguales a }u_{k}) \\
+ & n_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}\geq{u_{k}})} \mbox{ (numero de individuos en riesgo al tiempo } u_{k})
+\end{split}
+$$
+
+$$
+\Longrightarrow \mathscr{L} = \prod_{k} (h(u_k))^{d_k}(1-h(u_k))^{n_k-d_k}
+$$
+
+Ahora maximizamos la función de verosimilitud para $h(u_k)$:
+
+$$
+\ln (\mathscr{L}) = \sum_{k}\{d_{k} \ln(h(u_{k}))+(n_{k}-d_{k}) \ln(1-h(u_{k}))\} 
+$$
+
+$$
+\Longrightarrow \frac{\partial \ln (\mathscr{L})}{\partial h(u_{k})} = \frac{d_{k}}{h(u_{k})}-\frac{(n_{k}-d_{k})}{(1-h(u_{k}))} = 0
+$$
+
+despejando $h(u_k)$ se tiene
+
+$$
+\therefore \hat{h}(u_{k}) = \frac{d_{k}}{n_{k}}
+$$
+
+Dado que los estimadores máximo-verosímiles cumplen con el principio de invarianza, y ocupando que $S(t)=\prod_{k:u_{k}\leq t}(1-h(u_{k}))$ (visto anteriormente) tenemos:
+
+$$
+\hat S(t)=\prod_{k:u_{k}\leq t}\left(1-\frac{d_k}{n_k}\right)
+$$
+
+Y es así es como se deriva el estimador *K-M*.
+
+**Proposición:** $\mathbb{E}[\hat{h}(u_k)] =h(u_k)$ (Insesgamiento).
+
+#### Ejemplo {-}
+
+Se obtuvieron los tiempos de remisión de 20 pacientes con osteosarcoma, a los que se trataba con 3 meses de quimioterapia después de amputación.
+
++ 11 pacientes recayeron a los 6, 8, 10, 11, 12, 13, 13, 22, 32, 34 y 36 meses.
++ 8 pacientes se retiraron vivos al final del estudio contribuyendo 3, 7, 7, 11, 14, 16, 20 y 20 meses de observación, sin haber sufrido recaídas.
++ Un paciente rehusó continuar la terapia a los 11 meses y se retiró del estudio libre de enfermedad.
+
+La siguiente tabla muestra la forma de estimar $S(t)$ por el método *K-M*: 
+
+```{r}
+datos <- c(6,8,10,11,12,13,13,22,32,34,36,3,7,7,11,14,16,20,20,11)
+censura <- c(rep(1,11),rep(0,9))
+su <- Surv(datos, censura)
+ajuste <- survfit(su~1,type="kaplan-meier")
+tabla <- summary(ajuste)
+
+
+Ej2 <- data_frame(time = tabla$time, dk =tabla$n.event , nk =tabla$n.risk) %>%
+  mutate(ck =tabla$n.censor, "1-dk/nk" = 1-(dk/nk), "S(t)" = tabla$surv) 
+Ej2_1 <- Ej2
+colnames(Ej2_1)[-1] <- c("$d_j$", "$n_k$", "$c_k$", "$1-\\frac{d_k}{n_k}$", "$S(t)$")
+Ej2_1 %>% kable(escape = FALSE, booktabs = T, align=rep('c')) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F)
+```
+
+Y la gráfica de $\hat S(t)$ es:
+
+```{r}
+Ej2 %>% rename(S = "S(t)") %>% 
+  ggplot(aes(x = time, y= S)) + 
+  geom_step() + 
+  ggtitle("Curva Kaplan-Meier.") +
+  labs(x = "Tiempo en meses", y = "Supervivencia estimada") + 
+  general_theme
+```
+
+#### Ejercicio {-}
+
+Suponga que disponemos de los datos de supervivencia de 10 pacientes que han sido aleatoriamente asignados a los tratamientos A y B.
+
++ A: 3, 5, 7, 9+, 18
++ B: 12, 19, 20, 20+, 33+
+
+Construya la función de supervivencia para cada tratamiento y grafíquelas. ¿Qué se puede decir de los tratamientos a partir de las gráficas?

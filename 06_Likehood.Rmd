@@ -1,0 +1,258 @@
+# La Función de Verosimilitud con Censura y Truncamiento
+
+Cuando se conoce la distribución de $T$, hacer estimaciones (usualmente por el método de máxima verosimilitud) sobre parámetros poblacionales resulta de suma importancia, pues a partir de ellos no sólo podemos conocer *estimadores* de la media, varianza o cuantiles; sino que también podemos conocer $\hat S(t)$, $\hat h(t)$, etc. En la sección anterior revisamos los modelos paramétricos más usados en análisis de supervivencia, sin embargo, no contemplamos datos censurados o truncados en dichos modelos. En este apartado veremos la función de verosimilitud considerando censura y truncamiento, y con base en esta función haremos estimaciones para algunas distribuciones.
+
+## Caso General
+
+De acuerdo al tipo de observación, se tienen las siguientes contribuciones a la función de verosimilitud:
+
+$$
+\begin{array}{ll}
+\mbox{Exactas } T_{i} & f(t_{i})\\
+\mbox{Censurada por la derecha } T_{i}>C_{i} & \mathbb{P}(T_{i}>C_{i})=S(C_{i})\\
+\mbox{Censurada por la izquierda } T_{i}<C_{i} & \mathbb{P}(T_{i}<C_{i})=1-S(C_{i})\\
+\mbox{Censurada por la intervalo } L_{i}<T_{i}\leq R_{i} & \mathbb{P}(L_{i}<T_{i}\leq R_{i})=S(L_{i})-S(R_{i})\\
+\mbox{Truncado por la izquierda } T_{i}|T_{i}>u_{i} & \mathbb{P}(T_{i}|T_{i}>u_{i})=\frac{f(t_{i})}{S(u_{i})}\\
+\mbox{Truncado por la derecha } T_{i}|T_{i} \leq v_{i} & \mathbb{P}(T_{i}|T_{i} \leq v_{i})=\frac{f(t_{i})}{1-S(v_{i})}\\
+\end{array}
+$$
+
+Entonces la función de verosimilitud es: 
+
+$$
+\mathbf{\mathscr{L}} = \prod_{i\in D}f(t_{i})\prod_{i\in R}S(C_{i})\prod_{i\in L}(1-S(C_{i}))\prod_{i\in I}[S(L_{i})-S(R_{i})]
+$$
+donde 
+
++ D: Conjunto de tiempos de fallo.
++ R: Conjunto de observaciones censuradas por la derecha.
++ L: Conjunto de observaciones censuradas por la izquierda.
++ I: Conjunto de observaciones censuradas por intervalo.
+
+Cuando hay datos truncados, se sustituye $f(t_{i})$ por $\frac{f(t_{i})}{S(u_{i})}$ y $S(C_{i})$ por $\frac{S(C_{i})}{S(_{u_{i}})}$.
+
+## Censura por la Derecha Tipo I
+
+Suponga que se tiene una muestra aleatoria de $n$ individuos con tiempos de vida $T_1,T_2,..., T_n$(v.a.i.i.d) y que está asociado a cada individuo un tiempo fijo de censura $C_i>0$. Se observa a $T_i$ solamente si $T_i\leq C_i$, por lo que los datos son parejas: $(t_i,\delta_i)$, $i=1,2,...,n$ donde $t_i=min(T_i,C_i)$ y:
+
+$$
+\delta_{i} = \left\{
+\begin{array}{ll}
+0 & \mbox{si }  t_{i} \ = \ C_i\\
+1 & \mbox{si }  t_{i} \ =\ T_i
+\end{array}
+\right.
+$$
+
+Entonces la función de verosimilitud para datos con este tipo de censura es de la forma:
+
+$$ 
+\mathscr{L} = \prod^{n}_{i=1}f(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}} 
+$$
+
+donde $\sum_{i=1}^{n}\delta_i$ representa el total de los tiempos de vida observados.
+
+Considerando que $f(t) = h(t) S(t)$, entonces:
+
+$$
+\begin{split}
+\mathscr{L} & =\prod_{i = 1}^{n}h(t_{i})^{\delta_{i}}S(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}}\\
+ & =\prod_{i = 1}^{n}h(t_{i})^{\delta_{i}}S(t_{i})\\
+ & =\prod_{i = 1}^{n}h(t_{i})^{\delta_{i}}exp\{-H(t_{i})\}
+\end{split}
+$$
+
+## Censura por la Derecha Tipo II
+
+Supongamos que se observan los $r$ tiempos de falla $T_{(1)}< T_{(2)}< ...<T_{(r)}$ más pequeños, dejando a $n-r$ tiempos censurados por la derecha, de una muestra de tamaño $n$. De modo que, los datos serán los $r$ tiempos de fallo más pequeños de $T_{1}, T_{2},...,T_{n}$.
+
+$T$ tiene f.d.p $f(t)$ y función de supervivencia $S(t)$. Entonces la f.d.p. conjunta de $T_{(1)}, T_{(2)}, ...,T_{(r)}$ es:
+
+$$
+\mathscr{L} = \frac{n!}{(n-r)!}\left\{\prod_{i=1}^{r}f(t_{i})\right\}\left[S\left(t_{(r)}\right)\right]^{n-r}
+$$
+
+donde $\prod_{i=1}^{r}f(t_{i})$ es la parte correspondiente a las $r$ fallas observadas y $[S(t_{(r)})]^{n-r}$ constituye la aportación de las observaciones censuradas después de la $r-esima$ falla observada.
+
+Observemos que si quitamos el término constante $\frac{n!}{(n-r)!}$ y definiendo a la función indicadora:
+
+$$
+\delta_{i} = \left\{
+\begin{array}{ll}
+0 & \mbox{si  } T_{i} \ > \ T_{(r)}\\
+1 & \mbox{si }  T_{i}  \leq\ T_{(r)}
+\end{array}
+\right.
+$$
+
+Entonces la función de verosimilitud para este tipo de censura se puede reesctibir:
+
+$$ 
+\mathscr{L} \propto \prod^{n}_{i=1}f(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}} 
+$$
+
+que es la función de verosimilitud con datos censurados por la derecha tipo 1 revisada en la sección anterior.
+
+## Censura Aleatoria
+
+Supongamos que para cada individuo se tienen $T_i$ y $C_i$ variables aleatorias independientes, con funciones de densidad $f_{T}(t)$ y $f_{C}(t)$, y con funciones de superviviencia $S_{T}(t)$ y $S_{C}(t)$ respectivamente. Sean $(T_i,C_i)$, $i=1,2,...,n$ parejas de observaciones independientes, la variable que observamos es $t_i=min(T_i,C_i)$ y se define:
+
+$$
+\delta_{i} = \left\{
+\begin{array}{ll}
+0 & \mbox{si  } T_{i} \ > \ C_i\\
+1 & \mbox{si }  T_{i}  \leq\ C_i
+\end{array}
+\right.
+$$
+
+por lo que, las observaciones son las parejas $(t_i,\delta_i)$ con $i=1,2,...,n$.
+
+La función de verosimilitud es entonces:
+
+$$ 
+\mathscr{L} = \prod^{n}_{i=1}[S_C(t_{i})]^{1-\delta_{i}}[f_C(t_i)]^{\delta_i}[f_T(t_i)]^{\delta_i}[S_T(t_{i})]^{1-\delta_{i}} 
+$$
+
+Similar al caso se censura por la derecha tipo 2, se puede demostrar que la expresión anterior es proporcional a $\prod^{n}_{i=1}f_T(t_{i})^{\delta_{i}}S_T(t_{i})^{1-\delta_{i}}$.
+
+## Truncamiento por la Izquierda
+
+Consideremos los tiempos de fallo truncados por la izquierda, es decir, $T_{i}$ tal que $T_{i}\geq u_{i}$ para ser observado ($u_{i}$ es el valor de truncamiento).
+
+En este caso, las observaciones serán $(u_{i}, t_{i},\delta_{i})$ con $t_{i}\geq u_{i}$ tiempo de fallo y $\delta_{i}$ indicador de censura por la derecha. Por lo que:
+
+$$
+\mathbf{\mathscr{L}} = \prod_{i=1}^{n}\left\{\frac{f(t_{i})}{S(u_{i})}\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_{i}}=\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}
+$$
+
+Obsérvese que el hecho de dividir la función de verosimilitud entre $S(u_{i})$ se limita a que los datos sean truncados por la izquierda.
+
+## Truncamiento por la Derecha
+
+Consideremos tiempos de fallo $T_{i}$ tal que $T_{i} \leq v_{i}$ para que sea observado. Entonces las observaciones serán $(t_{i}, v_{i})$ para todo $i = 1,...,n$.
+
+Por lo que:
+
+$$
+\mathbf{\mathscr{L}} = \prod_{i=1}^{n}\left\{\frac{f(t_{i})}{1-S(v_{i})}\right\} =\prod_{i=1}^{n} \mathbb{P}(T_{i}|T_{i}<v_{i})
+$$
+
+## Estimaciones para Algunos Modelos 
+
+### Modelo Exponencial {-}
+
+Sean los tiempos de fallo $T_{i}$ independientes y provenientes de una distribución exponencial:
+
++ $f(t) = \lambda e^{-\lambda t}$
++ $S(t) = e^{-\lambda t}$
++ $h(t) = \lambda$
++ $H(t) = \lambda t$
+
+Entonces, la función de verosimilitud con censura tipo I es:
+
+$$
+\mathscr{L} = \prod_{i}^{n}\lambda^{\delta_{i}}e^{-\lambda t_{i}}= \lambda^{\sum_{i= 1}^{n}\delta_{i}}e^{-\lambda \sum_{i = 1}^{n}t_{i}}
+$$
+
+Sea $r=\sum_{i = 1}^{n}\delta_{i}$ el número de observaciones exactas (no censuradas). Entonces:
+
+$$
+ \mathscr{L} = \lambda^{r}e^{-\lambda\sum_{i= 1}^{n}t_{i}}
+$$
+
+Si queremos un estimador para $\lambda$, hacemos:
+
+$$
+\frac{\partial ln(\mathscr{L})}{\partial \lambda} = \frac{\partial[r ln(\lambda)-\lambda\sum_{i = 1}^{n}t_{i}]}{\partial\lambda} = \frac{r}{\lambda}-\sum_{i  =1}^{n}t_i = 0
+$$
+
+$$
+\Longrightarrow \hat{\lambda} = \frac{r}{\sum_{i= 1}^{n}t_{i}}
+$$
+
+Observe que si *no hay datos censurados* entonces $\sum_{i = 1}^{n}\delta_{i}=n$, por lo que $\hat{\lambda}=\frac{1}{\bar t}$, y este es el estimador que conocemos desde el curso de inferencia.
+
+#### Ejemplo {-}
+
+El siguiente ejercicio fue basado en el ejercicio 3.6 del libro [@klein2006survival]. Los siguientes datos consisten en los tiempos de recaída y los tiempos de muerte después de la recaída de 10 pacientes con trasplante de médula ósea. Suponga que el tiempo hasta la recaída tiene una distribución exponencial con la tasa de riesgo $\lambda$.
+
+```{r}
+data_frame(Paciente = 1:10, "Tiempo de recaida en meses" = c("5","8","12","24","32","17","16+","17+","19+","30+")) %>% 
+  kable( booktabs = T, align=rep('c')) %>% kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  footnote(general = "Los datos censurados están representados con un '+'", general_title = "")
+```
+
++ a) Calcule la tasa de recaída.
++ b) Calcule la probabilidad de no recaer en 16 meses.
+
+Sabemos que los estimadores máximo-verosímiles cumplen la propiedad de invarianza, de modo que:
+
+a) $\hat{\lambda} = \frac{r}{\sum_{i= 1}^{n}t_{i}} = \frac{6}{\sum_{i= 1}^{10}t_{i}} = \frac{6}{180} = 3.3333333\%$ 
+
+b) $\hat S(16) = e^{-\hat\lambda t}  = e^{0.033(16)} = 0.5866463$
+
+### Modelo Weibull {-}
+
+Supongamos que se tienen los tiempos de fallo $T_{i}$ con censura, provenientes de una distribución Weibull:
+
++ $f(t) = \lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}$
++ $S(t) = e^{-(\lambda t)^\gamma}$
++ $h(t) = \lambda \gamma(\lambda t)^{\gamma-1}$
+
+Entonces, su respectiva función de verosimilitud es de la forma:
+
+$$
+\mathscr{L} = \prod_{i}^{n}[\lambda \gamma(\lambda t_i)^{\gamma-1}e^{-(\lambda t_i)^\gamma}]^{\delta_i}[e^{-(\lambda t_i)^\gamma}]^{1-\delta_i} = \prod_{i}^{n}[\lambda \gamma(\lambda t_i)^{\gamma-1}]^{\delta_i}[e^{-(\lambda t_i)^\gamma}]
+$$
+
+Por lo que:
+
+$$
+\ln(\mathscr{L}) = \sum_{i=1}^{n}\delta_i\ln(\lambda \gamma(\lambda t_i)^{\gamma -1})-(\lambda t_i)^\gamma
+$$
+
+Si suponemos que $r=\sum_{i = 1}^{n}\delta_{i}$ y desarrollamos la expresión anterior, obtenemos:
+
+$$
+\ln(\mathscr{L}) =r\ln(\lambda \gamma)+(\gamma -1)r\ln (\lambda)+(\gamma -1)\sum_{i=1}^{n}\delta_i\ln(t_i)-\lambda^{\gamma}\sum_{i=1}^{n}t_i^{\gamma}
+$$
+
+Los estimadores máximo-verosímiles de $\lambda$ y $\gamma$ se obtienen derivando $\ln(\mathscr{L})$ con respecto a $\lambda$ y $\gamma$, igualando a cero y evaluando en $\hat \lambda$ y $\hat \gamma$:
+
+$$
+\frac{\partial \ln(\mathscr{L})}{\partial \lambda}=r\frac{\gamma}{\lambda \gamma}+\frac{(\gamma-1)r}{\lambda}-\gamma \lambda^{\gamma -1}\sum_{i=1}^{n}t_i^{\gamma}=0
+$$
+
+$$
+\frac{\partial \ln(\mathscr{L})}{\partial \gamma}=r\frac{\lambda}{\lambda \gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-[\lambda^{\gamma}\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}+\lambda^\gamma \sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)]=0
+$$
+
+Simplificando ambas ecuaciones tenemos:
+
+$$
+r\gamma-\gamma \lambda^\gamma\sum_{i=1}^{n}t_i^\gamma=0
+$$
+
+$$
+\frac{r}{\gamma}+r\ln(\lambda)+\sum_{i=1}^{n}\delta_i\ln(t_i)-\lambda^\gamma[\ln(\lambda)\sum_{i=1}^{n}t_i^{\gamma}-\sum_{i=1}^{n}t_i^{\gamma}\ln(t_i)]=0
+$$
+
+Despejamos a $\lambda$ de la primera ecuación:
+
+$$
+\hat\lambda=\left(\frac{r}{\sum_{i=1}^{n}t_i^{\hat\gamma}}\right)^{\frac{1}{\hat\gamma}}
+$$
+
+Y sustituyendo en la segunda ecuación:
+
+$$
+\begin{array}{cc}
+\frac{r}{\hat\gamma}+r\ln\left(\left(\frac{r}{\sum_{i=1}^{n}t_i^{\hat\gamma}}\right)^{\frac{1}{\hat \gamma}}\right)+\sum_{i=1}^{n}\delta_i\ln(t_i)&\\
+-\left(\frac{r}{\sum_{i=1}^{n}t_i^{\hat \gamma}}\right)\left[\ln\left(\left(\frac{r}{\sum_{i=1}^{n}t_i^{\hat \gamma}}\right)^{\frac{1}{\hat \gamma}}\right)\sum_{i=1}^{n}t_i^{\hat \gamma}-\sum_{i=1}^{n}t_i^{\hat \gamma}\ln(t_i)\right]&=0
+\end{array}
+$$
+
+La expresión anterior es una ecuación *no lineal* de $\hat \gamma$, cuya solución es únicamente mediante un método numérico. Una vez que se ha obtenido el valor $\hat \gamma$, éste se sustituye en $\left(\frac{r}{\sum_{i=1}^{n}t_i^{\hat \gamma}}\right)^{\frac{1}{\hat \gamma}}$ para así obtener, finalmente, el valor de $\hat \lambda$.
+
+Ecuaciones *no lineales*, como hemos visto en el modelo *Weibull*, aparecen en la estimación de parámetros de las distribuciones *Log-Normal*, *Log-Logística* y *Gamma*; resulta que, al considerar datos con censura y truncamiento, las estimaciones se complican en los modelos paramétricos. No obstante, tenemos ayuda de las computadoras y software que nos permitirán realizar estimaciones adecuadas.

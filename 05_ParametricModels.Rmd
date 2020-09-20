@@ -1,0 +1,595 @@
+# Modelos Paramétricos
+
+Existen varios modelos paramétricos que se emplean en el análisis de supervivencia, esto se debe a que pueden representar de manera adecuada el comportamiento de ciertos fenómenos. La motivación para usar un modelo en particular es, por lo general, empírica; o bien, con base en la información que proporcione algún modelo **No paramétrico**. Las familias paramétricas más importantes son: *Exponencial, Weibull, Log-Normal, Log-logística* y *Gamma*.
+
+## Modelo Exponencial
+
+El modelo exponencial es el más importante debido a su amplia aplicación, por ejemplo, puede emplearse en estudios para determinar el tiempo de vida útil de algunos artículos manufacturados. Este modelo juega un papel fundamental análogo a la *distribución normal* en la inferencia estadística tradicional.
+
+Si asumimos **una tasa de riesgo invariante en el tiempo**, $h(t)=\lambda$ con $\lambda>0$, generamos el modelo exponencial:
+
+**Función de Riesgo**
+
+Tomamos $\lambda>0$ y hacemos:
+
+$$
+h(t)=\lambda
+$$
+
+
+**Función de Supervivencia**
+
+$$
+S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
+$$
+
+**Función de Densidad**
+
+$$
+f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
+$$
+
+Aunque el supuesto de una función de riesgo constante resulta ser una restricción considerable, el modelo exponencial no deja de ser útil e importante en variedad de aplicaciones. Cabe destacar, que este modelo cumple con la propiedad de *pérdida de memoria*; a saber, se cumple que:
+
+$$
+\mathbb{P}(T>t+x|T>t)=\mathbb{P}(T>x)
+$$
+
+
+**Parámetros**
+
+Si $T\sim Exp(\lambda)$ entonces:
+
+$$
+\mathbb{E}[T]=\int_{0}^{\infty}t\lambda e^{-\lambda t}dt=\frac{1}{\lambda}
+$$
+
+Y
+
+$$
+Var[T]=\mathbb{E}[T^2]-\mathbb{E}[T]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\frac{1}{\lambda^2}
+$$
+
+**Gráficas**
+
+A continuación se muestran gráficas de una $Exponencial$ con $\lambda=0.5$
+
+```{r}
+exponential_example_1 <- tibble(x = c(0,20)) %>% 
+  ggplot(aes(x = x))+stat_function(fun = ~1-pexp(.x,rate = .5)) +
+  general_theme + 
+  labs(x = TeX("$t$"), y = TeX("S(t)"))+
+  ggtitle("Función de Supervivencia")+
+  theme(text = element_text(size=9))
+exponential_example_2 <- tibble(x = c(0,20)) %>% 
+  ggplot(aes(x = x))+stat_function(fun = ~dexp(.x,rate = .5)) +
+  general_theme + 
+  labs(x = TeX("$t$"), y = TeX("f(t)"))+
+  ggtitle("Función de Densidad")+
+  theme(text = element_text(size=9))
+exponential_example_3 <- tibble(x = c(0,20)) %>% 
+  ggplot(aes(x = x))+stat_function(fun = ~rep(.5,length(.x))) +
+  general_theme + 
+  labs(x = TeX("$t$"), y = TeX("h(t)"))+
+  ggtitle("Función de Riesgo")+
+  theme(text = element_text(size=9))
+exponential_example_1+exponential_example_2+exponential_example_3
+```
+
+## Modelo Weibull
+
+El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma $\gamma$ y se mantiene el parámetro de escala $\lambda$. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.
+
+Si asumimos, en general, una **función de riesgo monótona: creciente o decreciente**, se puede obtener el modelo Weibull. 
+
+**Función de Riesgo**
+
+Para este modelo $h(t)$ está dada por:
+
+$$
+h(t)=\lambda \gamma(\lambda t)^{\gamma-1}; \ \ \ \gamma>0, \lambda>0 \mbox{ y } t>0
+$$
+**Función de Supervivencia**
+
+$$
+S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda \gamma(\lambda u)^{\gamma-1} du\right)=exp(-(\lambda t)^\gamma)=e^{-(\lambda t)^\gamma}
+$$
+**Función de Densidad**
+$$
+f(t)=h(t)S(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}
+$$
+
+Obsérvese que si $\gamma =1$ entonces el modelo Weibull se reduce al modelo exponencial.
+
+
+**Parámetros**
+
+Si $T\sim Weibull(\gamma,\lambda)$ entonces:
+
+$$
+\mathbb{E}[T]=\frac{1}{\lambda}\Gamma\left(\frac{1}{\gamma}+1\right)
+$$
+
+Y además
+
+$$
+Var[T]=\frac{1}{\lambda^2}\Gamma\left(\frac{2}{\gamma}+1\right)-\left(\frac{1}{\lambda}\Gamma\left(\frac{1}{\gamma}+1\right)\right)^2
+\\=\frac{1}{\lambda^2}\left[\Gamma\left(\frac{2}{\gamma}+1\right)-\left(\Gamma\left(\frac{1}{\gamma}+1\right)\right)^2\right]
+$$
+Debe resultar sencillo para el alumno demostrar las igualdades de la esperanza y varianza.
+
+**Gráficas**
+
+Las dos gráficas siguientes muestran curvas de $f(t)$ y $h(t)$ para el modelo Weibull con $\lambda=1$ y $\gamma=2,4$:
+
+```{r}
+weibull_risk <- tibble(x = c(0,4)) %>% 
+  ggplot(aes(x = x)) + 
+  stat_function(aes(color = "2"), key_glyph='rect',
+                fun = ~dweibull(.x,shape=2,scale =1)/(1-pweibull(.x,shape=2,scale=1)))+
+  geom_line(data = tibble(x=seq(0,2,0.1), 
+                          y = dweibull(x,shape=4,scale =1)/(1-pweibull(x,shape=4,scale =1))),
+            aes(x = x, y = y, color = "1"), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.65, .35), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.spacing.x = unit(.2, 'cm'))+
+  scale_color_manual(values = c(futurevisions("hd")[1], "firebrick"),
+                     labels = unname(TeX(c("$\\gamma = 4$, $\\lambda = 1$",
+                                           "$\\gamma = 2$, $\\lambda = 1$"))))+
+  lims(y = c(0,8))+
+  labs(x = TeX("$t$"), y = TeX("$h(t)$"))+
+  ggtitle("Función de Riesgo")
+
+
+weibull_density<- tibble(x = c(0,4)) %>% 
+  ggplot(aes(x = x)) + 
+  stat_function(aes(color = "1"), fun = ~dweibull(.x,shape=4,scale =1), key_glyph='rect')+
+  stat_function(aes(color = "2"), fun = ~dweibull(.x,shape=2,scale =1), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.65, .35), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.spacing.x = unit(.2, 'cm'))+
+  scale_color_manual(values = c(futurevisions("hd")[1], "firebrick"),
+                     labels = unname(TeX(c("$\\gamma = 4$, $\\lambda = 1$",
+                                           "$\\gamma = 2$, $\\lambda = 1$"))))+
+    labs(x = TeX("$t$"), y = TeX("$f(t)$"))+
+    ggtitle("Función de Densidad")
+weibull_density+weibull_risk
+```
+
+Y para el modelo Weibull con $\lambda=1$ y $\gamma=0.5,1$ se tienen las siguientes gráficas:
+
+```{r}
+weibull_risk_2 <- tibble(x = c(0,4)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "2"), key_glyph='rect',
+                fun = ~dweibull(.x,shape=0.5,scale =1)/(1-pweibull(.x,shape=0.5,scale =1)))+
+  stat_function(aes(color = "1"), key_glyph='rect',
+                fun = ~rep(1,length(.x)))+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.65, .45), 
+        legend.background = element_blank(),
+        legend.text.align = 0,
+        legend.direction = "vertical",
+        legend.spacing.x = unit(.2, 'cm'))+
+  scale_color_manual(values = c("dodgerblue", "red3"),
+                     labels = unname(TeX(c("$\\gamma = 1$, $\\lambda = 1$",
+                                           "$\\gamma = 0.5$, $\\lambda = 1$"))))+
+  lims(y = c(0,1.5))+
+  labs(x = TeX("$t$"), y = TeX("$h(t)$"))+
+  ggtitle("Función de Riesgo")
+
+
+weibull_density_2 <- tibble(x = c(0,4)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), fun = ~dweibull(.x,shape=1,scale =1), key_glyph='rect')+
+  geom_line(data = tibble(x = seq(0.123717, 4,0.1),
+                          y = dweibull(x,shape=0.5,scale =1)),
+            aes(x = x, y = y, color = "2"), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.65, .45), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.text.align = 0,
+        legend.spacing.x = unit(.2, 'cm'))+
+  scale_color_manual(values = c("dodgerblue", "red3"),
+                     labels = unname(TeX(c("$\\gamma = 1$, $\\lambda = 1$",
+                                           "$\\gamma = 0.5$, $\\lambda = 1$")))) +
+  labs(x = TeX("$t$"), y = TeX("$f(t)$")) +
+  ggtitle("Función de Densidad") +
+  lims(y=c(0,1)) 
+
+weibull_density_2+weibull_risk_2
+```
+
+Como bien hemos dicho, si suponemos una función de riesgo monótona creciente ó decreciente la distribución Weibull puede ser generada. Concretamente, si $\gamma>1$ entonces $h(t)$ es estrictamente creciente, si $\gamma<1$ entonces $h(t)$ es estrictamente decreciente. Cuando $\gamma=1$ se tiene la distribución exponencial.
+
+## Modelo Log-Normal
+
+El modelo Log-Normal tiene estrecha relación con la distribución *Normal*. De hecho, el tiempo de supervivencia $T$ se dice que sigue una distribución Log-Normal, si $Y=ln(T)$ se distribuye $N(\mu,\sigma^2)$.
+
+La distribución Log-Normal se ha utilizado como modelo en el tiempo de falla de aislantes eléctricos y en el tiempo de aparición de cáncer pulmonar. También se utiliza en poblaciones que son una mezcla de tiempos de vida cortos y largos. A pesar de esto, este modelo es criticado por ser decreciente para valores grandes de $t$, lo cual parece inadecaudo en algunas situaciones.
+
+**Función de Densidad**
+
+Para este modelo, $f(t)$ está dada por:
+
+$$
+f(t)=\frac{1}{\sqrt {2\pi}\sigma t}exp\left(-\frac{1}{2}\left(\frac{ln(t)-\mu}{\sigma}\right)^2\right)
+$$
+
+**Función de Supervivencia**
+
+$$
+S(t)=\int_t^{\infty}f(u)du
+\\=1-\int_0^{t}f(u)du
+\\=1-\int_0^{t}\frac{1}{\sqrt {2\pi}\sigma u}exp\left(-\frac{1}{2}\left(\frac{ln(u)-\mu}{\sigma}\right)^2\right)du
+$$
+
+Tomando la notación de la función de distribución de una *Normal estándar*, $\Phi()$, se tiene:
+
+$$
+S(t)=1-\Phi\left(\frac{ln(t)-\mu}{\sigma}\right)
+$$
+
+**Función de Riesgo**
+
+$$
+h(t)=\frac{f(t)}{S(t)}
+\\=\frac{\frac{1}{\sqrt {2\pi}\sigma t}exp\left(-\frac{1}{2}\left(\frac{ln(t)-\mu}{\sigma}\right)^2\right)}{1-\Phi\left(\frac{ln(t)-\mu}{\sigma}\right)}
+$$
+
+Si bien la expresión de $h(t)$ parece ser complicada, su gráfica resulta ser más interesante. Ésta toma el valor de cero en $t=0$, crece hasta un valor máximo y luego tiende a cero cuando $t \rightarrow \infty$. Véase sección de gráficas. 
+
+**Parámetros**
+
+Si $T\sim LogNormal(\mu,\sigma^2)$ entonces:
+
+$$
+\mathbb{E}[T]=exp\left(\mu+\frac{\sigma^2}{2}\right)
+$$
+
+Y además
+
+$$
+Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
+$$
+
+La demostración de las igualdades de media y varianza se dejan al alumno.
+
+**Gráficas**
+
+A continuación algunos ejemplos de las gráficas de $f(t)$ y $h(t)$ para la distribución Log-Normal:
+
+```{r}
+log_normal_density <- tibble(x = c(0,4)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), fun = ~dlnorm(.x,0,0.1), key_glyph='rect')+
+  stat_function(aes(color = "2"), fun = ~dlnorm(.x,0,0.5), key_glyph='rect')+
+  stat_function(aes(color = "3"), fun = ~dlnorm(.x,0.5,0.5), key_glyph='rect')+
+  stat_function(aes(color = "4"), fun = ~dlnorm(.x,1,0.5), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.7, .8), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.text.align = 0,
+        legend.spacing.x = unit(.2, 'cm'),
+        legend.key.size = unit(.4, "cm"))+
+  scale_color_manual(values = c("1" = "salmon4","2" = "royalblue1","3" = "red3","4" = "darkgreen"),
+                     labels = unname(TeX(c("$\\mu = 0$, $\\sigma^2 = 0.1$",
+                                           "$\\mu = 0$, $\\sigma^2 = 0.5$",
+                                           "$\\mu = 0.5$, $\\sigma^2 = 0.5$",
+                                           "$\\mu = 1$, $\\sigma^2 = 0.5$")))) +
+  labs(x = TeX("$t$"), y = TeX("$f(t)$")) +
+  ggtitle("Función de Densidad")
+
+log_normal_risk <- tibble(x = c(0,6)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), 
+                fun = ~(dlnorm(.x,0,1))/(s_y01= 1-plnorm(.x,0,1)), key_glyph='rect')+
+  stat_function(aes(color = "2"), 
+                fun = ~(dlnorm(.x,0,1.4))/(1-plnorm(.x,0,1.4)), key_glyph='rect')+
+  stat_function(aes(color = "3"), 
+                fun = ~(dlnorm(.x,1,1))/(s_y11= 1-plnorm(.x,1,1)), key_glyph='rect')+
+  stat_function(aes(color = "4"), 
+                fun = ~(dlnorm(.x,0.3,1))/(1-plnorm(.x,0.3,1)), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.77, .8), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.text.align = 0,
+        legend.spacing.x = unit(.2, 'cm'),
+        legend.key.size = unit(.4, "cm"))+
+  scale_color_manual(values = c("1" = "salmon4","2" = "purple3","3" = "tomato2","4" = "dodgerblue4"),
+                     labels = unname(TeX(c("$\\mu = 0$, $\\sigma^2 = 1$",
+                                           "$\\mu = 0$, $\\sigma^2 = 1.4$",
+                                           "$\\mu = 1$, $\\sigma^2 = 1$",
+                                           "$\\mu = 0.3$, $\\sigma^2 = 1$")))) +
+  labs(x = TeX("$t$"), y = TeX("$h(t)$")) +
+  ggtitle("Función de Riesgo")
+
+log_normal_density+log_normal_risk
+```
+
+#### Ejemplo {-}
+
+El tiempo de muerte en días después de un trasplante de médula sigue una distribución $log-normal$ con $\mu = 3.177, \sigma = 2.084$. Calcular lo siguiente
+
+1. La media y la mediano tiempo de muerte
+2. La probabilidad de que un individuo sobreviva 200 días después de un trasplante.
+
+Soluciones
+
+1. 
+  + Mediana: $t_{0.5} =e^{\mu}$ cuando $T\sim log-normal \implies$ Mediana de tiempo de muerte: $t_{0.5} = e^{3.177} = 23.97$.
+  + Media: $\mathbb{E}(T) = e^{\mu+\sigma^2/2}$ cuando $T\sim log- normal \implies$ Media de tiempo de muerte: $\mathbb{E}(T) = e^{3.177+\frac{(2.084)^2}{2}} = 210.29$ días.
+
+Entonces si sobrevivieron 23.97, queda una gran cantidad de días donde, en promedio son 210.29.
+
+2. $S(200) = 1-\Phi\left(\frac{\ln(200)-3.177}{2.084}\right) = 1-0.8438 = 0.15436$.
+
+## Modelo Log-Logístico
+
+El modelo Log-Logístico es derivado de la distribución *Logística*. Se dice que $T$ tiene distribución Log-Logística si $Y=ln(T)$ sigue una distribución Logística con parámetros $\mu$ y $\sigma ^2$.
+
+**Función de Densidad**
+
+$$
+f(t)=\frac{\alpha \lambda t^{\alpha-1}}{(1+\lambda t^\alpha)^2}
+$$
+
+con $\alpha=\frac{1}{\sigma}$ y $\lambda=exp(-\frac{\mu}{\sigma})>0$.
+
+
+**Función de Supervivencia**
+
+$$
+S(t)=\frac{1}{1+\lambda t^\alpha}
+$$
+
+**Función de Riesgo**
+
+$$
+h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda t^{\alpha-1}}{1+\lambda t^\alpha}
+$$
+
+La función de riesgo es monótona decreciente para $\alpha \leq 1$, y para $\alpha> 1$ la función de riesgo crece hasta alcanzar un máximo en $t=(\frac{\alpha-1}{\lambda})^{\frac{1}{\alpha}}$ y luego decrece a cero cuando $t \rightarrow \infty$.
+
+**Gráficas**
+
+Algunos ejemplos de las gráficas de $f(t)$ y $h(t)$ para la distribución Log-Logística:
+
+```{r}
+log_log_density <- tibble(x = c(0,5)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), fun = ~dllogis(.x,2,1), key_glyph='rect')+
+  stat_function(aes(color = "2"), fun = ~dllogis(.x,1,2), key_glyph='rect')+
+  stat_function(aes(color = "3"), fun = ~dllogis(.x,1,0.5), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.73, .8), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.text.align = 0,
+        legend.spacing.x = unit(.2, 'cm'),
+        legend.key.size = unit(.4, "cm"))+
+  scale_color_manual(values = c("1" = "firebrick3", "2" = "deepskyblue4", "3" = "forestgreen"),
+                     labels = unname(TeX(c("$\\mu = 2$, $\\sigma^2 = 1$",
+                                           "$\\mu = 1$, $\\sigma^2 = 2$",
+                                           "$\\mu = 1$, $\\sigma^2 = 0.5$")))) +
+  labs(x = TeX("$t$"), y = TeX("$f(t)$")) +
+  ggtitle("Función de Densidad") +
+  lims(y=c(0,.7)) 
+
+log_log_risk <- tibble(x = c(0,6)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), key_glyph='rect',
+                fun = ~dllogis(.x,2,1)/(1-pllogis(.x,2,1)))+
+  stat_function(aes(color = "2"), key_glyph='rect',
+                fun = ~dllogis(.x,1,1)/(1-pllogis(.x,1,1)))+
+  stat_function(aes(color = "3"), key_glyph='rect',
+                fun = ~dllogis(.x,1,0.5)/(1-pllogis(.x,1,0.5)))+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.73, .8), 
+        legend.background = element_blank(),
+        legend.text.align = 0,
+        legend.direction = "vertical",
+        legend.spacing.x = unit(.2, 'cm'),
+        legend.key.size = unit(.4, "cm"))+
+  scale_color_manual(values = c("1" = "firebrick3", "2" = "deepskyblue4", "3" = "forestgreen"),
+                     labels = unname(TeX(c("$\\mu = 2$, $\\sigma^2 = 1$",
+                                           "$\\mu = 1$, $\\sigma^2 = 2$",
+                                           "$\\mu = 1$, $\\sigma^2 = 0.5$")))) +
+  lims(y = c(0,1))+
+  labs(x = TeX("$t$"), y = TeX("$h(t)$"))+
+  ggtitle("Función de Riesgo")
+
+log_log_density+log_log_risk
+```
+
+## Modelo Gamma
+
+La distribución Gamma, que incluye a las distribuciones *exponencial* y *ji-cuadrada*, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: $\beta$ es el parámetro de forma y $\lambda$ es el parámetro de escala.
+
+**Función de Densidad**
+
+$f(t)$ está dada por:
+
+$$
+f(t)=\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t); \ \ \  \lambda,\beta>0
+$$
+
+**Función de Supervivencia**
+
+$$
+S(t)=1-lg(\lambda t, \beta)
+$$
+
+donde:
+
+$$
+lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
+$$
+Al igual que un modelo $Weibull(\lambda, alpha = 1)$, la distribución exponencial es un caso particular del modelo $Gamma(\lambda,\beta = 1)$. Cuando $\beta \rightarrow\infty$, modelo gamma se aproxima a una distribución normal.
+
+**Función de Riesgo**
+
+$$
+h(t)=\frac{f(t)}{S(t)}=\frac{\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t)}{1-lg(\lambda t, \beta)}
+$$
+
+Esta función de riesgo tiene distintos comportamientos:
+
++ Es **monótona creciente** para $\beta>1$. En este caso sucede que $h(0)=0$ y $\underset{t\rightarrow\infty}{h(t)} \rightarrow \lambda$. Además, la moda de la distribución es $t = \frac{\beta-1}{\lambda}$
++ Es **monótona decreciente** con $\beta <1$. En tal caso $h(0) = \infty$ y $\underset{t\rightarrow\infty}{h(t)} \rightarrow \lambda$.
+
+**Parámetros**
+
+Si $T\sim Gamma(\beta,\lambda)$ entonces:
+
+$$
+\begin{array}{ccc}
+\mathbb{E}[T]=\frac{\beta}{\lambda} & \mbox{y} &
+Var[T]=\frac{\beta}{\lambda^2}
+\end{array}
+$$
+
+Las demostraciones de las igualdades de la esperanza y varianza se quedan de ejercicio al alumno.
+
+**Gráficas**
+
+Se muestran ejemplos de las gráficas de $f(t)$ y $h(t)$ para el modelo Gamma:
+
+```{r}
+gamma_density <- tibble(x = c(0,6)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), fun = ~dgamma(.x,1,1), key_glyph='rect')+
+  stat_function(aes(color = "2"), fun = ~dgamma(.x,2,1), key_glyph='rect')+
+  stat_function(aes(color = "3"), fun = ~dgamma(.x,3,1/3), key_glyph='rect')+
+  stat_function(aes(color = "4"), fun = ~dgamma(.x,3,1), key_glyph='rect')+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.73, .8), 
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.text.align = 0,
+        legend.spacing.x = unit(.2, 'cm'),
+        legend.key.size = unit(.4, "cm"))+
+  scale_color_manual(values =  c("1" = "salmon4","2" = "royalblue1",
+                                 "3" = "red3","4" = "darkgreen"),
+                     labels = unname(TeX(c("$\\beta = 1$, $\\lambda = 1$",
+                                           "$\\beta = 2$, $\\lambda = 1$",
+                                           "$\\beta = 3$, $\\lambda = \\frac{1}{3}$",
+                                           "$\\beta = 3$, $\\lambda = 1$")))) +
+  labs(x = TeX("$t$"), y = TeX("$f(t)$")) +
+  ggtitle("Función de Densidad") +
+  lims(y=c(0,1)) 
+
+gamma_risk <- tibble(x = c(0,28)) %>% 
+  ggplot(aes(x = x)) + 
+  #key_glyph para modificar la forma de la clave de la leyenda
+  stat_function(aes(color = "1"), key_glyph='rect',
+                fun = ~rep(1,length(.x)))+
+  stat_function(aes(color = "2"), key_glyph='rect',
+                fun = ~dgamma(.x,2,1)/(1-pgamma(.x,2,1)))+
+  stat_function(aes(color = "3"), key_glyph='rect',
+                fun = ~dgamma(.x,0.3,1)/(1-pgamma(.x,0.3,1)))+
+  stat_function(aes(color = "4"), key_glyph='rect',
+                fun = ~dgamma(.x,4,1)/(1-pgamma(.x,4,1)))+
+  guides(color = guide_legend(title=NULL))+
+  general_theme+
+  #Para simular el espacio entre las claves de las leyendas
+  theme(legend.key = element_rect(colour = 'gray98', size = 2),
+        legend.position = c(.73, .8), 
+        legend.background = element_blank(),
+        legend.text.align = 0,
+        legend.direction = "vertical",
+        legend.spacing.x = unit(.2, 'cm'),
+        legend.key.size = unit(.4, "cm"))+
+  scale_color_manual(values = c("1" = "salmon4","2" = "royalblue1",
+                                "3" = "tomato2","4" = "dodgerblue4"),
+                     labels = unname(TeX(c("$\\beta = 1$, $\\lambda = 1$",
+                                           "$\\beta = 2$, $\\lambda = 1$",
+                                           "$\\beta = 0.3$, $\\lambda = 1$",
+                                           "$\\beta = 4$, $\\lambda = 1$")))) +
+  labs(x = TeX("$t$"), y = TeX("$h(t)$"))+
+  ggtitle("Función de Riesgo")+
+  scale_y_continuous(limits = c(0.6, 1.4), expand = expand_scale(mult = c(0,0)))
+  
+gamma_density+gamma_risk
+```
+
+## Modelo Gamma Generalizada
+
+Finalmente, se presenta el modelo Gamma Generalizada con parámetros $\alpha$, $\beta$ y $\lambda$.
+
+**Función de Densidad**
+
+$f(t)$ está dada por:
+
+$$
+f(t)=\frac{\alpha\lambda^\beta}{\Gamma(\beta)}t^{\alpha\beta-1}\exp(-\lambda t)^\alpha; \ \ \  \lambda,\beta>0
+$$
+
+**Función de Supervivencia**
+
+$$
+S(t)=1-lg(\lambda t^\alpha, \beta)
+$$
+
+Esta distribución se reduce a las siguientes
+
++ $Exponencial$ cuando $\beta = \alpha = 1$.
++ $Weibull$ cuando $\beta = 1$.
++ $Gamma$ cuando $\alpha = 1$.
++ Tiende a la log-normal cuando $\beta\rightarrow\infty$.
+
+
+#### Ejemplo {-}
+
+El tiempo de vida en meses de cierta especie de ratón sigue una distribución $gamma(\beta = 3, \lambda = 0.2)$.
+
+1. Calcular la probabilidad de que un ratón sobreviva más de 18 meses. 
+2. ¿Cuál es la probabilidad de que un ratón muera en el primer año de vida?
+3. ¿Cuál es la esperanza de vida media de esta especia?
+
+Soluciones 
+
+1. $S(18) = 1-F(18) = 1-.69 = .31$
+2. $F(12) = .43$
+3. $\mathbb{E}(T) = \frac{\beta}{\lambda} = \frac{3}{0.2} = 15$ meses.
+
+Cabe señalar que hasta este punto **no hemos introducido datos censurados a los modelos**.

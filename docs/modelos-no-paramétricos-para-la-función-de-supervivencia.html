@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Modelos No Paramétricos para la Función de Supervivencia | Modelos de Supervivencia</title>
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Modelos No Paramétricos para la Función de Supervivencia | Modelos de Supervivencia" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Modelos No Paramétricos para la Función de Supervivencia | Modelos de Supervivencia" />
+  
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  
+
+<meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="Carlos Fernando Vásquez Guerra" />
+<meta name="author" content="Luis Angel Ramirez Teodoro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"/>
+<link rel="next" href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis de Supervivencia</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i>Estructura</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i>Detalles técnicos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
+</ul></li>
+<li class="part"><span><b>I Todo es cuestion de tiempo</b></span></li>
+<li class="chapter" data-level="" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-supervivencia.html"><a href="análisis-de-supervivencia.html"><i class="fa fa-check"></i>Análisis de Supervivencia</a></li>
+<li class="chapter" data-level="1" data-path="datos-censurados.html"><a href="datos-censurados.html"><i class="fa fa-check"></i><b>1</b> Datos Censurados</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-i"><i class="fa fa-check"></i><b>1.1</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="1.2" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-ii"><i class="fa fa-check"></i><b>1.2</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="1.3" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-iii"><i class="fa fa-check"></i><b>1.3</b> Censura por la Derecha Tipo III</a></li>
+<li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
+<li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="part"><span><b>II Estudio paramétrico</b></span></li>
+<li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-supervivencia"><i class="fa fa-check"></i><b>3.1</b> Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction"><i class="fa fa-check"></i><b>3.2</b> Función de Riesgo</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-1"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-1"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-riesgo-acumulado"><i class="fa fa-check"></i><b>3.3</b> Función de Riesgo Acumulado</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-2"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-2"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="par-poblacionales.html"><a href="par-poblacionales.html"><i class="fa fa-check"></i><b>4</b> Parámetros Poblacionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="par-poblacionales.html"><a href="par-poblacionales.html#media"><i class="fa fa-check"></i><b>4.1</b> Media</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="par-poblacionales.html"><a href="par-poblacionales.html#varianza"><i class="fa fa-check"></i><b>4.2</b> Varianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-1"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-1"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="par-poblacionales.html"><a href="par-poblacionales.html#función-de-media-residual"><i class="fa fa-check"></i><b>4.3</b> Función de Media Residual</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-2"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-2"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="par-poblacionales.html"><a href="par-poblacionales.html#cuantiles-de-orden-p"><i class="fa fa-check"></i><b>4.4</b> Cuantiles de Orden <span class="math inline">\(p\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-3"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-3"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i><b>5.1</b> Modelo Exponencial</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i><b>5.2</b> Modelo Weibull</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-normal"><i class="fa fa-check"></i><b>5.3</b> Modelo Log-Normal</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-logístico"><i class="fa fa-check"></i><b>5.4</b> Modelo Log-Logístico</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma"><i class="fa fa-check"></i><b>5.5</b> Modelo Gamma</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma-generalizada"><i class="fa fa-check"></i><b>5.6</b> Modelo Gamma Generalizada</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><i class="fa fa-check"></i><b>6</b> La Función de Verosimilitud con Censura y Truncamiento</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#caso-general"><i class="fa fa-check"></i><b>6.1</b> Caso General</a></li>
+<li class="chapter" data-level="6.2" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-i"><i class="fa fa-check"></i><b>6.2</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="6.3" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-ii"><i class="fa fa-check"></i><b>6.3</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="6.4" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-aleatoria"><i class="fa fa-check"></i><b>6.4</b> Censura Aleatoria</a></li>
+<li class="chapter" data-level="6.5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-izquierda"><i class="fa fa-check"></i><b>6.5</b> Truncamiento por la Izquierda</a></li>
+<li class="chapter" data-level="6.6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-derecha"><i class="fa fa-check"></i><b>6.6</b> Truncamiento por la Derecha</a></li>
+<li class="chapter" data-level="6.7" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#estimaciones-para-algunos-modelos"><i class="fa fa-check"></i><b>6.7</b> Estimaciones para Algunos Modelos</a>
+<ul>
+<li class="chapter" data-level="" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
+<li class="chapter" data-level="" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i>Modelo Weibull</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Estudio no paramétrico</b></span></li>
+<li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida"><i class="fa fa-check"></i><b>7.1</b> Método Actuarial (Tabla de Vida)</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier"><i class="fa fa-check"></i><b>7.2</b> Estimador Producto-Límite (Kaplan-Meier)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m"><i class="fa fa-check"></i><b>7.2.1</b> Construcción del Estimador K-M</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><i class="fa fa-check"></i><b>8</b> Algunas Estimaciones sobre Modelos No Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st"><i class="fa fa-check"></i><b>8.1</b> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida"><i class="fa fa-check"></i><b>8.1.1</b> Tabla de Vida</a></li>
+<li class="chapter" data-level="8.1.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier"><i class="fa fa-check"></i><b>8.1.2</b> Kaplan-Meier</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada"><i class="fa fa-check"></i><b>8.2</b> Estimadores de la Función de Riesgo Acumulada</a></li>
+<li class="chapter" data-level="8.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media"><i class="fa fa-check"></i><b>8.3</b> Estimación Puntual de la Media</a></li>
+<li class="chapter" data-level="8.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles"><i class="fa fa-check"></i><b>8.4</b> Estimación de Cuantiles</a></li>
+<li class="chapter" data-level="8.5" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.5</b> Bandas de Confianza para la Función de Supervivencia</a></li>
+<li class="chapter" data-level="8.6" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos"><i class="fa fa-check"></i><b>8.6</b> Diagnóstico para el Uso de Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia"><i class="fa fa-check"></i><b>8.6.1</b> Gráficas de las Funciones de Supervivencia</a></li>
+<li class="chapter" data-level="8.6.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p"><i class="fa fa-check"></i><b>8.6.2</b> Gráfica <span class="math inline">\(P-P\)</span></a></li>
+<li class="chapter" data-level="8.6.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q"><i class="fa fa-check"></i><b>8.6.3</b> Gráfica <span class="math inline">\(Q-Q\)</span></a></li>
+<li class="chapter" data-level="8.6.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.6.4</b> Linearización de la Función de Supervivencia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de Hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>9.1</b> Comparación de 1 población</a></li>
+<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>9.2</b> Prueba Log-Rank</a></li>
+<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>9.3</b> Prueba Generalizada Wilcoxon</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de m Poblaciones</a></li>
+</ul></li>
+<li class="part"><span><b>IV Lleno de riesgos</b></span></li>
+<li class="chapter" data-level="10" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>10</b> Modelo de Riesgos Proporcionales</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#inferencia-sobre-theta"><i class="fa fa-check"></i><b>10.1</b> Inferencia sobre <span class="math inline">\(\theta\)</span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-semiparamétrica-verosimilitud-parcial."><i class="fa fa-check"></i><b>10.2</b> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
+<li class="chapter" data-level="10.3" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimador-de-breslow-h_0t-y-s_0t"><i class="fa fa-check"></i><b>10.3</b> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</a></li>
+<li class="chapter" data-level="10.4" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#significancia-de-los-parámetros-prueba-de-wald"><i class="fa fa-check"></i><b>10.4</b> Significancia de los parámetros (Prueba de Wald)</a></li>
+<li class="chapter" data-level="10.5" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox"><i class="fa fa-check"></i><b>10.5</b> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
+<li class="chapter" data-level="10.6" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#verificación-de-ajuste-de-modelo"><i class="fa fa-check"></i><b>10.6</b> Verificación de ajuste de Modelo</a></li>
+<li class="chapter" data-level="10.7" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fa fa-check"></i><b>10.7</b> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos de Supervivencia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelos-no-paramétricos-para-la-función-de-supervivencia" class="section level1" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Modelos No Paramétricos para la Función de Supervivencia</h1>
+<p>Los métodos estadísticos más utilizados en el análisis de supervivencia son los <em>No Paramétricos</em>. Debido a que sólo cuando se conoce la distribución que siguen los tiempos de falla, las estimaciones con métodos paramétricos será adecuada. La eficiencia de los métodos no paramétricos radica en que los datos no sigan una distribución teórica.</p>
+<p>Puesto que nuestro interés es estimar <span class="math inline">\(S(t)\)</span>, en los métodos no paramétricos las curvas de supervivencia, por lo general, se producen usando uno de dos métodos: el <strong>análisis actuarial</strong> o el <strong>método límite-producto de Kaplan-Meier</strong>.</p>
+<p>Es importante mencionar que, cuando <strong>no</strong> hay datos censurados podemos estimar <span class="math inline">\(S(t)\)</span> de manera sencilla mediante la función empírica:</p>
+<p><span class="math display">\[
+\hat S(t) = \hat{\mathbb{P}}(T&gt;t) = \frac{ \# t_{i}&gt;t}{n}
+\]</span></p>
+<p>donde la muestra aleatoria es: <span class="math inline">\(t_{(1)}\leq t_{(2)}\leq...\leq t_{(n)}\)</span>.</p>
+<p>En este caso, la función será escalonada con decrementos <span class="math inline">\(\frac{1}{n}\)</span> si todas las observaciones son distintas, o con decrementos <span class="math inline">\(\frac{d}{n}\)</span> si hay <span class="math inline">\(d\)</span> tiempos de falla iguales a <span class="math inline">\(t\)</span>.</p>
+<p>Los métodos que se presentan a continuación incluyen la percepción del censuramiento en los datos; quizá el alumno está familiarizado con alguno de ellos, pues se estudian en cursos previos.</p>
+<div id="método-actuarial-tabla-de-vida" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Método Actuarial (Tabla de Vida)</h2>
+<p>El análisis actuarial divide el tiempo en intervalos y calcula la supervivencia en cada intervalo. La longitud del intervalo depende de la frecuencia con que ocurre el suceso de interés.</p>
+<p>Se asume que:</p>
+<ul>
+<li>Todos los abandonos durante un intervalo dado ocurren aleatoriamente durante dicho intervalo.</li>
+<li>Las personas que se retiran del estudio tienen un destino parecido a las que se quedan.</li>
+<li>El periodo de tiempo durante el cual una persona entra en el estudio no tiene efecto en la respuesta.</li>
+</ul>
+<p>Dividimos el eje del tiempo en <span class="math inline">\(k+1\)</span> intervalos <span class="math inline">\(l_{j}=(a_{j-1},a_{j}]\)</span>. Entonces para cada elemento de una muestra aleatoria de tamaño <span class="math inline">\(n\)</span>, se observa un tiempo de fallo <span class="math inline">\(T\)</span> o un valor censurado por la derecha <span class="math inline">\(C\)</span>.</p>
+<p>Definimos:</p>
+<ul>
+<li><span class="math inline">\(n_{j}\)</span>: número de individuos en riesgo (vivos o no censurados) al tiempo <span class="math inline">\(a_{j-1}\)</span>.</li>
+<li><span class="math inline">\(d_{j}\)</span>: número de fallas en el intervalo <span class="math inline">\(l_{j}\)</span>.</li>
+<li><span class="math inline">\(c_{j}\)</span>: número de individuos que se censuran en el intervalo <span class="math inline">\(l_{j}\)</span>.</li>
+</ul>
+<p>El número de individuos sin falla al inicio de <span class="math inline">\(l_{j}\)</span> es <span class="math inline">\(n_{j}\)</span>.</p>
+<p>Suponga que la función de supervivencia para los tiempos de falla es <span class="math inline">\(S(t) = \mathbb{P}(T&gt;t)\)</span>. Entonces:</p>
+<p><span class="math display">\[
+S(a_{j}) = \mathbb{P}(T&gt;a_{j}) = \mathbb{P}(T&gt;a_{0})\mathbb{P}(T&gt;a_{1}|T&gt;a_{0})...\mathbb{P}(T&gt;a_{j}|T&gt;a_{j-1})
+\]</span></p>
+<p>Sea:</p>
+<ul>
+<li><span class="math inline">\(S_{j} = S(a_{j})\)</span></li>
+<li><span class="math inline">\(p_{j} = \mathbb{P}(T&gt;a_{j}|T&gt;a_{j-1}) =\frac{S_{j}}{S_{j-1}}\)</span> (Sobrevivencia hasta <span class="math inline">\(a_{j}\)</span> después de haber sobrevivido hasta <span class="math inline">\(a_{j-1}\)</span>)</li>
+<li><span class="math inline">\(q_{j} = 1-p_{j} = \mathbb{P}(T\leq a_{j}|T&gt;a_{j-1}) = \frac{S_{j-1}-S_{j}}{S_{j-1}}\)</span> (No sobrevivir hasta <span class="math inline">\(a_{j}\)</span> después de haber sobrevivido hasta <span class="math inline">\(a_{j-1}\)</span>)</li>
+</ul>
+<p>Donde <span class="math inline">\(S_{0} = 1\)</span>, <span class="math inline">\(S_{k+1} = 0\)</span>, <span class="math inline">\(q_{k+1} = 1\)</span>. Por lo tanto:</p>
+<p><span class="math display">\[
+S_{j} = p_{1}p_{2}...p_{j}
+\]</span></p>
+<p>El objetivo es estimar <span class="math inline">\(S_j\)</span> con base en la estimación de <span class="math inline">\(p_j=1-q_j\)</span>.</p>
+<p>Si en <span class="math inline">\(l_{j}\)</span> <strong>no</strong> hay observaciones censuradas, entonces estimamos <span class="math inline">\(S_j\)</span> por medio de:</p>
+<p><span class="math display">\[
+\hat{q_{j}} = \frac{d_{j}}{n_{j}}
+\]</span></p>
+<p>Por otro lado, si en <span class="math inline">\(l_{j}\)</span> <strong>hay</strong> observaciones censuradas, y suponiendo que las censuras se distribuyen uniformemente, entonces <span class="math inline">\(S_j\)</span> se puede obtener mediante:</p>
+<p><span class="math display">\[
+\hat{q_{j}} = \frac{d_{j}}{n_{j}-\frac{c_{j}}{2}}
+\]</span></p>
+<p>De modo que, para este caso, se tiene:</p>
+<p><span class="math display">\[
+\hat S_j=\prod_{i=1}^{j}\left(1-\frac{d_{i}}{n_{i}-\frac{c_{i}}{2}}\right)
+\]</span></p>
+<div id="ejemplo" class="section level4 unnumbered">
+<h4>Ejemplo</h4>
+<p>El siguiente ejemplo es tomado del libro <span class="citation">(Collett <a href="#ref-collett2015modelling" role="doc-biblioref">2015</a>)</span>, ejemplo 1.3 :</p>
+<p>Supervivencia de pacientes con myeloma múltiple.</p>
+<p>Myeloma múltiple es una enfermedad caracterizada por la acumulación múltiple de células plasmáticas anormales, un tipo de células blancas de la sangre, en la médula ósea. La proliferación de las células plasmáticas anormales dentro de los huesos causa dolor y la destrucción del tejido óseo. El objetivo de un estudio realizado en el Centro Médico de la Universidad del Oeste de Virginia, USA, fue examinar la asociación entre los valores de ciertas variables explicativas(covariables) y el tiempo de supervivencia de los pacientes. En el estudio, el tiempo de supervivencia fue medido en meses, desde el diagnóstico hasta la muerte por myeloma múltiple.</p>
+<p>La siguiente tabla muestra un <strong>fragmento</strong> de los resultados obtenidos en el estudio. En ésta se relaciona a un total de 48 pacientes, todos ellos estaban entre los 50 y 80 años. Algunos de estos pacientes no habían muerto durante el tiempo que el estudio fue completado, por lo que estos individuos contribuyeron con tiempos censurados por la derecha. La codificación del estatus de supervivencia de un individuo en la tabla es codificado con un <span class="math inline">\(0\)</span> si la observación es censurada y <span class="math inline">\(1\)</span> si fue muerte por myeloma.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Patient_number
+</th>
+<th style="text-align:center;">
+Survival_time
+</th>
+<th style="text-align:center;">
+Status
+</th>
+<th style="text-align:center;">
+Age
+</th>
+<th style="text-align:center;">
+Sex
+</th>
+<th style="text-align:center;">
+Bun
+</th>
+<th style="text-align:center;">
+Ca
+</th>
+<th style="text-align:center;">
+Hb
+</th>
+<th style="text-align:center;">
+Pcells
+</th>
+<th style="text-align:center;">
+Protein
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+14.6
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+52
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+12.0
+</td>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+53
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+11.4
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+69
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+10.2
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+65
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+13.2
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+57
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+9.9
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+52
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+12.8
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+14.0
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+7.5
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+10.6
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+68
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+11.2
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+172
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+10.1
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+65
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+59
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+6.6
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+9.7
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+8.8
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+51
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+9.6
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+13.0
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+67
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+10.4
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+14.0
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+12.5
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ahora bien, se busca estimar <span class="math inline">\(S(t)\)</span> mediante la construcción de la tabla de vida. La información registrada en otras variables explicativas será ignorada.</p>
+<p>Se consideran los intervalos de tiempo, para cada uno se calcula el número de pacientes que fallecieron <span class="math inline">\(d_{j}\)</span>,el número de datos censurados <span class="math inline">\(c_{j}\)</span>, el número en riesgo de muerte al inicio de cada uno de estos intervalos <span class="math inline">\(n_{j}\)</span>, y el número ajustado en riesgo <span class="math inline">\(n_{j}^{*}=n_{j}-\frac{c_{j}}{2}\)</span> (dado que hay datos censurados). Finalmente, la probabilidad de supervivencia en cada intervalo es estimada(multiplicando cada <span class="math inline">\(p_j\)</span>).</p>
+<p>Los cálculos son presentados a continuación:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Interval
+</th>
+<th style="text-align:center;">
+Time period
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(d_j\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(c_j\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(n_j\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(n_j^{*}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(p_j\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(S(t)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0-
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+46.0
+</td>
+<td style="text-align:center;">
+0.6521739
+</td>
+<td style="text-align:center;">
+0.6521739
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+12-
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+26.0
+</td>
+<td style="text-align:center;">
+0.6153846
+</td>
+<td style="text-align:center;">
+0.4013378
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+24-
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+14.0
+</td>
+<td style="text-align:center;">
+0.9285714
+</td>
+<td style="text-align:center;">
+0.3726708
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+36-
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+12.5
+</td>
+<td style="text-align:center;">
+0.7600000
+</td>
+<td style="text-align:center;">
+0.2832298
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+48-
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+8.0
+</td>
+<td style="text-align:center;">
+0.7500000
+</td>
+<td style="text-align:center;">
+0.2124224
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+60-
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+4.5
+</td>
+<td style="text-align:center;">
+0.1111111
+</td>
+<td style="text-align:center;">
+0.0236025
+</td>
+</tr>
+</tbody>
+</table>
+<p>Y la curva de supervivencia es la dada en la figura <a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#fig:survival-actuar-example">7.1</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:survival-actuar-example"></span>
+<img src="_main_files/figure-html/survival-actuar-example-1.png" alt="Supervivencia estimada para los pacientes con myeloma múltiple con el método actuarial" width="672" />
+<p class="caption">
+Figura 7.1: Supervivencia estimada para los pacientes con myeloma múltiple con el método actuarial
+</p>
+</div>
+</div>
+</div>
+<div id="estimador-producto-límite-kaplan-meier" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Estimador Producto-Límite (Kaplan-Meier)</h2>
+<p>El estimador producto-límite fue propuesto por Kaplan y Meier en 1958 como el estimador máximo-verosímil de la función de supervivencia.</p>
+<p>El método de Kaplan-Meier calcula la supervivencia cada vez que un paciente muere. Da proporciones exactas de supervivencia debido a que utiliza tiempos de supervivencia precisos.</p>
+<p>La característica distintiva del análisis con este método, es que la proporción acumulada que sobrevive se calcula para el tiempo de supervivencia individual de cada paciente, en contraste con la agrupación de los tiempos de supervivencia en intervalos hechos en la tabla de vida. Por esta razón es especialmente útil para estudios que utilizan un número pequeño de pacientes.</p>
+<p>Este método asume que:</p>
+<ul>
+<li>Las personas que se retiran del estudio tienen un destino parecido a las que se quedan.</li>
+<li>El periodo de tiempo durante el cual una persona entra en el estudio no tiene efecto independiente en la respuesta.</li>
+</ul>
+<div id="construcción-del-estimador-k-m" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Construcción del Estimador K-M</h3>
+<p>Es natural pensar a <span class="math inline">\(T\)</span> como una variable aleatoria continua, y por tanto, teóricamente no es posible tener observaciones iguales. No obstante, en la práctica los tiempos de supervivencia son medidos en escalas como: días, meses, años, etcétera; por lo que, hay posibilidad de tener observaciones repetidas. Por esta razón conviene modelar a <span class="math inline">\(T\)</span> como una variable aleatoria discreta. La idea del estimador <em>K-M</em> es la siguiente:</p>
+<p>Sea <span class="math inline">\(T_{1}, T_{2},...,T_{n}\)</span> una m.a. de una población discreta con soporte en <span class="math inline">\(\{u_{1}, u_{2},...\}\)</span>.</p>
+<p>La muestra observada de <span class="math inline">\(T\)</span> se puede representar como <span class="math inline">\((t_{i},\delta_{i})\)</span> para <span class="math inline">\(i=1,2,...,n\)</span> donde:</p>
+<p><span class="math display">\[
+\delta_{i} = \left\{
+\begin{array}{ll}
+0 &amp; \mbox{si }  t_i \ es \ censurado\\
+1 &amp; \mbox{si }  t_{i} \ no \ es \ censurado
+\end{array}
+\right.
+\]</span>
+Entonces la función de verosimilitud será:</p>
+<p><span class="math display">\[ 
+\mathscr{L} = \prod^{n}_{i=1}f(t_{i})^{\delta_{i}}S(t_{i})^{1-\delta_{i}} 
+\]</span></p>
+<p>Desarrollando la expresión anterior tenemos</p>
+<p><span class="math display">\[
+\mathscr{L} =\prod^{n}_{i=1}(h(u_{k})S(u_{k-1})\mathbb{1}_{t_{i}=u_{k}})^{\delta_{i}} (S(u_{k})\mathbb{1}_{k=max\{j:u_{j}\leq t_i\}})^{1-\delta_{i}}
+\]</span></p>
+<p>Sea</p>
+<p><span class="math display">\[
+\begin{split}
+ &amp; d_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}=u_{k},\delta_{i}=1)} \mbox{  (numero de tiempos de fallo iguales a }u_{k}) \\
+ &amp; n_{k} = \sum_{i=1}^{n}\mathbb{1}_{(t_{i}\geq{u_{k}})} \mbox{ (numero de individuos en riesgo al tiempo } u_{k})
+\end{split}
+\]</span></p>
+<p><span class="math display">\[
+\Longrightarrow \mathscr{L} = \prod_{k} (h(u_k))^{d_k}(1-h(u_k))^{n_k-d_k}
+\]</span></p>
+<p>Ahora maximizamos la función de verosimilitud para <span class="math inline">\(h(u_k)\)</span>:</p>
+<p><span class="math display">\[
+\ln (\mathscr{L}) = \sum_{k}\{d_{k} \ln(h(u_{k}))+(n_{k}-d_{k}) \ln(1-h(u_{k}))\} 
+\]</span></p>
+<p><span class="math display">\[
+\Longrightarrow \frac{\partial \ln (\mathscr{L})}{\partial h(u_{k})} = \frac{d_{k}}{h(u_{k})}-\frac{(n_{k}-d_{k})}{(1-h(u_{k}))} = 0
+\]</span></p>
+<p>despejando <span class="math inline">\(h(u_k)\)</span> se tiene</p>
+<p><span class="math display">\[
+\therefore \hat{h}(u_{k}) = \frac{d_{k}}{n_{k}}
+\]</span></p>
+<p>Dado que los estimadores máximo-verosímiles cumplen con el principio de invarianza, y ocupando que <span class="math inline">\(S(t)=\prod_{k:u_{k}\leq t}(1-h(u_{k}))\)</span> (visto anteriormente) tenemos:</p>
+<p><span class="math display">\[
+\hat S(t)=\prod_{k:u_{k}\leq t}\left(1-\frac{d_k}{n_k}\right)
+\]</span></p>
+<p>Y es así es como se deriva el estimador <em>K-M</em>.</p>
+<p><strong>Proposición:</strong> <span class="math inline">\(\mathbb{E}[\hat{h}(u_k)] =h(u_k)\)</span> (Insesgamiento).</p>
+<div id="ejemplo-1" class="section level4 unnumbered">
+<h4>Ejemplo</h4>
+<p>Se obtuvieron los tiempos de remisión de 20 pacientes con osteosarcoma, a los que se trataba con 3 meses de quimioterapia después de amputación.</p>
+<ul>
+<li>11 pacientes recayeron a los 6, 8, 10, 11, 12, 13, 13, 22, 32, 34 y 36 meses.</li>
+<li>8 pacientes se retiraron vivos al final del estudio contribuyendo 3, 7, 7, 11, 14, 16, 20 y 20 meses de observación, sin haber sufrido recaídas.</li>
+<li>Un paciente rehusó continuar la terapia a los 11 meses y se retiró del estudio libre de enfermedad.</li>
+</ul>
+<p>La siguiente tabla muestra la forma de estimar <span class="math inline">\(S(t)\)</span> por el método <em>K-M</em>:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+time
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(d_j\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(n_k\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(c_k\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(1-\frac{d_k}{n_k}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(S(t)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0.9473684
+</td>
+<td style="text-align:center;">
+0.9473684
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+0.9375000
+</td>
+<td style="text-align:center;">
+0.8881579
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.9333333
+</td>
+<td style="text-align:center;">
+0.8289474
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+0.9285714
+</td>
+<td style="text-align:center;">
+0.7697368
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.9090909
+</td>
+<td style="text-align:center;">
+0.6997608
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.8000000
+</td>
+<td style="text-align:center;">
+0.5598086
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+0.7500000
+</td>
+<td style="text-align:center;">
+0.4198565
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.6666667
+</td>
+<td style="text-align:center;">
+0.2799043
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.5000000
+</td>
+<td style="text-align:center;">
+0.1399522
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.0000000
+</td>
+<td style="text-align:center;">
+0.0000000
+</td>
+</tr>
+</tbody>
+</table>
+<p>Y la gráfica de <span class="math inline">\(\hat S(t)\)</span> es:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ejercicio" class="section level4 unnumbered">
+<h4>Ejercicio</h4>
+<p>Suponga que disponemos de los datos de supervivencia de 10 pacientes que han sido aleatoriamente asignados a los tratamientos A y B.</p>
+<ul>
+<li>A: 3, 5, 7, 9+, 18</li>
+<li>B: 12, 19, 20, 20+, 33+</li>
+</ul>
+<p>Construya la función de supervivencia para cada tratamiento y grafíquelas. ¿Qué se puede decir de los tratamientos a partir de las gráficas?</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-collett2015modelling">
+<p>Collett, David. 2015. <em>Modelling Survival Data in Medical Research</em>. CRC press.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

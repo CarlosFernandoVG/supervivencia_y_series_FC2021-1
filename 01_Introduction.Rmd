@@ -1,0 +1,89 @@
+# (PART) Todo es cuestion de tiempo {-}
+
+# Motivación {-}
+
+En los dos cursos anteriores de estadística se ha trabajado con datos (muestras aleatorias) exactos, es decir, datos que se conocen en su totalidad y que, con base en ellos, hemos realizado estimaciones sobre los parámetros poblacionales. Sin embargo, puede suceder que los datos se conozcan parcialmente, o bien, se desconozcan; esto suele suceder en estudios que tienen limitados recursos y tiempo para llevarse a cabo, por ejemplo: estudios sobre la efectividad de un tratamiento clínico, la reaparición de cierta enfermedad en pacientes, confiabilidad industrial, etcétera.
+
+Lo anterior sugiere plantearnos algunas preguntas interesantes: *¿Cómo realizamos estimaciones con datos parciales?, ¿Se puede ajustar algún modelo paramétrico con datos parciales?, ¿Podemos comparar poblaciones con datos parciales?*. Éstas y otras cuestiones abordaremos a lo largo del curso de *Modelos de Supervivencia y Series de Tiempo*. En general, en la primer parte del curso (Análisis de supervivencia) se establecerán las bases teóricas para el tratamiento de datos parciales en modelos conocidos (paramétricos), y además estudiaremos modelos No paramétricos para este tipo de datos.
+
+Por otro lado, responder preguntas como: *¿Cuál será el precio de las acciones de Facebook para el último bimestre del 2020?, ¿Cuál será el nivel de partículas contaminantes en la CDMX para noviembre de 2020?, ¿Cuál será la capacidad de un procesador intel para el año 2021?*, puede parecer, en primera instancia, una tarea complicada. Si bien no tenemos una "bola mágica" con la que podamos adivinar el futuro, disponemos de ciertos procesos estocásticos llamados *Series de Tiempo*, cuyo objetivo principal es el *pronóstico*; estos se abordarán en la segunda parte del curso.
+
+# Análisis de Supervivencia {-}
+
+El análisis de supervivencia se basa en el estudio del __tiempo__, en la ocurrencia de un __evento__. El término supervivencia se debe a que en las primeras aplicaciones de este método de análisis se utilizaba como __evento__ la muerte de un paciente; tradicionalmente el análisis de supervivencia se ha asociado al análisis de datos en ensayos médicos.
+
+El __tiempo de superviviencia o falla__ se define como el tiempo transcurrido desde el estado inicial hasta la ocurrencia de un evento dado. Por ejemplo, en un estudio que consiste en observar la remisión de cierta enfermedad en pacientes, se puede definir el tiempo de falla como el tiempo en el que tarda en reaparecer la enfermedad en los pacientes. Otros ejemplos de tiempo de falla son: los tiempos que toman los individuos para completar tareas específicas en experimentación psicológica, tiempos en los que tardan ciertas máquinas industriales en descomponerse, la longitud de trayectorias sobre una placa fotográfica en física de partículas.
+
+Para determinar el tiempo de falla de forma precisa, hay tres requerimientos: un tiempo de origen que debe ser definido, una escala para medir el paso del tiempo que debe ser congruente al problema y finalmente, el significado de falla que debe ser completamente claro. Frecuentemente la escala para medir el paso de tiempo es el tiempo reloj (tiempo real), sin embargo hay otras posibilidades, como el kilometraje en un auto o el uso operacional de un sistema. Evidentemente, se pide que los tiempos de falla sean __No negativos__.
+
+Resulta de interés conocer (si es posible) la distribución de los tiempos de falla. En general los estudios que hemos ejemplificado anteriormente tienen limitaciones para llevarse a cabo, en consecuencia se establece algún periodo fijo de observación; es en este punto en el que pueden surgir *datos  parcialmente conocidos*.
+
+A continuación se muestra con ejemplos algunas de las diferentes formas como se pueden presentar los datos de supervivencia. Todos los ejemplos tienen un tiempo de origen, una escala de medición y una definición de falla.
+
+1. Datos de supervivencia de pacientes psiquiatricos.
+
+```{r}
+data_frame("Género" = c("Femenino","Femenino", "Femenino", "Masculino", "Femenino", "Masculino", "Masculino"), "Edad de admisión" = c(51, 58, 55, 21, 25, 19, 24), "Tiempo de seguimiento" = c("1", "1", "2", "$30^+$", 32, 28, "$33^+$")) %>% 
+  kable(booktabs = T, align=rep('c'), escape = FALSE) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F) %>% 
+  column_spec(1:2, border_right = T)
+```
+
+En esta forma de presentar los datos $^+$ significa que la observación es censurada, es decir no se observo más allá de los 30 o 33 años. Las observaciones censuradas se verán en la siguiente sección.
+
+2. Tiempos de infección (en meses) de pacientes en diálisis con diferentes procedimientos de cateterización.
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;
+  padding:10px 5px;word-break:normal;}
+.tg th{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:16px;font-weight:normal;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="4">Colocación de catéter de forma quirúrgica</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky" colspan="4">Tiempos de Infección: 1.5,3.5,4.5,4.5,5.5,8.5,8.5,9.5,10.5,11.5,15.5,16.5,18.5,23.5,26.5</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" colspan="4">Observaciones Censuradas:2.5,2.5,3.5,3.5,3.5,4.5,5.5,6.5,6.5,7.5,7.5,7.5,7.5,8.5,9.5</td>
+  </tr>
+</tbody>
+</table>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="4">Colocación de catéter de forma percutánea</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky" colspan="4">Tiempos de Infección: 0.5,0.5,0.5,0.5,0.5,0.5,2.5,2.5,3.5,6.5,15.5</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" colspan="4">Observaciones Censuradas:0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,1.5,1.5,1.5,1.5,2.5</td>
+  </tr>
+</tbody>
+</table>
+
+
+3. Consumo de la marihuana en la preparatoria
+
+```{r}
+data_frame(Edad = c(10, 11, 12, 13, 14), "Total de observaciones" = c(4, 12, 19, 24, 20), 
+           "Aún no la han probado" = c(0, 0, 2, 15, 24), 
+           "Empezaron a fumar a edad más temprana" = c(0, 0, 0, 1, 2)) %>%
+  kable(booktabs = T, align=rep('c'), escape = FALSE) %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F) %>% 
+  column_spec(1:3, border_right = T)
+```
+
+Los ejemplos anteriores son extracciones de ejemplos en el libro [@klein2006survival].
