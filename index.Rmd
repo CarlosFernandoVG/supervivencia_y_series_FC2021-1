@@ -11,7 +11,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 css: styles.css
-github-repo: CarlosFernandoVG/RBookdown
+github-repo: CarlosFernandoVG/supervivencia_y_series_FC2021-1
 url: 'https\://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1'
 description: "Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México"
 ---
