@@ -342,4 +342,4 @@ H(t)=-\sum_{k: u_k\leq t}log(1-h(u_k))
 $$
 
 [^3.1]: Aunque en la definición de $h(t)$ se tenga explícitamente la palabra "probabilidad", hay que tener en claro que esta función no es una función de probabilidad, si no tal cual una **tasa**, ya que la acumulación de esta puede dar valores superiores a 1.
-[^3.2]: $\mathbb{P}(T\geq u_k) = \mathbb{P}(T>u_{k-1}) = S(u_{k-1})$ por el hecho de estar tratando con una variable discreta, ya que el siguiente valor de $u_{k-1}$ en la lista $\{u_1, \dots, u_{k-1}, u_{k}\}$ es $u_k$.
+[^3.2]: $\mathbb{P}(T\geq u_k) = \mathbb{P}(T>u_{k-1}) = S(u_{k-1})$ por el hecho de estar tratando con una variable discreta, ya que el siguiente valor de $u_{k-1}$ en la lista $\{u_1, \dots, u_{k-1}, u_{k}\}$ es $u_k$. Además, véase que el uso de $f_T(u_k)$ en este caso discreto es simplemente notación y no se debe confundir con la función de densidad de la v.a $T$.
