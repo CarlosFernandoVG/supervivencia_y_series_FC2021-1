@@ -455,7 +455,7 @@ $$
 S(t)=1-lg(\lambda t, \beta)
 $$
 
-donde:
+donde[^5.1]:
 
 $$
 lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
@@ -593,3 +593,5 @@ Soluciones
 3. $\mathbb{E}(T) = \frac{\beta}{\lambda} = \frac{3}{0.2} = 15$ meses.
 
 Cabe señalar que hasta este punto **no hemos introducido datos censurados a los modelos**.
+
+[^5.1]: Esta función se llama _función gamma incompleta_ y en algunas fuentes se puede encontrar esta en particular como *__lower incomplete gamma function__*. Cuando se tiene $\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)$ se le conoce como *__upper incomplete gamma function__*, la cual es una [generalización](https://mathworld.wolfram.com/IncompleteGammaFunction.html) de la función gamma: $\Gamma(x, 0) = \Gamma(x)$. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente [enlace](https://dlmf.nist.gov/8.2). Algunas veces esta función es conocida directamente como función gamma incompleta como en [@klein2006survival]
