@@ -229,7 +229,7 @@
             <section class="normal" id="section-">
 <div id="funciones-para-el-análisis-de-supervivencia" class="section level1" number="3">
 <h1><span class="header-section-number">Capítulo 3</span> Funciones para el Análisis de Supervivencia</h1>
-<p>Dado que el análisis de supervivencia se basa en tiempos de falla, definiremos a continuación funciones importantes que se pueden asociar a estos. Evidentemente, estamos pensando que los tiempos de falla provienen de una variable aleatoria <strong>No negativa</strong> <span class="math inline">\(T\)</span> la cual llamaremos <em>variable aleatoria del tiempo de falla</em>, equivalentemente <em>longitud de tiempo de vida futura</em> o <em>tiempo de superviviencia</em>. Por simplicidad la llamaremos <em>tiempo de supervivencia</em>.</p>
+<p>Dado que el análisis de supervivencia se basa en tiempos de falla, definiremos a continuación funciones importantes que se pueden asociar a estos. Evidentemente, estamos pensando que los tiempos de falla provienen de una variable aleatoria <strong>No negativa</strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math inline">\(T\)</span> la cual llamaremos <em>variable aleatoria del tiempo de falla</em>, equivalentemente <em>longitud de tiempo de vida futura</em> o <em>tiempo de superviviencia</em>. Por simplicidad la llamaremos <em>tiempo de supervivencia</em>.</p>
 <p><span class="math inline">\(T\)</span> es usualmente descrita o caracterizada por cuatro funciones:</p>
 <ul>
 <li><em>1.- Función de supervivencia</em></li>
@@ -295,7 +295,7 @@ La siguiente es una representación gráfica de la función de supervivencia en 
 <h2><span class="header-section-number">3.2</span> Función de Riesgo</h2>
 <div id="caso-continuo-1" class="section level3 unnumbered">
 <h3>Caso continuo</h3>
-<p>La función de riesgo <span class="math inline">\(h(t)\)</span> (hazard function), también llamada <strong>tasa de falla condicional</strong> (en el análisis de confiabilidad) o <em>tasa de mortalidad</em> (en demografía), se define como la probabilidad de falla durante un intervalo de tiempo muy pequeño suponiendo que el individuo ha sobrevivido hasta el inicio del intervalo<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>; en expresiones matemáticas es:</p>
+<p>La función de riesgo <span class="math inline">\(h(t)\)</span> (hazard function), también llamada <strong>tasa de falla condicional</strong> (en el análisis de confiabilidad) o <em>tasa de mortalidad</em> (en demografía), se define como la probabilidad de falla durante un intervalo de tiempo muy pequeño suponiendo que el individuo ha sobrevivido hasta el inicio del intervalo<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>; en expresiones matemáticas es:</p>
 <p><span class="math display">\[
 h(t)=\lim_{\alpha\rightarrow 0}\frac{1}{\alpha}\mathbb{P}(t&lt;T\leq t+\alpha|T\geq t)
 \\
@@ -324,7 +324,7 @@ S(t)=exp\left[-\int_{0}^{t}h(u)du\right]=exp[-H(t)]
 <div id="caso-discreto-1" class="section level3 unnumbered">
 <h3>Caso discreto</h3>
 <p>En este caso, la función de riesgo proporciona la probabilidad condicional de falla al tiempo <span class="math inline">\(t=u_k\)</span>, dado que el individuo estaba vivo antes de <span class="math inline">\(u_k\)</span>.</p>
-<p>Sea <span class="math inline">\(T\)</span> una variable aleatoria discreta con soporte en <span class="math inline">\(\{u_1,u_2,u_3,...\}\)</span>. La función de riesgo al tiempo <span class="math inline">\(u_k\)</span> se define como<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>Sea <span class="math inline">\(T\)</span> una variable aleatoria discreta con soporte en <span class="math inline">\(\{u_1,u_2,u_3,...\}\)</span>. La función de riesgo al tiempo <span class="math inline">\(u_k\)</span> se define como<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p><span class="math display">\[
 h(u_k)=\mathbb{P}(T=u_k|T\geq u_k)=\frac{\mathbb{P}(T=u_k)}{\mathbb{P}(T\geq u_k)} =\frac{f_T(u_k)}{S_T(u_{k-1})}
 \]</span></p>
@@ -416,8 +416,9 @@ H(t)=-\sum_{k: u_k\leq t}log(1-h(u_k))
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Aunque en la definición de <span class="math inline">\(h(t)\)</span> se tenga explícitamente la palabra “probabilidad”, hay que tener en claro que esta función no es una función de probabilidad, si no tal cual una <strong>tasa</strong>, ya que la acumulación de esta puede dar valores superiores a 1.<a href="funciones-para-el-análisis-de-supervivencia.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><span class="math inline">\(\mathbb{P}(T\geq u_k) = \mathbb{P}(T&gt;u_{k-1}) = S(u_{k-1})\)</span> por el hecho de estar tratando con una variable discreta, ya que el siguiente valor de <span class="math inline">\(u_{k-1}\)</span> en la lista <span class="math inline">\(\{u_1, \dots, u_{k-1}, u_{k}\}\)</span> es <span class="math inline">\(u_k\)</span>. Además, véase que el uso de <span class="math inline">\(f_T(u_k)\)</span> en este caso discreto es simplemente notación y no se debe confundir con la función de densidad de la v.a <span class="math inline">\(T\)</span>.<a href="funciones-para-el-análisis-de-supervivencia.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Véase que al mencionar que la variable <span class="math inline">\(T\)</span> es no negativa se da por entendido que dicha variable aleatoria en el espacio de probabilidad <span class="math inline">\((\Omega, S, \mathbb{P})\)</span>, donde <span class="math inline">\(\Omega\)</span> es el espacio muestral, <span class="math inline">\(S\)</span> la <span class="math inline">\(\sigma\)</span>-álgebra definida en <span class="math inline">\(\Omega\)</span> y <span class="math inline">\(\mathbb{P}\)</span> la medida de probabilidad correspondiente, asigna valores en <span class="math inline">\(\mathbb{R}^{+\{0\}}\)</span>; es decir: <span class="math inline">\(T:\Omega\rightarrow\mathbb{R}^{+\{0\}}\)</span>.<a href="funciones-para-el-análisis-de-supervivencia.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Aunque en la definición de <span class="math inline">\(h(t)\)</span> se tenga explícitamente la palabra “probabilidad”, hay que tener en claro que esta función no es una función de probabilidad, si no tal cual una <strong>tasa</strong>, ya que la acumulación de esta puede dar valores superiores a 1.<a href="funciones-para-el-análisis-de-supervivencia.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><span class="math inline">\(\mathbb{P}(T\geq u_k) = \mathbb{P}(T&gt;u_{k-1}) = S(u_{k-1})\)</span> por el hecho de estar tratando con una variable discreta, ya que el siguiente valor de <span class="math inline">\(u_{k-1}\)</span> en la lista <span class="math inline">\(\{u_1, \dots, u_{k-1}, u_{k}\}\)</span> es <span class="math inline">\(u_k\)</span>. Además, véase que el uso de <span class="math inline">\(f_T(u_k)\)</span> en este caso discreto es simplemente notación y no se debe confundir con la función de densidad de la v.a <span class="math inline">\(T\)</span>.<a href="funciones-para-el-análisis-de-supervivencia.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

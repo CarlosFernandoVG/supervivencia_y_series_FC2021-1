@@ -237,7 +237,7 @@
 <p><span class="math display">\[
 f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
 \]</span>
-Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
+Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
 S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
@@ -277,7 +277,7 @@ Var[T]=\mathbb{E}[T^2]-\mathbb{E}[T]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\
 </div>
 <div id="modelo-weibull" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Modelo Weibull</h2>
-<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
+<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
 <p><strong>Función de Densidad</strong>
 <span class="math display">\[
 f(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}=h(t)S(t)
@@ -423,7 +423,7 @@ f(t)=\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t); \ \ \  \lamb
 <p><span class="math display">\[
 S(t)=1-lg(\lambda t, \beta)
 \]</span></p>
-<p>donde<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>:</p>
+<p>donde<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>:</p>
 <p><span class="math display">\[
 lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
 \]</span>
@@ -499,10 +499,10 @@ S(t)=1-lg(\lambda t^\alpha, \beta)
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>Un parámetro de escala modifica la escala o <em>dispersión</em> de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una <em>log-logistica</em>. En el siguiente <a href="https://en.wikipedia.org/wiki/Scale_parameter">enlace</a> se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.<a href="modelos-paramétricos.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.<a href="modelos-paramétricos.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span><a href="modelos-paramétricos.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Un parámetro de escala modifica la escala o <em>dispersión</em> de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una <em>log-logistica</em>. En el siguiente <a href="https://en.wikipedia.org/wiki/Scale_parameter">enlace</a> se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.<a href="modelos-paramétricos.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.<a href="modelos-paramétricos.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span><a href="modelos-paramétricos.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

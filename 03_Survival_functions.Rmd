@@ -2,7 +2,7 @@
 
 # Funciones para el Análisis de Supervivencia
 
-Dado que el análisis de supervivencia se basa en tiempos de falla, definiremos a continuación funciones importantes que se pueden asociar a estos. Evidentemente, estamos pensando que los tiempos de falla provienen de una variable aleatoria **No negativa** $T$ la cual llamaremos *variable aleatoria del tiempo de falla*, equivalentemente *longitud de tiempo de vida futura* o *tiempo de superviviencia*. Por simplicidad la llamaremos *tiempo de supervivencia*.
+Dado que el análisis de supervivencia se basa en tiempos de falla, definiremos a continuación funciones importantes que se pueden asociar a estos. Evidentemente, estamos pensando que los tiempos de falla provienen de una variable aleatoria **No negativa**[^3.3] $T$ la cual llamaremos *variable aleatoria del tiempo de falla*, equivalentemente *longitud de tiempo de vida futura* o *tiempo de superviviencia*. Por simplicidad la llamaremos *tiempo de supervivencia*.
 
 $T$ es usualmente descrita o caracterizada por cuatro funciones:
 
@@ -343,3 +343,4 @@ $$
 
 [^3.1]: Aunque en la definición de $h(t)$ se tenga explícitamente la palabra "probabilidad", hay que tener en claro que esta función no es una función de probabilidad, si no tal cual una **tasa**, ya que la acumulación de esta puede dar valores superiores a 1.
 [^3.2]: $\mathbb{P}(T\geq u_k) = \mathbb{P}(T>u_{k-1}) = S(u_{k-1})$ por el hecho de estar tratando con una variable discreta, ya que el siguiente valor de $u_{k-1}$ en la lista $\{u_1, \dots, u_{k-1}, u_{k}\}$ es $u_k$. Además, véase que el uso de $f_T(u_k)$ en este caso discreto es simplemente notación y no se debe confundir con la función de densidad de la v.a $T$.
+[^3.3]: Véase que al mencionar que la variable $T$ es no negativa se da por entendido que dicha variable aleatoria en el espacio de probabilidad $(\Omega, S, \mathbb{P})$, donde $\Omega$ es el espacio muestral, $S$ la $\sigma$-álgebra definida en $\Omega$ y $\mathbb{P}$ la medida de probabilidad correspondiente, asigna valores en $\mathbb{R}^{+\{0\}}$; es decir: $T:\Omega\rightarrow\mathbb{R}^{+\{0\}}$.
