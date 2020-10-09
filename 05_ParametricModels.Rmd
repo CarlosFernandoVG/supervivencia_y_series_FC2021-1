@@ -639,8 +639,8 @@ El tiempo de vida en meses de cierta especie de ratón sigue una distribución $
 
 Soluciones 
 
-1. $S(18) = 1-F(18) = 1-.69 = .31$
-2. $F(12) = .43$
+1. $S(18) = 1-F(18) = 1-$ `r pgamma(18, 3, .2)` = `r 1-pgamma(18, 3, .2)`
+2. $F(12) =$ `r pgamma(12, 3, .2)`
 3. $\mathbb{E}(T) = \frac{\beta}{\lambda} = \frac{3}{0.2} = 15$ meses.
 
 Cabe señalar que hasta este punto **no hemos introducido datos censurados a los modelos**.
