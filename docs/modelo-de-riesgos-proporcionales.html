@@ -272,7 +272,7 @@ h_i(t) = e^{X_i^{&#39;} \theta}\cdot h_0(t)
 <p><span class="math display">\[
 \frac{h_i(t)}{h_j(t)} = \frac{e^{X_i^{&#39;} \theta}\cdot h_0(t)}{e^{X_j^{&#39;} \theta} \cdot h_0(t)} = e^{(X_i-X_j)&#39; \theta}
 \]</span></p>
-<p>A la expresión anterior se le conoce como <strong>riesgo relativo</strong> y es constante en el tiempo, cuyo valor depende simplemente de la diferencia entre valores de las covariables de los dos individuos<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+<p>A la expresión anterior se le conoce como <strong>riesgo relativo</strong> y es constante en el tiempo, cuyo valor depende simplemente de la diferencia entre valores de las covariables de los dos individuos<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
 <p>Si <span class="math inline">\(X_{1i} = 1\)</span> y <span class="math inline">\(X_{1j} = 0\)</span>, representan tratamiento y placebo respectivamente, y si todas las demás covariables se mantienen constantes, entonces <span class="math inline">\(e^{\theta_1}\)</span> es el riesgo de que se presente la falla con el tratamiento relativo a que se presente la falla con el placebo.</p>
 <p><span class="math display">\[\frac{h_i(t)}{h_j(t)} = e^{\theta_1}\]</span>
 Bajo el modelo de riesgos proporcionales, las funciones de supervivencia y densidad del individuo <span class="math inline">\(i\)</span> son:
@@ -479,7 +479,7 @@ X_w^2 =(\hat{\theta_1}-\hat{\theta_{H_0}})^{&#39;}[I^{*}(\theta)]^{-1}(\hat{\the
 <li><span class="math inline">\(k\)</span>: Cte.(usualmente igual a 2).</li>
 <li><span class="math inline">\(p\)</span>: # de parámetros en el modelo.</li>
 </ul>
-<p>Para la construcción del modelo usando el modelo de riesgos proporcionales de Cox, se puede usar el estadístico de Wald para seleccionar covariables significativas<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> y considerando el valor del AIC para evaluar la mejora en el modelo<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+<p>Para la construcción del modelo usando el modelo de riesgos proporcionales de Cox, se puede usar el estadístico de Wald para seleccionar covariables significativas<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> y considerando el valor del AIC para evaluar la mejora en el modelo<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
 </div>
 <div id="estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox" class="section level2" number="10.5">
 <h2><span class="header-section-number">10.5</span> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</h2>
@@ -504,7 +504,7 @@ La siguiente gráfica es un ejemplo comparativo de dos estimaciones de funciones
 </div>
 <div id="verificación-de-ajuste-de-modelo" class="section level2" number="10.6">
 <h2><span class="header-section-number">10.6</span> Verificación de ajuste de Modelo</h2>
-<p>Mediante gráficos de las funciones de supervivencia buscamos las funciones de supervivencia para los distintos valores de <span class="math inline">\(X\)</span>’s donde <strong>no</strong> se crucen<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
+<p>Mediante gráficos de las funciones de supervivencia buscamos las funciones de supervivencia para los distintos valores de <span class="math inline">\(X\)</span>’s donde <strong>no</strong> se crucen<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
 <p>En caso de que el modelo de Cox no cumpla con el supuesto de proporcionalidad se puede corregir el modelo mediante:</p>
 <ol style="list-style-type: decimal">
 <li><p>Agregar más covariables</p></li>
@@ -570,13 +570,15 @@ y se realiza la prueba de hipótesis para <span class="math inline">\(\beta_2=0\
 
 
 
+
+
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>No hay dependencia con el tiempo.<a href="modelo-de-riesgos-proporcionales.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Recordar que por la ecuación <a href="modelo-de-riesgos-proporcionales.html#eq:cox-covariables-linear">(10.1)</a>, el modelo esta asumiendo una forma lineal de las covariables.<a href="modelo-de-riesgos-proporcionales.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Para un mayor número de variables el <span class="math inline">\(AIC\uparrow\)</span> pero para variables más significativas <span class="math inline">\(AIC\downarrow\)</span>.<a href="modelo-de-riesgos-proporcionales.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>Por el hecho de que se busca <strong>proporcionalidad</strong> y, por lo tanto, que la segregación separe completamente a la población.<a href="modelo-de-riesgos-proporcionales.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<ol start="8">
+<li id="fn8"><p>No hay dependencia con el tiempo.<a href="modelo-de-riesgos-proporcionales.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Recordar que por la ecuación <a href="modelo-de-riesgos-proporcionales.html#eq:cox-covariables-linear">(10.1)</a>, el modelo esta asumiendo una forma lineal de las covariables.<a href="modelo-de-riesgos-proporcionales.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Para un mayor número de variables el <span class="math inline">\(AIC\uparrow\)</span> pero para variables más significativas <span class="math inline">\(AIC\downarrow\)</span>.<a href="modelo-de-riesgos-proporcionales.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Por el hecho de que se busca <strong>proporcionalidad</strong> y, por lo tanto, que la segregación separe completamente a la población.<a href="modelo-de-riesgos-proporcionales.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

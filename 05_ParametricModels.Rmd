@@ -6,6 +6,19 @@ Existen varios modelos paramétricos que se emplean en el análisis de supervive
 
 El modelo exponencial es el más importante debido a su amplia aplicación, por ejemplo, puede emplearse en estudios para determinar el tiempo de vida útil de algunos artículos manufacturados. Este modelo juega un papel fundamental análogo a la *distribución normal* en la inferencia estadística tradicional.
 
+**Función de Densidad**
+
+$$
+f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
+$$
+Para esta distribución $\lambda$ es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado **_tasa_** definido por $1/s$ donde $s$ es el verdadero parámetro de escala[^5.1] de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.
+
+**Función de Supervivencia**
+
+$$
+S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
+$$
+
 Si asumimos **una tasa de riesgo invariante en el tiempo**, $h(t)=\lambda$ con $\lambda>0$, generamos el modelo exponencial:
 
 **Función de Riesgo**
@@ -14,19 +27,6 @@ Tomamos $\lambda>0$ y hacemos:
 
 $$
 h(t)=\lambda
-$$
-
-
-**Función de Supervivencia**
-
-$$
-S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
-$$
-
-**Función de Densidad**
-
-$$
-f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
 $$
 
 Aunque el supuesto de una función de riesgo constante resulta ser una restricción considerable, el modelo exponencial no deja de ser útil e importante en variedad de aplicaciones. Cabe destacar, que este modelo cumple con la propiedad de *pérdida de memoria*; a saber, se cumple que:
@@ -76,9 +76,35 @@ exponential_example_3 <- tibble(x = c(0,20)) %>%
 exponential_example_1+exponential_example_2+exponential_example_3
 ```
 
+**R**
+
+En el lenguaje de programación `R` se pueden obtener resultados de esta distribución como una muestra pseudo aleatoria y aproximaciones numéricas para la distribución y densidad de esta así como la obtención de los cuantiles. 
+
+En general, el sufijo para esta distribución es `*exp`, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:
+
++ `rexp(n, rate = 1)`: Muestra pseudo aleatoria de tamaño $n$.
++ `dexp(x, rate = 1, log = FALSE)`: Valores de $f(x)$.
++ `pexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
++ `qexp(p, rate = 1, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
+
+Algo que hay que recordar es que al utilizar la función, por ejemplo, `rexp(n, r)` se respeta el orden de los parámetros por lo que `r` será el valor correspondiente a la tasa y no parámetro de escala es decir el valor $r = \lambda$. Se menciona esta por que puede ser común que se confunda `r` con $1/\lambda$, por lo que se recomienda tener precaución.
+
 ## Modelo Weibull
 
-El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma $\gamma$ y se mantiene el parámetro de escala $\lambda$. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.
+El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma[^5.2] $\gamma$ y se mantiene el parámetro de escala $\lambda$. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.
+
+**Función de Densidad**
+$$
+f(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}=h(t)S(t)
+$$
+
+Obsérvese que si $\gamma =1$ entonces el modelo Weibull se reduce al modelo exponencial.
+
+**Función de Supervivencia**
+
+$$
+S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda \gamma(\lambda u)^{\gamma-1} du\right)=exp(-(\lambda t)^\gamma)=e^{-(\lambda t)^\gamma}
+$$
 
 Si asumimos, en general, una **función de riesgo monótona: creciente o decreciente**, se puede obtener el modelo Weibull. 
 
@@ -89,18 +115,6 @@ Para este modelo $h(t)$ está dada por:
 $$
 h(t)=\lambda \gamma(\lambda t)^{\gamma-1}; \ \ \ \gamma>0, \lambda>0 \mbox{ y } t>0
 $$
-**Función de Supervivencia**
-
-$$
-S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda \gamma(\lambda u)^{\gamma-1} du\right)=exp(-(\lambda t)^\gamma)=e^{-(\lambda t)^\gamma}
-$$
-**Función de Densidad**
-$$
-f(t)=h(t)S(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}
-$$
-
-Obsérvese que si $\gamma =1$ entonces el modelo Weibull se reduce al modelo exponencial.
-
 
 **Parámetros**
 
@@ -219,6 +233,17 @@ weibull_density_2+weibull_risk_2
 
 Como bien hemos dicho, si suponemos una función de riesgo monótona creciente ó decreciente la distribución Weibull puede ser generada. Concretamente, si $\gamma>1$ entonces $h(t)$ es estrictamente creciente, si $\gamma<1$ entonces $h(t)$ es estrictamente decreciente. Cuando $\gamma=1$ se tiene la distribución exponencial.
 
+**R**
+
+Para este caso el sufijo referente a esta distribución es `*weibull`, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:
+
++ `rweibull(n, shape, scale = 1)`: Muestra pseudo aleatoria de tamaño $n$.
++ `dweibull(x, shape, scale = 1, log = FALSE)`: Valores de $f(x)$.
++ `pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
++ `qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
+
+Así como en el caso de la exponencial y en todos los casos posteriores, se respeta el orden de los parámetros por lo que para aplicar los parámetros tal como se vieron en esta sección se puede utilizar esta función de la siguiente manera: `dweibull`($\gamma$, $\lambda$) o sin importar el orden indicando de manera explicita que `shape` = $\gamma$ y `scale` = $\lambda$.
+
 ## Modelo Log-Normal
 
 El modelo Log-Normal tiene estrecha relación con la distribución *Normal*. De hecho, el tiempo de supervivencia $T$ se dice que sigue una distribución Log-Normal, si $Y=ln(T)$ se distribuye $N(\mu,\sigma^2)$.
@@ -232,6 +257,8 @@ Para este modelo, $f(t)$ está dada por:
 $$
 f(t)=\frac{1}{\sqrt {2\pi}\sigma t}exp\left(-\frac{1}{2}\left(\frac{ln(t)-\mu}{\sigma}\right)^2\right)
 $$
+
+En este caso, $\mu$ y $\sigma$ pasan a ser los parámetros de escala y de forma de la distribución, los cuales hacen diferencia con los de la distribución normal, ya que en tal caso $\mu$ sería un parámetro de localización y $\sigma$ seguiría siendo el parámetro de escala. Para agregar un parámetro de localización a la distribución $log-normal$ bastaría camiar $x$ por $x-\theta$ donde $\theta$ sería tal parámetro.
 
 **Función de Supervivencia**
 
@@ -334,6 +361,17 @@ log_normal_risk <- tibble(x = c(0,6)) %>%
 log_normal_density+log_normal_risk
 ```
 
+**R**
+
+Para esta distribución el sufijo respectivo será `*lnorm`, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:
+
++ `rlnorm(n, meanlog = 0, sdlog = 1)`: Muestra pseudo aleatoria de tamaño $n$.
++ `dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)`: Valores de $f(x)$.
++ `plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
++ `qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
+
+En este caso, es evidente que `meanlog` correspondería al parámetro de escala $\mu$ y `sdlog` al parámetro de forma $\sigma$. Finalmente se menciona que estos parámetros no se deben confundir explícitamente con los de una distribución normal.
+
 #### Ejemplo {-}
 
 El tiempo de muerte en días después de un trasplante de médula sigue una distribución $log-normal$ con $\mu = 3.177, \sigma = 2.084$. Calcular lo siguiente
@@ -361,7 +399,7 @@ $$
 f(t)=\frac{\alpha \lambda t^{\alpha-1}}{(1+\lambda t^\alpha)^2}
 $$
 
-con $\alpha=\frac{1}{\sigma}$ y $\lambda=exp(-\frac{\mu}{\sigma})>0$.
+con $\alpha=\frac{1}{\sigma}$ y $\lambda=exp(-\frac{\mu}{\sigma})>0$. $\alpha$ es el parámetro de forma y $\lambda$ es el parámetro de escala.
 
 
 **Función de Supervivencia**
@@ -437,9 +475,11 @@ log_log_risk <- tibble(x = c(0,6)) %>%
 log_log_density+log_log_risk
 ```
 
+**R**
+
 ## Modelo Gamma
 
-La distribución Gamma, que incluye a las distribuciones *exponencial* y *ji-cuadrada*, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: $\beta$ es el parámetro de forma y $\lambda$ es el parámetro de escala.
+La distribución Gamma, que incluye a las distribuciones *exponencial* y *ji-cuadrada*, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: $\beta$ es el parámetro de forma y $\lambda$ es el parámetro que modifica de escala; estrictamente hablando $\lambda$ es la tasa: $\lambda =\frac{1}{s}$ donde $s$ sería el verdadero parámetro de escala.
 
 **Función de Densidad**
 
@@ -455,7 +495,7 @@ $$
 S(t)=1-lg(\lambda t, \beta)
 $$
 
-donde[^5.1]:
+donde[^5.3]:
 
 $$
 lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
@@ -552,6 +592,17 @@ gamma_risk <- tibble(x = c(0,28)) %>%
 gamma_density+gamma_risk
 ```
 
+**R**
+
+Para esta distribución el sufijo respectivo será `*gamma`, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:
+
++ `rgamma(n, shape, rate = 1, scale = 1/rate)`: Muestra pseudo aleatoria de tamaño $n$.
++ `dgamma(x, shape, rate = 1, scale = 1/rate, log = FALSE)`: Valores de $f(x)$.
++ `pgamma(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
++ `qgamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
+
+Como en el caso de la exponencial, se recomienda tener precaución ya que el parámetro `rate` es el que corresponde al parámetro $\lambda$ en este trabajo.
+
 ## Modelo Gamma Generalizada
 
 Finalmente, se presenta el modelo Gamma Generalizada con parámetros $\alpha$, $\beta$ y $\lambda$.
@@ -594,4 +645,7 @@ Soluciones
 
 Cabe señalar que hasta este punto **no hemos introducido datos censurados a los modelos**.
 
-[^5.1]: Esta función se llama _función gamma incompleta_ y en algunas fuentes se puede encontrar esta en particular como *__lower incomplete gamma function__*. Cuando se tiene $\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)$ se le conoce como *__upper incomplete gamma function__*, la cual es una [generalización](https://mathworld.wolfram.com/IncompleteGammaFunction.html) de la función gamma: $\Gamma(x, 0) = \Gamma(x)$. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente [enlace](https://dlmf.nist.gov/8.2). Algunas veces esta función es conocida directamente como función gamma incompleta como en [@klein2006survival]
+
+[^5.1]: Un parámetro de escala modifica la escala o _dispersión_ de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una _log-logistica_. En el siguiente [enlace](https://en.wikipedia.org/wiki/Scale_parameter) se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.
+[^5.2]: Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.
+[^5.3]: Esta función se llama _función gamma incompleta_ y en algunas fuentes se puede encontrar esta en particular como *__lower incomplete gamma function__*. Cuando se tiene $\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)$ se le conoce como *__upper incomplete gamma function__*, la cual es una [generalización](https://mathworld.wolfram.com/IncompleteGammaFunction.html) de la función gamma: $\Gamma(x, 0) = \Gamma(x)$. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente [enlace](https://dlmf.nist.gov/8.2). Algunas veces esta función es conocida directamente como función gamma incompleta como en [@klein2006survival]

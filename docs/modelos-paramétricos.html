@@ -233,19 +233,20 @@
 <div id="modelo-exponencial" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Modelo Exponencial</h2>
 <p>El modelo exponencial es el más importante debido a su amplia aplicación, por ejemplo, puede emplearse en estudios para determinar el tiempo de vida útil de algunos artículos manufacturados. Este modelo juega un papel fundamental análogo a la <em>distribución normal</em> en la inferencia estadística tradicional.</p>
+<p><strong>Función de Densidad</strong></p>
+<p><span class="math display">\[
+f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
+\]</span>
+Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
+<p><strong>Función de Supervivencia</strong></p>
+<p><span class="math display">\[
+S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
+\]</span></p>
 <p>Si asumimos <strong>una tasa de riesgo invariante en el tiempo</strong>, <span class="math inline">\(h(t)=\lambda\)</span> con <span class="math inline">\(\lambda&gt;0\)</span>, generamos el modelo exponencial:</p>
 <p><strong>Función de Riesgo</strong></p>
 <p>Tomamos <span class="math inline">\(\lambda&gt;0\)</span> y hacemos:</p>
 <p><span class="math display">\[
 h(t)=\lambda
-\]</span></p>
-<p><strong>Función de Supervivencia</strong></p>
-<p><span class="math display">\[
-S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
-\]</span></p>
-<p><strong>Función de Densidad</strong></p>
-<p><span class="math display">\[
-f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
 \]</span></p>
 <p>Aunque el supuesto de una función de riesgo constante resulta ser una restricción considerable, el modelo exponencial no deja de ser útil e importante en variedad de aplicaciones. Cabe destacar, que este modelo cumple con la propiedad de <em>pérdida de memoria</em>; a saber, se cumple que:</p>
 <p><span class="math display">\[
@@ -263,25 +264,35 @@ Var[T]=\mathbb{E}[T^2]-\mathbb{E}[T]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\
 <p><strong>Gráficas</strong></p>
 <p>A continuación se muestran gráficas de una <span class="math inline">\(Exponencial\)</span> con <span class="math inline">\(\lambda=0.5\)</span></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>R</strong></p>
+<p>En el lenguaje de programación <code>R</code> se pueden obtener resultados de esta distribución como una muestra pseudo aleatoria y aproximaciones numéricas para la distribución y densidad de esta así como la obtención de los cuantiles.</p>
+<p>En general, el sufijo para esta distribución es <code>*exp</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
+<ul>
+<li><code>rexp(n, rate = 1)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dexp(x, rate = 1, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qexp(p, rate = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+</ul>
+<p>Algo que hay que recordar es que al utilizar la función, por ejemplo, <code>rexp(n, r)</code> se respeta el orden de los parámetros por lo que <code>r</code> será el valor correspondiente a la tasa y no parámetro de escala es decir el valor <span class="math inline">\(r = \lambda\)</span>. Se menciona esta por que puede ser común que se confunda <code>r</code> con <span class="math inline">\(1/\lambda\)</span>, por lo que se recomienda tener precaución.</p>
 </div>
 <div id="modelo-weibull" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Modelo Weibull</h2>
-<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
+<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
+<p><strong>Función de Densidad</strong>
+<span class="math display">\[
+f(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}=h(t)S(t)
+\]</span></p>
+<p>Obsérvese que si <span class="math inline">\(\gamma =1\)</span> entonces el modelo Weibull se reduce al modelo exponencial.</p>
+<p><strong>Función de Supervivencia</strong></p>
+<p><span class="math display">\[
+S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda \gamma(\lambda u)^{\gamma-1} du\right)=exp(-(\lambda t)^\gamma)=e^{-(\lambda t)^\gamma}
+\]</span></p>
 <p>Si asumimos, en general, una <strong>función de riesgo monótona: creciente o decreciente</strong>, se puede obtener el modelo Weibull.</p>
 <p><strong>Función de Riesgo</strong></p>
 <p>Para este modelo <span class="math inline">\(h(t)\)</span> está dada por:</p>
 <p><span class="math display">\[
 h(t)=\lambda \gamma(\lambda t)^{\gamma-1}; \ \ \ \gamma&gt;0, \lambda&gt;0 \mbox{ y } t&gt;0
-\]</span>
-<strong>Función de Supervivencia</strong></p>
-<p><span class="math display">\[
-S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda \gamma(\lambda u)^{\gamma-1} du\right)=exp(-(\lambda t)^\gamma)=e^{-(\lambda t)^\gamma}
-\]</span>
-<strong>Función de Densidad</strong>
-<span class="math display">\[
-f(t)=h(t)S(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}
 \]</span></p>
-<p>Obsérvese que si <span class="math inline">\(\gamma =1\)</span> entonces el modelo Weibull se reduce al modelo exponencial.</p>
 <p><strong>Parámetros</strong></p>
 <p>Si <span class="math inline">\(T\sim Weibull(\gamma,\lambda)\)</span> entonces:</p>
 <p><span class="math display">\[
@@ -299,6 +310,15 @@ Debe resultar sencillo para el alumno demostrar las igualdades de la esperanza y
 <p>Y para el modelo Weibull con <span class="math inline">\(\lambda=1\)</span> y <span class="math inline">\(\gamma=0.5,1\)</span> se tienen las siguientes gráficas:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Como bien hemos dicho, si suponemos una función de riesgo monótona creciente ó decreciente la distribución Weibull puede ser generada. Concretamente, si <span class="math inline">\(\gamma&gt;1\)</span> entonces <span class="math inline">\(h(t)\)</span> es estrictamente creciente, si <span class="math inline">\(\gamma&lt;1\)</span> entonces <span class="math inline">\(h(t)\)</span> es estrictamente decreciente. Cuando <span class="math inline">\(\gamma=1\)</span> se tiene la distribución exponencial.</p>
+<p><strong>R</strong></p>
+<p>Para este caso el sufijo referente a esta distribución es <code>*weibull</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
+<ul>
+<li><code>rweibull(n, shape, scale = 1)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dweibull(x, shape, scale = 1, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+</ul>
+<p>Así como en el caso de la exponencial y en todos los casos posteriores, se respeta el orden de los parámetros por lo que para aplicar los parámetros tal como se vieron en esta sección se puede utilizar esta función de la siguiente manera: <code>dweibull</code>(<span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\lambda\)</span>) o sin importar el orden indicando de manera explicita que <code>shape</code> = <span class="math inline">\(\gamma\)</span> y <code>scale</code> = <span class="math inline">\(\lambda\)</span>.</p>
 </div>
 <div id="modelo-log-normal" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Modelo Log-Normal</h2>
@@ -309,6 +329,7 @@ Debe resultar sencillo para el alumno demostrar las igualdades de la esperanza y
 <p><span class="math display">\[
 f(t)=\frac{1}{\sqrt {2\pi}\sigma t}exp\left(-\frac{1}{2}\left(\frac{ln(t)-\mu}{\sigma}\right)^2\right)
 \]</span></p>
+<p>En este caso, <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> pasan a ser los parámetros de escala y de forma de la distribución, los cuales hacen diferencia con los de la distribución normal, ya que en tal caso <span class="math inline">\(\mu\)</span> sería un parámetro de localización y <span class="math inline">\(\sigma\)</span> seguiría siendo el parámetro de escala. Para agregar un parámetro de localización a la distribución <span class="math inline">\(log-normal\)</span> bastaría camiar <span class="math inline">\(x\)</span> por <span class="math inline">\(x-\theta\)</span> donde <span class="math inline">\(\theta\)</span> sería tal parámetro.</p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
 S(t)=\int_t^{\infty}f(u)du
@@ -338,6 +359,15 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 <p><strong>Gráficas</strong></p>
 <p>A continuación algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Normal:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>R</strong></p>
+<p>Para esta distribución el sufijo respectivo será <code>*lnorm</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
+<ul>
+<li><code>rlnorm(n, meanlog = 0, sdlog = 1)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+</ul>
+<p>En este caso, es evidente que <code>meanlog</code> correspondería al parámetro de escala <span class="math inline">\(\mu\)</span> y <code>sdlog</code> al parámetro de forma <span class="math inline">\(\sigma\)</span>. Finalmente se menciona que estos parámetros no se deben confundir explícitamente con los de una distribución normal.</p>
 <div id="ejemplo" class="section level4 unnumbered">
 <h4>Ejemplo</h4>
 <p>El tiempo de muerte en días después de un trasplante de médula sigue una distribución <span class="math inline">\(log-normal\)</span> con <span class="math inline">\(\mu = 3.177, \sigma = 2.084\)</span>. Calcular lo siguiente</p>
@@ -366,7 +396,7 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 <p><span class="math display">\[
 f(t)=\frac{\alpha \lambda t^{\alpha-1}}{(1+\lambda t^\alpha)^2}
 \]</span></p>
-<p>con <span class="math inline">\(\alpha=\frac{1}{\sigma}\)</span> y <span class="math inline">\(\lambda=exp(-\frac{\mu}{\sigma})&gt;0\)</span>.</p>
+<p>con <span class="math inline">\(\alpha=\frac{1}{\sigma}\)</span> y <span class="math inline">\(\lambda=exp(-\frac{\mu}{\sigma})&gt;0\)</span>. <span class="math inline">\(\alpha\)</span> es el parámetro de forma y <span class="math inline">\(\lambda\)</span> es el parámetro de escala.</p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
 S(t)=\frac{1}{1+\lambda t^\alpha}
@@ -379,10 +409,11 @@ h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda t^{\alpha-1}}{1+\lambda t^\alpha}
 <p><strong>Gráficas</strong></p>
 <p>Algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Logística:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>R</strong></p>
 </div>
 <div id="modelo-gamma" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Modelo Gamma</h2>
-<p>La distribución Gamma, que incluye a las distribuciones <em>exponencial</em> y <em>ji-cuadrada</em>, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: <span class="math inline">\(\beta\)</span> es el parámetro de forma y <span class="math inline">\(\lambda\)</span> es el parámetro de escala.</p>
+<p>La distribución Gamma, que incluye a las distribuciones <em>exponencial</em> y <em>ji-cuadrada</em>, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: <span class="math inline">\(\beta\)</span> es el parámetro de forma y <span class="math inline">\(\lambda\)</span> es el parámetro que modifica de escala; estrictamente hablando <span class="math inline">\(\lambda\)</span> es la tasa: <span class="math inline">\(\lambda =\frac{1}{s}\)</span> donde <span class="math inline">\(s\)</span> sería el verdadero parámetro de escala.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math inline">\(f(t)\)</span> está dada por:</p>
 <p><span class="math display">\[
@@ -392,7 +423,7 @@ f(t)=\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t); \ \ \  \lamb
 <p><span class="math display">\[
 S(t)=1-lg(\lambda t, \beta)
 \]</span></p>
-<p>donde<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>:</p>
+<p>donde<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>:</p>
 <p><span class="math display">\[
 lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
 \]</span>
@@ -418,6 +449,15 @@ Var[T]=\frac{\beta}{\lambda^2}
 <p><strong>Gráficas</strong></p>
 <p>Se muestran ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para el modelo Gamma:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>R</strong></p>
+<p>Para esta distribución el sufijo respectivo será <code>*gamma</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
+<ul>
+<li><code>rgamma(n, shape, rate = 1, scale = 1/rate)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dgamma(x, shape, rate = 1, scale = 1/rate, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pgamma(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qgamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+</ul>
+<p>Como en el caso de la exponencial, se recomienda tener precaución ya que el parámetro <code>rate</code> es el que corresponde al parámetro <span class="math inline">\(\lambda\)</span> en este trabajo.</p>
 </div>
 <div id="modelo-gamma-generalizada" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Modelo Gamma Generalizada</h2>
@@ -460,7 +500,9 @@ S(t)=1-lg(\lambda t^\alpha, \beta)
 <div class="footnotes">
 <hr />
 <ol start="3">
-<li id="fn3"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span><a href="modelos-paramétricos.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Un parámetro de escala modifica la escala o <em>dispersión</em> de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una <em>log-logistica</em>. En el siguiente <a href="https://en.wikipedia.org/wiki/Scale_parameter">enlace</a> se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.<a href="modelos-paramétricos.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.<a href="modelos-paramétricos.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span><a href="modelos-paramétricos.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
