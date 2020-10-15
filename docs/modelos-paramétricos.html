@@ -394,22 +394,30 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 <p>El modelo Log-Logístico es derivado de la distribución <em>Logística</em>. Se dice que <span class="math inline">\(T\)</span> tiene distribución Log-Logística si <span class="math inline">\(Y=ln(T)\)</span> sigue una distribución Logística con parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma ^2\)</span>.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math display">\[
-f(t)=\frac{\alpha \lambda t^{\alpha-1}}{(1+\lambda t^\alpha)^2}
+f(t)=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{(1+(\lambda t)^\alpha)^2}
 \]</span></p>
 <p>con <span class="math inline">\(\alpha=\frac{1}{\sigma}\)</span> y <span class="math inline">\(\lambda=exp(-\frac{\mu}{\sigma})&gt;0\)</span>. <span class="math inline">\(\alpha\)</span> es el parámetro de forma y <span class="math inline">\(\lambda\)</span> es el parámetro de escala.</p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
-S(t)=\frac{1}{1+\lambda t^\alpha}
+S(t)=\frac{1}{1+(\lambda t)^\alpha}
 \]</span></p>
 <p><strong>Función de Riesgo</strong></p>
 <p><span class="math display">\[
-h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda t^{\alpha-1}}{1+\lambda t^\alpha}
+h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{1+(\lambda t)^\alpha}
 \]</span></p>
 <p>La función de riesgo es monótona decreciente para <span class="math inline">\(\alpha \leq 1\)</span>, y para <span class="math inline">\(\alpha&gt; 1\)</span> la función de riesgo crece hasta alcanzar un máximo en <span class="math inline">\(t=(\frac{\alpha-1}{\lambda})^{\frac{1}{\alpha}}\)</span> y luego decrece a cero cuando <span class="math inline">\(t \rightarrow \infty\)</span>.</p>
 <p><strong>Gráficas</strong></p>
 <p>Algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Logística:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
+<p>Para esta distribución se recomienda descargar y utilizar el paquete <code>actuar</code>, en la cual vienen un conjunto de funciones similares a las anteriores, de hecho el sufijo respectivo será <code>*llogis</code> y, de manera análoga a las anteriores funciones, se tiene lo siguiente:</p>
+<ul>
+<li><code>rllogis(n, shape, rate = 1, scale = 1/rate)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dllogis(x, shape, rate = 1, scale = 1/rate, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pllogis(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qllogis(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+</ul>
+<p>En este caso, como en la exponencial y la weibull, <code>rate</code> correspondería al parámetro <span class="math inline">\(\lambda\)</span> y <code>shape</code> al parámetro de forma <span class="math inline">\(\alpha\)</span>.</p>
 </div>
 <div id="modelo-gamma" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Modelo Gamma</h2>
@@ -421,16 +429,16 @@ f(t)=\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t); \ \ \  \lamb
 \]</span></p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
-S(t)=1-lg(\lambda t, \beta)
+S(t)=1-Ig(\lambda t, \beta)
 \]</span></p>
 <p>donde<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>:</p>
 <p><span class="math display">\[
-lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
+Ig(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
 \]</span>
 Al igual que un modelo <span class="math inline">\(Weibull(\lambda, alpha = 1)\)</span>, la distribución exponencial es un caso particular del modelo <span class="math inline">\(Gamma(\lambda,\beta = 1)\)</span>. Cuando <span class="math inline">\(\beta \rightarrow\infty\)</span>, modelo gamma se aproxima a una distribución normal.</p>
 <p><strong>Función de Riesgo</strong></p>
 <p><span class="math display">\[
-h(t)=\frac{f(t)}{S(t)}=\frac{\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t)}{1-lg(\lambda t, \beta)}
+h(t)=\frac{f(t)}{S(t)}=\frac{\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t)}{1-Ig(\lambda t, \beta)}
 \]</span></p>
 <p>Esta función de riesgo tiene distintos comportamientos:</p>
 <ul>
@@ -461,15 +469,15 @@ Var[T]=\frac{\beta}{\lambda^2}
 </div>
 <div id="modelo-gamma-generalizada" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Modelo Gamma Generalizada</h2>
-<p>Finalmente, se presenta el modelo Gamma Generalizada con parámetros <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> y <span class="math inline">\(\lambda\)</span>.</p>
+<p>Finalmente, se presenta el modelo Gamma Generalizada con dos parámetros de forma y un parámetro de que modifica la escala <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> y <span class="math inline">\(\lambda\)</span> respectivamente.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math inline">\(f(t)\)</span> está dada por:</p>
 <p><span class="math display">\[
-f(t)=\frac{\alpha\lambda^\beta}{\Gamma(\beta)}t^{\alpha\beta-1}\exp(-\lambda t)^\alpha; \ \ \  \lambda,\beta&gt;0
+f(t)=\frac{\alpha\lambda^{\beta\alpha}}{\Gamma(\beta)}t^{\alpha\beta-1}\exp(-\lambda t)^\alpha; \ \ \  \lambda,\alpha, \beta&gt;0
 \]</span></p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
-S(t)=1-lg(\lambda t^\alpha, \beta)
+S(t)=1-Ig((\lambda t)^\alpha, \beta)
 \]</span></p>
 <p>Esta distribución se reduce a las siguientes</p>
 <ul>
@@ -478,6 +486,15 @@ S(t)=1-lg(\lambda t^\alpha, \beta)
 <li><span class="math inline">\(Gamma\)</span> cuando <span class="math inline">\(\alpha = 1\)</span>.</li>
 <li>Tiende a la log-normal cuando <span class="math inline">\(\beta\rightarrow\infty\)</span>.</li>
 </ul>
+<p><strong>R</strong></p>
+<p>Para esta distribución se recomienda descargar y utilizar el paquete <code>ggamma</code>, en la cual vienen un conjunto de funciones similares a las anteriores. Aquí el respectivo sufijo será <code>*ggamma</code> y, de manera análoga a las anteriores funciones, se tiene lo siguiente:</p>
+<ul>
+<li><code>rggamma(n, a, b, k)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dggamma(x, a, b, k, log = F)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pggamma(p, a, b, k, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qggamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+</ul>
+<p>Para este caso, se tiene una parametrización de uso común en distintas fuentes. <code>a</code> = <span class="math inline">\(\frac{1}{\lambda}\)</span>, <code>b</code> = <span class="math inline">\(\alpha\)</span> y <code>k</code> = <span class="math inline">\(\beta\)</span>.</p>
 <div id="ejemplo-1" class="section level4 unnumbered">
 <h4>Ejemplo</h4>
 <p>El tiempo de vida en meses de cierta especie de ratón sigue una distribución <span class="math inline">\(gamma(\beta = 3, \lambda = 0.2)\)</span>.</p>

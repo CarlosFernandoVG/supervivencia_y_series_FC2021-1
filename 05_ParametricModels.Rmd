@@ -396,7 +396,7 @@ El modelo Log-Logístico es derivado de la distribución *Logística*. Se dice q
 **Función de Densidad**
 
 $$
-f(t)=\frac{\alpha \lambda t^{\alpha-1}}{(1+\lambda t^\alpha)^2}
+f(t)=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{(1+(\lambda t)^\alpha)^2}
 $$
 
 con $\alpha=\frac{1}{\sigma}$ y $\lambda=exp(-\frac{\mu}{\sigma})>0$. $\alpha$ es el parámetro de forma y $\lambda$ es el parámetro de escala.
@@ -405,13 +405,13 @@ con $\alpha=\frac{1}{\sigma}$ y $\lambda=exp(-\frac{\mu}{\sigma})>0$. $\alpha$ e
 **Función de Supervivencia**
 
 $$
-S(t)=\frac{1}{1+\lambda t^\alpha}
+S(t)=\frac{1}{1+(\lambda t)^\alpha}
 $$
 
 **Función de Riesgo**
 
 $$
-h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda t^{\alpha-1}}{1+\lambda t^\alpha}
+h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{1+(\lambda t)^\alpha}
 $$
 
 La función de riesgo es monótona decreciente para $\alpha \leq 1$, y para $\alpha> 1$ la función de riesgo crece hasta alcanzar un máximo en $t=(\frac{\alpha-1}{\lambda})^{\frac{1}{\alpha}}$ y luego decrece a cero cuando $t \rightarrow \infty$.
@@ -477,6 +477,15 @@ log_log_density+log_log_risk
 
 **R**
 
+Para esta distribución se recomienda descargar y utilizar el paquete `actuar`, en la cual vienen un conjunto de funciones similares a las anteriores, de hecho el sufijo respectivo será `*llogis` y, de manera análoga a las anteriores funciones, se tiene lo siguiente:
+
++ `rllogis(n, shape, rate = 1, scale = 1/rate)`: Muestra pseudo aleatoria de tamaño $n$.
++ `dllogis(x, shape, rate = 1, scale = 1/rate, log = FALSE)`: Valores de $f(x)$.
++ `pllogis(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
++ `qllogis(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
+
+En este caso, como en la exponencial y la weibull, `rate` correspondería al parámetro  $\lambda$ y `shape` al parámetro de forma $\alpha$.
+
 ## Modelo Gamma
 
 La distribución Gamma, que incluye a las distribuciones *exponencial* y *ji-cuadrada*, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: $\beta$ es el parámetro de forma y $\lambda$ es el parámetro que modifica de escala; estrictamente hablando $\lambda$ es la tasa: $\lambda =\frac{1}{s}$ donde $s$ sería el verdadero parámetro de escala.
@@ -492,20 +501,20 @@ $$
 **Función de Supervivencia**
 
 $$
-S(t)=1-lg(\lambda t, \beta)
+S(t)=1-Ig(\lambda t, \beta)
 $$
 
 donde[^5.3]:
 
 $$
-lg(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
+Ig(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
 $$
 Al igual que un modelo $Weibull(\lambda, alpha = 1)$, la distribución exponencial es un caso particular del modelo $Gamma(\lambda,\beta = 1)$. Cuando $\beta \rightarrow\infty$, modelo gamma se aproxima a una distribución normal.
 
 **Función de Riesgo**
 
 $$
-h(t)=\frac{f(t)}{S(t)}=\frac{\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t)}{1-lg(\lambda t, \beta)}
+h(t)=\frac{f(t)}{S(t)}=\frac{\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t)}{1-Ig(\lambda t, \beta)}
 $$
 
 Esta función de riesgo tiene distintos comportamientos:
@@ -605,20 +614,20 @@ Como en el caso de la exponencial, se recomienda tener precaución ya que el par
 
 ## Modelo Gamma Generalizada
 
-Finalmente, se presenta el modelo Gamma Generalizada con parámetros $\alpha$, $\beta$ y $\lambda$.
+Finalmente, se presenta el modelo Gamma Generalizada con dos parámetros de forma y un parámetro de que modifica la escala $\alpha$, $\beta$ y $\lambda$ respectivamente.
 
 **Función de Densidad**
 
 $f(t)$ está dada por:
 
 $$
-f(t)=\frac{\alpha\lambda^\beta}{\Gamma(\beta)}t^{\alpha\beta-1}\exp(-\lambda t)^\alpha; \ \ \  \lambda,\beta>0
+f(t)=\frac{\alpha\lambda^{\beta\alpha}}{\Gamma(\beta)}t^{\alpha\beta-1}\exp(-\lambda t)^\alpha; \ \ \  \lambda,\alpha, \beta>0
 $$
 
 **Función de Supervivencia**
 
 $$
-S(t)=1-lg(\lambda t^\alpha, \beta)
+S(t)=1-Ig((\lambda t)^\alpha, \beta)
 $$
 
 Esta distribución se reduce a las siguientes
@@ -628,6 +637,16 @@ Esta distribución se reduce a las siguientes
 + $Gamma$ cuando $\alpha = 1$.
 + Tiende a la log-normal cuando $\beta\rightarrow\infty$.
 
+**R**
+
+Para esta distribución se recomienda descargar y utilizar el paquete `ggamma`, en la cual vienen un conjunto de funciones similares a las anteriores. Aquí el respectivo sufijo será `*ggamma` y, de manera análoga a las anteriores funciones, se tiene lo siguiente:
+
++ `rggamma(n, a, b, k)`: Muestra pseudo aleatoria de tamaño $n$.
++ `dggamma(x, a, b, k, log = F)`: Valores de $f(x)$.
++ `pggamma(p, a, b, k, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
++ `qggamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
+
+Para este caso, se tiene una parametrización de uso común en distintas fuentes. `a` = $\frac{1}{\lambda}$, `b` = $\alpha$ y `k` = $\beta$.
 
 #### Ejemplo {-}
 
