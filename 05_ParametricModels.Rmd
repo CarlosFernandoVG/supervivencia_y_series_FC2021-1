@@ -438,9 +438,9 @@ log_log_density <- tibble(x = c(0,5)) %>%
         legend.spacing.x = unit(.2, 'cm'),
         legend.key.size = unit(.4, "cm"))+
   scale_color_manual(values = c("1" = "firebrick3", "2" = "deepskyblue4", "3" = "forestgreen"),
-                     labels = unname(TeX(c("$\\mu = 2$, $\\sigma^2 = 1$",
-                                           "$\\mu = 1$, $\\sigma^2 = 2$",
-                                           "$\\mu = 1$, $\\sigma^2 = 0.5$")))) +
+                     labels = unname(TeX(c("$\\alpha = 2$, $\\lambda = 1$",
+                                           "$\\alpha = 1$, $\\lambda = 2$",
+                                           "$\\alpha = 1$, $\\lambda = 0.5$")))) +
   labs(x = TeX("$t$"), y = TeX("$f(t)$")) +
   ggtitle("Función de Densidad") +
   lims(y=c(0,.7)) 
@@ -465,9 +465,9 @@ log_log_risk <- tibble(x = c(0,6)) %>%
         legend.spacing.x = unit(.2, 'cm'),
         legend.key.size = unit(.4, "cm"))+
   scale_color_manual(values = c("1" = "firebrick3", "2" = "deepskyblue4", "3" = "forestgreen"),
-                     labels = unname(TeX(c("$\\mu = 2$, $\\sigma^2 = 1$",
-                                           "$\\mu = 1$, $\\sigma^2 = 2$",
-                                           "$\\mu = 1$, $\\sigma^2 = 0.5$")))) +
+                     labels = unname(TeX(c("$\\alpha = 2$, $\\lambda = 1$",
+                                           "$\\alpha = 1$, $\\lambda = 2$",
+                                           "$\\alpha = 1$, $\\lambda = 0.5$")))) +
   lims(y = c(0,1))+
   labs(x = TeX("$t$"), y = TeX("$h(t)$"))+
   ggtitle("Función de Riesgo")
