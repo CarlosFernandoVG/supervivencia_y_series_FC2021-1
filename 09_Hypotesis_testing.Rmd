@@ -73,16 +73,15 @@ En consecuencia, en el momento $t_i$ habrá $d_i=d_{1i}+d_{2i}$ (fallas totales)
 
 ```{r}
 data_frame(Grupo = c("I", "II", "Totales"), 
-           "# fallos $t_{i}$" = c("$d_{1i}$", "$d_{2i}$", "$d_{i}$ "), 
-           "# de sobrevivientes $t_{i}$"=c("$n_{i1}-d_{1i}$", " $n_{2i}-d_{2i}$", "$n_{i}-d_{i}$"),
-           "# individuos en riesgo $t_{i}$" = c("$n_{1i}$", "$n_{2i}$", "$n_{i}$")) %>% 
+           "Fallos $t_{i}$" = c("$d_{1i}$", "$d_{2i}$", "$d_{i}$ "), 
+           "Sobrevivientes $t_{i}$"=c("$n_{i1}-d_{1i}$", " $n_{2i}-d_{2i}$", "$n_{i}-d_{i}$"),
+           "Individuos en riesgo $t_{i}$" = c("$n_{1i}$", "$n_{2i}$", "$n_{i}$")) %>% 
   kable(booktabs = T, align=rep('c'), escape = FALSE) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F) %>% 
   row_spec(0, bold = F) %>% 
   column_spec(1:3, border_right = T) %>% 
   row_spec(3, bold = T)
 ```
-
 
 Si se considera que en el momento $i$-ésimo se tiene una población formada por dos grupos, Grupo 1 y Grupo 2, y se define la variable aleatoria $d_{1i}$ como el número de eventos que ocurren en el Grupo 1 en el momento $t_i$. En ese momento se tiene una población de tamaño $n_i$ definida por el total de individuos en riesgo, clasificada en dos subpoblaciones de tamaños $n_{1i}$ (Grupo 1) y $n_{2i}$ (Grupo 2).
 

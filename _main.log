@@ -1,0 +1,2595 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  16 OCT 2020 17:44
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**_main.tex
+(./_main.tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen103
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks16
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks17
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/04/06 v1.3b Input encoding file
+\inpenc@prehook=\toks20
+\inpenc@posthook=\toks21
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1enc.dfu
+File: ts1enc.dfu 2018/04/05 v1.2c UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+FEFF (decimal 65279)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2018/01/14 v2.7a Micro-typographical refinements (RS)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+\MT@toks=\toks23
+\MT@count=\count101
+LaTeX Info: Redefining \textls on input line 793.
+\MT@outer@kern=\dimen112
+LaTeX Info: Redefining \textmicrotypecontext on input line 1339.
+\MT@listname@count=\count102
+(/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2018/01/14 v2.7a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 913.
+LaTeX Info: Redefining \lslig on input line 913.
+\MT@outer@space=\skip46
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2018/01/14 v2.7a microtype main configuration file (RS)
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2018/01/09 v 0.03 modify URL breaks
+(/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/bookmark.sty
+Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdfescape.sty
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
+Package hobsub Info: Skipping package `pdfescape' (already loaded).
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen113
+\Hy@linkcounter=\count103
+\Hy@pagecounter=\count104
+(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count105
+(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4383.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count106
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen114
+\Fld@menulength=\count107
+\Field@Width=\dimen115
+\Fld@charsize=\dimen116
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count108
+\c@Item=\count109
+\c@Hfootnote=\count110
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count111
+\c@bookmark@seq@number=\count112
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip47
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/bkm-pdftex.def
+File: bkm-pdftex.def 2016/05/17 v1.26 bookmark driver for pdfTeX (HO)
+\BKM@id=\count113
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip48
+\LTright=\skip49
+\LTpre=\skip50
+\LTpost=\skip51
+\LTchunksize=\count114
+\LTcapwidth=\dimen117
+\LT@head=\box28
+\LT@firsthead=\box29
+\LT@foot=\box30
+\LT@lastfoot=\box31
+\LT@cols=\count115
+\LT@rows=\count116
+\c@LT@tables=\count117
+\c@LT@chunks=\count118
+\LT@p@ftn=\toks24
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen118
+\lightrulewidth=\dimen119
+\cmidrulewidth=\dimen120
+\belowrulesep=\dimen121
+\belowbottomsep=\dimen122
+\aboverulesep=\dimen123
+\abovetopsep=\dimen124
+\cmidrulesep=\dimen125
+\cmidrulekern=\dimen126
+\defaultaddspace=\dimen127
+\@cmidla=\count119
+\@cmidlb=\count120
+\@aboverulesep=\dimen128
+\@belowrulesep=\dimen129
+\@thisruleclass=\count121
+\@lastruleclass=\count122
+\@thisrulewidth=\dimen130
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count123
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
+Package: footnotehyper 2018/01/23 v1.1 hyperref aware footnote.sty (JFB)
+\FNH@notes=\box32
+\FNH@width=\dimen131
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+)
+\Gin@req@height=\dimen132
+\Gin@req@width=\dimen133
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count124
+\U@D=\dimen134
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count125
+)
+\es@quottoks=\toks25
+\es@quotdepth=\count126
+Package babel Info: Making " an active character on input line 561.
+Package babel Info: Making < an active character on input line 707.
+Package babel Info: Making > an active character on input line 707.
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/u
+sr/local/texlive/2018/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/t
+exlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks26
+\pgfutil@tempdima=\dimen135
+\pgfutil@tempdimb=\dimen136
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box33
+(/usr/local/texlive/2018/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.te
+x
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/
+local/texlive/2018/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks27
+\pgfkeys@temptoks=\toks28
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks29
+))
+\pgf@x=\dimen137
+\pgf@y=\dimen138
+\pgf@xa=\dimen139
+\pgf@ya=\dimen140
+\pgf@xb=\dimen141
+\pgf@yb=\dimen142
+\pgf@xc=\dimen143
+\pgf@yc=\dimen144
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count127
+\c@pgf@countb=\count128
+\c@pgf@countc=\count129
+\c@pgf@countd=\count130
+\t@pgf@toka=\toks30
+\t@pgf@tokb=\toks31
+\t@pgf@tokc=\toks32
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count131
+\pgfsyssoftpath@bigbuffer@items=\count132
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr
+/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/
+local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen145
+\pgfmath@count=\count133
+\pgfmath@box=\box34
+\pgfmath@toks=\toks33
+\pgfmath@stack@operand=\toks34
+\pgfmath@stack@operation=\toks35
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex))) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/m
+ath/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count134
+))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen146
+\pgf@picmaxx=\dimen147
+\pgf@picminy=\dimen148
+\pgf@picmaxy=\dimen149
+\pgf@pathminx=\dimen150
+\pgf@pathmaxx=\dimen151
+\pgf@pathminy=\dimen152
+\pgf@pathmaxy=\dimen153
+\pgf@xx=\dimen154
+\pgf@xy=\dimen155
+\pgf@yx=\dimen156
+\pgf@yy=\dimen157
+\pgf@zx=\dimen158
+\pgf@zy=\dimen159
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen160
+\pgf@path@lasty=\dimen161
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen162
+\pgf@shorten@start@additional=\dimen163
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box35
+\pgf@hbox=\box36
+\pgf@layerbox@main=\box37
+\pgf@picture@serial@count=\count135
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen164
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen165
+\pgf@pt@y=\dimen166
+\pgf@pt@temp=\dimen167
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen168
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen169
+\pgf@sys@shading@range@num=\count136
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box38
+))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box39
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen170
+\pgf@nodesepend=\dimen171
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr
+/local/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/
+texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/loca
+l/texlive/2018/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/20
+18/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2018/
+texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen172
+\pgffor@skip=\dimen173
+\pgffor@stack=\toks36
+\pgffor@toks=\toks37
+))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count137
+\pgfplotmarksize=\dimen174
+)
+\tikz@lastx=\dimen175
+\tikz@lasty=\dimen176
+\tikz@lastxsaved=\dimen177
+\tikz@lastysaved=\dimen178
+\tikzleveldistance=\dimen179
+\tikzsiblingdistance=\dimen180
+\tikz@figbox=\box40
+\tikz@figbox@bg=\box41
+\tikz@tempbox=\box42
+\tikz@tempbox@bg=\box43
+\tikztreelevel=\count138
+\tikznumberofchildren=\count139
+\tikznumberofcurrentchild=\count140
+\tikz@fig@count=\count141
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count142
+\pgfmatrixcurrentcolumn=\count143
+\pgf@matrix@numberofcolumns=\count144
+)
+\tikz@expandcount=\count145
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+))) (/usr/local/texlive/2018/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count146
+\float@exts=\toks38
+\float@box=\box44
+\@float@everytoks=\toks39
+\@floatcapt=\box45
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip52
+\f@nch@O@elh=\skip53
+\f@nch@O@erh=\skip54
+\f@nch@O@olh=\skip55
+\f@nch@O@orh=\skip56
+\f@nch@O@elf=\skip57
+\f@nch@O@erf=\skip58
+\f@nch@O@olf=\skip59
+\f@nch@O@orf=\skip60
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count147
+\calc@Bcount=\count148
+\calc@Adimen=\dimen181
+\calc@Bdimen=\dimen182
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count149
+\calc@Cskip=\skip63
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks40
+\thm@bodyfont=\toks41
+\thm@headfont=\toks42
+\thm@notefont=\toks43
+\thm@headpunct=\toks44
+\thm@preskip=\skip64
+\thm@postskip=\skip65
+\thm@headsep=\skip66
+\dth@everypar=\toks45
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen183
+\captionmargin@=\dimen184
+\captionwidth=\dimen185
+\caption@tempdima=\dimen186
+\caption@indent=\dimen187
+\caption@parindent=\dimen188
+\caption@hangindent=\dimen189
+)
+\c@ContinuedFloat=\count150
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip67
+\fb@frw=\dimen190
+\fb@frh=\dimen191
+\FrameRule=\dimen192
+\FrameSep=\dimen193
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+\@indexfile=\write4
+\openout4 = `_main.idx'.
+
+Writing index file _main.idx
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
+\col@sep=\dimen194
+\ar@mcellbox=\box46
+\extrarowheight=\dimen195
+\NC@list=\toks46
+\extratabsurround=\skip68
+\backup@length=\skip69
+\ar@cellbox=\box47
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip70
+\multirow@cntb=\count151
+\multirow@dima=\skip71
+\bigstrutjot=\dimen196
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen197
+\WF@size=\dimen198
+\c@WF@wrappedlines=\count152
+\WF@box=\box48
+\WF@everypar=\toks47
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+\everycr=\toks48
+\minrowclearance=\skip72
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box49
+\sift@deathcycles=\count153
+\@vwid@loff=\dimen199
+\@vwid@roff=\dimen256
+)
+\c@taburow=\count154
+\tabu@nbcols=\count155
+\tabu@cnt=\count156
+\tabu@Xcol=\count157
+\tabu@alloc=\count158
+\tabu@nested=\count159
+\tabu@target=\dimen257
+\tabu@spreadtarget=\dimen258
+\tabu@naturalX=\dimen259
+\tabucolX=\dimen260
+\tabu@Xsum=\dimen261
+\extrarowdepth=\dimen262
+\abovetabulinesep=\dimen263
+\belowtabulinesep=\dimen264
+\tabustrutrule=\dimen265
+\tabu@thebody=\toks49
+\tabu@footnotes=\toks50
+\tabu@box=\box50
+\tabu@arstrutbox=\box51
+\tabu@hleads=\box52
+\tabu@vleads=\box53
+\tabu@cellskip=\skip73
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box54
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/threeparttablex/threeparttablex.s
+ty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(/usr/local/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+(/usr/local/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip74
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box55
+\UL@hyphenbox=\box56
+\UL@skip=\skip75
+\UL@hook=\toks51
+\UL@height=\dimen266
+\UL@pe=\count160
+\UL@pixel=\dimen267
+\ULC@box=\box57
+Package: ulem 2012/05/18
+\ULdepth=\dimen268
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen269
+\c@nlinenum=\count161
+\TeXr@lab=\toks52
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip76
+\bibsep=\skip77
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count162
+) (./_main.aux
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+
+LaTeX Warning: Label `ejemplos-del-caso-continuo-y-caso-discreto' multiply defi
+ned.
+
+
+LaTeX Warning: Label `ejemplo' multiply defined.
+
+
+LaTeX Warning: Label `caso-continuo' multiply defined.
+
+
+LaTeX Warning: Label `caso-discreto' multiply defined.
+
+
+LaTeX Warning: Label `caso-continuo-1' multiply defined.
+
+
+LaTeX Warning: Label `caso-discreto-1' multiply defined.
+
+
+LaTeX Warning: Label `caso-continuo-2' multiply defined.
+
+
+LaTeX Warning: Label `caso-discreto-2' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-1' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-2' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-1' multiply defined.
+
+
+LaTeX Warning: Label `censura-por-la-derecha-tipo-i' multiply defined.
+
+
+LaTeX Warning: Label `censura-por-la-derecha-tipo-ii' multiply defined.
+
+
+LaTeX Warning: Label `modelo-exponencial' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo' multiply defined.
+
+
+LaTeX Warning: Label `modelo-weibull' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-1' multiply defined.
+
+
+LaTeX Warning: Label `ejercicio' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-1' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-2' multiply defined.
+
+
+LaTeX Warning: Label `modelo-exponencial' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-3' multiply defined.
+
+
+LaTeX Warning: Label `modelo-weibull' multiply defined.
+
+
+LaTeX Warning: Label `modelo-log-loguxedstico' multiply defined.
+
+
+LaTeX Warning: Label `modelo-log-normal' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-1' multiply defined.
+
+
+LaTeX Warning: Label `ejercicio' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-1' multiply defined.
+
+
+LaTeX Warning: Label `ejemplo-2' multiply defined.
+
+)
+\openout1 = `_main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 209.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 209.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 209.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Info: Redefining \microtypecontext on input line 209.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+) (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count163
+\scratchdimen=\dimen270
+\scratchbox=\box58
+\nofMPsegments=\count164
+\nofMParguments=\count165
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count166
+\MPscratchDim=\dimen271
+\MPnumerator=\count167
+\makeMPintoPDFobject=\count168
+\everyMPtoPDFconversion=\toks54
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\AtBeginShipoutBox=\box59
+Package hyperref Info: Link coloring OFF on input line 209.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count169
+)
+LaTeX Info: Redefining \ref on input line 209.
+LaTeX Info: Redefining \pageref on input line 209.
+LaTeX Info: Redefining \nameref on input line 209.
+LaTeX Info: Redefining \. on input line 209.
+LaTeX Info: Redefining \% on input line 209.
+ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 211.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 211.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 211
+.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 211
+.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 211.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 211.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 211.
+LaTeX Font Info:    Try loading font information for U+msa on input line 211.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 211.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 211.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1
+
+
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+[2
+
+] (./_main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
+(Font)              using `T1/lmr/bx/n' instead on input line 2.
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 2.
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 3.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 4.
+
+Overfull \hbox (3.03255pt too wide) detected at line 4
+ [][]
+ []
+
+
+Overfull \hbox (6.27696pt too wide) detected at line 5
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 9.
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 10.
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 11.
+
+
+Overfull \hbox (9.16553pt too wide) detected at line 12
+ [][]
+ []
+
+
+Overfull \hbox (2.89891pt too wide) detected at line 13
+ [][]
+ []
+
+
+Overfull \hbox (12.40994pt too wide) detected at line 14
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 15.
+
+
+Overfull \hbox (9.03189pt too wide) detected at line 16
+ [][]
+ []
+
+
+Overfull \hbox (12.0541pt too wide) detected at line 17
+ [][]
+ []
+
+
+Overfull \hbox (12.0541pt too wide) detected at line 18
+ [][]
+ []
+
+
+Overfull \hbox (15.29851pt too wide) detected at line 19
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 20.
+
+
+Overfull \hbox (5.27731pt too wide) detected at line 22
+ [][]
+ []
+
+
+Overfull \hbox (4.03258pt too wide) detected at line 23
+ [][]
+ []
+
+
+Overfull \hbox (4.92146pt too wide) detected at line 24
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 27.
+
+[3]
+Overfull \hbox (1.14401pt too wide) detected at line 31
+ [][]
+ []
+
+
+Overfull \hbox (4.38843pt too wide) detected at line 32
+ [][]
+ []
+
+
+Overfull \hbox (4.38843pt too wide) detected at line 33
+ [][]
+ []
+
+
+Overfull \hbox (4.38843pt too wide) detected at line 34
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 35.
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 36.
+
+
+Overfull \hbox (4.92146pt too wide) detected at line 37
+ [][]
+ []
+
+
+Overfull \hbox (4.92146pt too wide) detected at line 38
+ [][]
+ []
+
+
+Overfull \hbox (1.89926pt too wide) detected at line 39
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 40.
+
+
+Overfull \hbox (11.4103pt too wide) detected at line 41
+ [][]
+ []
+
+
+Overfull \hbox (11.4103pt too wide) detected at line 42
+ [][]
+ []
+
+
+Overfull \hbox (11.05444pt too wide) detected at line 43
+ [][]
+ []
+
+
+Overfull \hbox (11.05444pt too wide) detected at line 44
+ [][]
+ []
+
+
+Overfull \hbox (14.29886pt too wide) detected at line 45
+ [][]
+ []
+
+
+Overfull \hbox (17.54327pt too wide) detected at line 46
+ [][]
+ []
+
+
+Overfull \hbox (17.54327pt too wide) detected at line 47
+ [][]
+ []
+
+
+Overfull \hbox (11.05444pt too wide) detected at line 48
+ [][]
+ []
+
+
+Overfull \hbox (11.05444pt too wide) detected at line 49
+ [][]
+ []
+
+
+Overfull \hbox (8.03224pt too wide) detected at line 50
+ [][]
+ []
+
+
+Overfull \hbox (11.05444pt too wide) detected at line 51
+ [][]
+ []
+
+
+Overfull \hbox (14.29886pt too wide) detected at line 52
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 53.
+
+
+Overfull \hbox (14.16522pt too wide) detected at line 54
+ [][]
+ []
+
+
+Overfull \hbox (20.43184pt too wide) detected at line 55
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 58.
+
+
+Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 59.
+
+
+Overfull \hbox (8.72131pt too wide) detected at line 60
+ [][]
+ []
+
+
+Overfull \hbox (11.96573pt too wide) detected at line 61
+ [][]
+ []
+
+
+Overfull \hbox (5.4769pt too wide) detected at line 62
+ [][]
+ []
+
+)
+\tf@toc=\write5
+\openout5 = `_main.toc'.
+
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
+[4]
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
+[5]
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
+[6
+
+] [7]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 245.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resource
+s/lib/libRblas.0.dylib[] 
+ []
+
+
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resource
+s/lib/libRlapack.dylib[] 
+ []
+
+
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [1] stats     graphics  grDevices utils     datasets  methods
+   base[] 
+ []
+
+
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 289--289
+[] \T1/lmtt/m/n/10 [1] httr_1.4.2        pkgload_1.1.0     splines_3.6.2     vi
+ridisLite_0.3.0[] 
+ []
+
+
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 289--289
+[] \T1/lmtt/m/n/10 [5] jsonlite_1.7.1    modelr_0.1.6      assertthat_0.2.1  ce
+llranger_1.1.0[] 
+ []
+
+
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 289--289
+[] \T1/lmtt/m/n/10 [9] yaml_2.2.1        remotes_2.1.1     sessioninfo_1.1.1 la
+ttice_0.20-40[] 
+ []
+
+
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [13] pillar_1.4.6      backports_1.1.10  glue_1.4.2        di
+gest_0.6.25[] 
+ []
+
+
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [17] rvest_0.3.5       colorspace_1.4-1  Matrix_1.2-18     ht
+mltools_0.4.0[] 
+ []
+
+
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [21] pkgconfig_2.0.3   broom_0.7.0       haven_2.2.0       bo
+okdown_0.20[] 
+ []
+
+
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [25] webshot_0.5.2     scales_1.1.1      processx_3.4.4    ge
+nerics_0.0.2[] 
+ []
+
+
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [29] ellipsis_0.3.1    withr_2.3.0       cli_2.0.2         ma
+grittr_1.5[] 
+ []
+
+
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [33] crayon_1.3.4      readxl_1.3.1      memoise_1.1.0     ev
+aluate_0.14[] 
+ []
+
+LaTeX Info: Redefining \. on input line 289.
+LaTeX Info: Redefining \% on input line 289.
+[8]
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [37] ps_1.3.4          fs_1.5.0          fansi_0.4.1       xm
+l2_1.2.2[] 
+ []
+
+
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [41] pkgbuild_1.1.0    tools_3.6.2       prettyunits_1.1.1 hm
+s_0.5.3[] 
+ []
+
+
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [45] expint_0.1-6      lifecycle_0.2.0   munsell_0.5.0     re
+prex_0.3.0[] 
+ []
+
+
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [49] callr_3.4.4       compiler_3.6.2    rlang_0.4.7       gr
+id_3.6.2[] 
+ []
+
+
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [53] rstudioapi_0.11   rmarkdown_2.3     testthat_2.3.2    gt
+able_0.3.0[] 
+ []
+
+
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [57] DBI_1.1.0         R6_2.4.1          lubridate_1.7.9   rp
+rojroot_1.3-2[] 
+ []
+
+
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 289--289
+[]\T1/lmtt/m/n/10 [61] desc_1.2.0        stringi_1.4.6     Rcpp_1.0.5        vc
+trs_0.3.4[] 
+ []
+
+LaTeX Info: Redefining \. on input line 344.
+LaTeX Info: Redefining \% on input line 344.
+[9]
+LaTeX Info: Redefining \. on input line 363.
+LaTeX Info: Redefining \% on input line 363.
+[10] [11
+
+] [12] [13
+
+] [14
+
+] [15]
+Overfull \hbox (8.74615pt too wide) in paragraph at lines 426--427
+[]\T1/lmr/m/n/10 (-20) Tiempos de In-fec-ción: 1.5,3.5,4.5,4.5,5.5,8.5,8.5,9.5,
+10.5,11.5,15.5,16.5,18.5,23.5,26.5 
+ []
+
+
+Overfull \hbox (112.00352pt too wide) in paragraph at lines 446--457
+ [][] 
+ []
+
+[16]
+<_main_files/figure-latex/unnamed-chunk-8-1.pdf, id=262, 459.7175pt x 272.01625
+pt>
+File: _main_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-8-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-8-1.pdf  used o
+n input line 477.
+(pdftex.def)             Requested size: 345.01875pt x 204.14865pt.
+
+Underfull \vbox (badness 6641) has occurred while \output is active []
+
+[17
+
+]
+<_main_files/figure-latex/unnamed-chunk-9-1.pdf, id=270, 459.7175pt x 272.01625
+pt>
+File: _main_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-9-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-9-1.pdf  used o
+n input line 490.
+(pdftex.def)             Requested size: 345.01875pt x 204.14865pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+[18 <./_main_files/figure-latex/unnamed-chunk-8-1.pdf>]
+<_main_files/figure-latex/unnamed-chunk-10-1.pdf, id=289, 459.7175pt x 272.0162
+5pt>
+File: _main_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-10-1.pdf  used 
+on input line 505.
+(pdftex.def)             Requested size: 345.01875pt x 204.14865pt.
+
+Underfull \vbox (badness 2626) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 505.
+LaTeX Info: Redefining \% on input line 505.
+[19 <./_main_files/figure-latex/unnamed-chunk-9-1.pdf>]
+Underfull \vbox (badness 4505) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 524.
+LaTeX Info: Redefining \% on input line 524.
+[20 <./_main_files/figure-latex/unnamed-chunk-10-1.pdf>]
+LaTeX Info: Redefining \. on input line 534.
+LaTeX Info: Redefining \% on input line 534.
+[21]
+LaTeX Info: Redefining \. on input line 534.
+LaTeX Info: Redefining \% on input line 534.
+[22
+
+] [23]
+LaTeX Info: Redefining \. on input line 566.
+LaTeX Info: Redefining \% on input line 566.
+[24
+
+] [25] [26] [27
+
+]
+<_main_files/figure-latex/two-example-survival-functions-1.pdf, id=385, 449.68p
+t x 268.00125pt>
+File: _main_files/figure-latex/two-example-survival-functions-1.pdf Graphic fil
+e (type pdf)
+<use _main_files/figure-latex/two-example-survival-functions-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/two-example-survival-function
+s-1.pdf  used on input line 622.
+(pdftex.def)             Requested size: 345.01273pt x 205.62141pt.
+LaTeX Info: Redefining \. on input line 630.
+LaTeX Info: Redefining \% on input line 630.
+[28 <./_main_files/figure-latex/two-example-survival-functions-1.pdf>]
+<_main_files/figure-latex/unnamed-chunk-11-1.pdf, id=404, 460.72125pt x 278.038
+76pt>
+File: _main_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-11-1.pdf  used 
+on input line 653.
+(pdftex.def)             Requested size: 344.99878pt x 208.20187pt.
+pdfTeX warning (ext4): destination with the same identifier (name{ejemplos-del-
+caso-continuo-y-caso-discreto}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.664 ...mplos-del-caso-continuo-y-caso-discreto}}
+                                                  
+LaTeX Info: Redefining \. on input line 670.
+LaTeX Info: Redefining \% on input line 670.
+[29 <./_main_files/figure-latex/unnamed-chunk-11-1.pdf>]
+Overfull \hbox (106.23836pt too wide) detected at line 684
+\OML/lmm/m/it/10 h\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) = [] []\
+U/msb/m/n/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t < T \OMS/lmsy/m/n/10 ^^T \OML
+/lmm/m/it/10 t \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 \OMS/lmsy/m/n/10 j\OML/lmm/m
+/it/10 T \OMS/lmsy/m/n/10 ^^U \OML/lmm/m/it/10 t\OT1/lmr/m/n/10 )[]  = [] [][][
+]  = [] [][] = []
+ []
+
+LaTeX Info: Redefining \. on input line 708.
+LaTeX Info: Redefining \% on input line 708.
+[30]
+<_main_files/figure-latex/unnamed-chunk-12-1.pdf, id=434, 459.7175pt x 276.0312
+5pt>
+File: _main_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-12-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-12-1.pdf  used 
+on input line 710.
+(pdftex.def)             Requested size: 345.01875pt x 207.16191pt.
+LaTeX Info: Redefining \. on input line 724.
+LaTeX Info: Redefining \% on input line 724.
+[31 <./_main_files/figure-latex/unnamed-chunk-12-1.pdf>]
+Overfull \hbox (28.64429pt too wide) detected at line 754
+\OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 ) = []\O
+ML/lmm/m/it/10 S\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 ) = \OML/l
+mm/m/it/10 h\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 )\OML/lmm/m/it
+/10 S\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 
+h\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 ) [] [] = \OML/lmm/m/it/1
+0 h\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 ) [](1 \OMS/lmsy/m/n/10
+ ^^@ \OML/lmm/m/it/10 h\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u[]\OT1/lmr/m/n/10 ))
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{ejemplo}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.765 \subsubsection*{Ejemplo}\label{ejemplo}}
+                                              
+LaTeX Info: Redefining \. on input line 772.
+LaTeX Info: Redefining \% on input line 772.
+[32]
+<_main_files/figure-latex/unnamed-chunk-13-1.pdf, id=463, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-13-1.pdf  used 
+on input line 790.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+LaTeX Info: Redefining \. on input line 808.
+LaTeX Info: Redefining \% on input line 808.
+[33 <./_main_files/figure-latex/unnamed-chunk-13-1.pdf>]
+LaTeX Info: Redefining \. on input line 839.
+LaTeX Info: Redefining \% on input line 839.
+[34]pdfTeX warning (ext4): destination with the same identifier (name{caso-cont
+inuo}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.847 ...ion*{Caso continuo}\label{caso-continuo}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{caso-discreto}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.859 ...ion*{Caso discreto}\label{caso-discreto}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{caso-continuo-1}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.874 ...n*{Caso continuo}\label{caso-continuo-1}}
+                                                   [35
+
+]pdfTeX warning (ext4): destination with the same identifier (name{caso-discret
+o-1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.896 ...n*{Caso discreto}\label{caso-discreto-1}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{caso-continuo-2}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.913 ...n*{Caso continuo}\label{caso-continuo-2}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{caso-discreto-2}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.923 ...n*{Caso discreto}\label{caso-discreto-2}}
+                                                  
+LaTeX Info: Redefining \. on input line 928.
+LaTeX Info: Redefining \% on input line 928.
+[36]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 933.
+pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.963 \subsubsection*{Ejemplo 1}\label{ejemplo-1}}
+                                                  
+LaTeX Info: Redefining \. on input line 977.
+LaTeX Info: Redefining \% on input line 977.
+[37]
+<_main_files/figure-latex/unnamed-chunk-14-1.pdf, id=520, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-14-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-14-1.pdf  used 
+on input line 984.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-2}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.987 \subsubsection*{Ejemplo 2}\label{ejemplo-2}}
+                                                  
+LaTeX Info: Redefining \. on input line 1020.
+LaTeX Info: Redefining \% on input line 1020.
+[38 <./_main_files/figure-latex/unnamed-chunk-14-1.pdf>]
+Overfull \hbox (38.86823pt too wide) detected at line 1029
+\OML/lmm/m/it/10 mrl\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \U/m
+sb/m/n/10 E\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 T \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/
+n/10 75\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 T > \OT1/lmr/m/n/10 75) = [] = [] = [
+]
+ []
+
+
+Overfull \hbox (41.95251pt too wide) detected at line 1032
+ \OT1/lmr/m/n/10 =[]\OMS/lmsy/m/n/10 )  \OML/lmm/m/it/10 mrl\OT1/lmr/m/n/10 (75
+) = [] [][](\OML/lmm/m/it/10 t \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 75)\OML/lmm
+/m/it/10 dt \OT1/lmr/m/n/10 = [] [] \OMS/lmsy/m/n/10 ^^@ [] \OT1/lmr/m/n/10 = [
+] = 12\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 5
+ []
+
+LaTeX Info: Redefining \. on input line 1043.
+LaTeX Info: Redefining \% on input line 1043.
+[39]
+LaTeX Info: Redefining \. on input line 1043.
+LaTeX Info: Redefining \% on input line 1043.
+[40
+
+] [41]
+<_main_files/figure-latex/unnamed-chunk-15-1.pdf, id=564, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-15-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-15-1.pdf  used 
+on input line 1099.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+
+Underfull \vbox (badness 4132) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1099.
+LaTeX Info: Redefining \% on input line 1099.
+[42]
+LaTeX Info: Redefining \. on input line 1125.
+LaTeX Info: Redefining \% on input line 1125.
+[43 <./_main_files/figure-latex/unnamed-chunk-15-1.pdf>]
+Overfull \hbox (9.98465pt too wide) detected at line 1137
+\OML/lmm/m/it/10 S\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) = \OML/l
+mm/m/it/10 exp [] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 exp [] \OT1/lmr/m/n/10 = \
+OML/lmm/m/it/10 exp\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 (\OML/l
+mm/m/it/10 ^^Ut\OT1/lmr/m/n/10 )[]) = \OML/lmm/m/it/10 e[]
+ []
+
+
+Overfull \hbox (11.7006pt too wide) detected at line 1162
+\OML/lmm/m/it/10 Var\OT1/lmr/m/n/10 [\OML/lmm/m/it/10 T\OT1/lmr/m/n/10 ] = []^^
+@ [] \OMS/lmsy/m/n/10 ^^@ [][] []  \OT1/lmr/m/n/10 = [] []
+ []
+
+<_main_files/figure-latex/unnamed-chunk-16-1.pdf, id=589, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-16-1.pdf  used 
+on input line 1169.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+LaTeX Info: Redefining \. on input line 1169.
+LaTeX Info: Redefining \% on input line 1169.
+[44]
+<_main_files/figure-latex/unnamed-chunk-17-1.pdf, id=594, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-17-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-17-1.pdf  used 
+on input line 1173.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+LaTeX Info: Redefining \. on input line 1180.
+LaTeX Info: Redefining \% on input line 1180.
+[45 <./_main_files/figure-latex/unnamed-chunk-16-1.pdf> <./_main_files/figure-l
+atex/unnamed-chunk-17-1.pdf
+
+pdfTeX warning: pdflatex (file ./_main_files/figure-latex/unnamed-chunk-17-1.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 1188--1190
+[]\T1/lmtt/m/n/10 pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1190--1191
+[]\T1/lmtt/m/n/10 qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p =
+ []
+
+
+Overfull \hbox (8.45029pt too wide) detected at line 1218
+\OML/lmm/m/it/10 S\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) = [][] \
+OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u\OT1/lmr/m/n/10 )\OML/lmm/m
+/it/10 du[]  \OT1/lmr/m/n/10 = 1 \OMS/lmsy/m/n/10 ^^@ [][] \OML/lmm/m/it/10 f\O
+T1/lmr/m/n/10 (\OML/lmm/m/it/10 u\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 du[]  \OT1/l
+mr/m/n/10 = 1 \OMS/lmsy/m/n/10 ^^@ [][] []\OML/lmm/m/it/10 exp [] du
+ []
+
+LaTeX Info: Redefining \. on input line 1218.
+LaTeX Info: Redefining \% on input line 1218.
+[46]
+<_main_files/figure-latex/unnamed-chunk-18-1.pdf, id=651, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-18-1.pdf  used 
+on input line 1255.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+LaTeX Info: Redefining \. on input line 1255.
+LaTeX Info: Redefining \% on input line 1255.
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 1268--1270
+[]\T1/lmtt/m/n/10 plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1270--1271
+[]\T1/lmtt/m/n/10 qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p =
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{ejemplo}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1276 \subsubsection*{Ejemplo}\label{ejemplo}}
+                                               
+LaTeX Info: Redefining \. on input line 1303.
+LaTeX Info: Redefining \% on input line 1303.
+[48 <./_main_files/figure-latex/unnamed-chunk-18-1.pdf>]
+<_main_files/figure-latex/unnamed-chunk-19-1.pdf, id=688, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-19-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-19-1.pdf  used 
+on input line 1347.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+LaTeX Info: Redefining \. on input line 1347.
+LaTeX Info: Redefining \% on input line 1347.
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1360--1362
+[]\T1/lmtt/m/n/10 pllogis(q, shape, rate = 1, scale = 1/rate, lower.tail =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1363
+[]\T1/lmtt/m/n/10 qllogis(p, shape, rate = 1, scale = 1/rate, lower.tail =
+ []
+
+LaTeX Info: Redefining \. on input line 1374.
+LaTeX Info: Redefining \% on input line 1374.
+[50 <./_main_files/figure-latex/unnamed-chunk-19-1.pdf>]
+LaTeX Info: Redefining \. on input line 1426.
+LaTeX Info: Redefining \% on input line 1426.
+[51]
+<_main_files/figure-latex/unnamed-chunk-20-1.pdf, id=740, 449.68pt x 265.99374p
+t>
+File: _main_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-20-1.pdf  used 
+on input line 1426.
+(pdftex.def)             Requested size: 345.01273pt x 204.08118pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1441
+[]\T1/lmtt/m/n/10 pgamma(q, shape, rate = 1, scale = 1/rate, lower.tail =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1441--1442
+[]\T1/lmtt/m/n/10 qgamma(p, shape, rate = 1, scale = 1/rate, lower.tail =
+ []
+
+LaTeX Info: Redefining \. on input line 1457.
+LaTeX Info: Redefining \% on input line 1457.
+[52 <./_main_files/figure-latex/unnamed-chunk-20-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1492--1493
+[]\T1/lmtt/m/n/10 qggamma(p, shape, rate = 1, scale = 1/rate, lower.tail =
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1498 \subsubsection*{Ejemplo}\label{ejemplo-1}}
+                                                 
+LaTeX Info: Redefining \. on input line 1530.
+LaTeX Info: Redefining \% on input line 1530.
+[53]
+LaTeX Info: Redefining \. on input line 1530.
+LaTeX Info: Redefining \% on input line 1530.
+[54
+
+] [55]pdfTeX warning (ext4): destination with the same identifier (name{censura
+-por-la-derecha-tipo-i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1572 ...I}\label{censura-por-la-derecha-tipo-i}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{censura-por-la-derecha-tipo-ii}) has been 
+already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1604 ...}\label{censura-por-la-derecha-tipo-ii}}
+                                                  
+LaTeX Info: Redefining \. on input line 1608.
+LaTeX Info: Redefining \% on input line 1608.
+
+Overfull \hbox (8.6687pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 LA FUNCIÓN DE VEROSIMILITUD CON CENSURA Y TRUNCAMIENTO
+ []
+
+[56]
+LaTeX Info: Redefining \. on input line 1658.
+LaTeX Info: Redefining \% on input line 1658.
+[57]pdfTeX warning (ext4): destination with the same identifier (name{modelo-ex
+ponencial}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1687 ... Exponencial}\label{modelo-exponencial}}
+                                                  
+LaTeX Info: Redefining \. on input line 1697.
+LaTeX Info: Redefining \% on input line 1697.
+
+Overfull \hbox (15.15753pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 LA FUNCIÓN DE VEROSIMILITUD CON CENSURA Y TRUNCAMIENTO
+ []
+
+[58]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1729 \subsubsection*{Ejemplo}\label{ejemplo}}
+                                               
+Underfull \vbox (badness 2326) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1755.
+LaTeX Info: Redefining \% on input line 1755.
+[59]pdfTeX warning (ext4): destination with the same identifier (name{modelo-we
+ibull}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1785 ...*{Modelo Weibull}\label{modelo-weibull}}
+                                                  
+LaTeX Info: Redefining \. on input line 1816.
+LaTeX Info: Redefining \% on input line 1816.
+
+Overfull \hbox (6.53539pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 LA FUNCIÓN DE VEROSIMILITUD CON CENSURA Y TRUNCAMIENTO
+ []
+
+[60]
+LaTeX Info: Redefining \. on input line 1856.
+LaTeX Info: Redefining \% on input line 1856.
+[61]
+LaTeX Info: Redefining \. on input line 1858.
+LaTeX Info: Redefining \% on input line 1858.
+
+Overfull \hbox (12.802pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 LA FUNCIÓN DE VEROSIMILITUD CON CENSURA Y TRUNCAMIENTO
+ []
+
+[62] [63
+
+] [64]
+Underfull \vbox (badness 3260) has occurred while \output is active []
+
+[65
+
+]
+LaTeX Info: Redefining \. on input line 1942.
+LaTeX Info: Redefining \% on input line 1942.
+
+Overfull \hbox (28.60779pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 MODELOS NO PARAMÉTRICOS PARA LA FUNCIÓN DE SUPERVIVENCIA
+ []
+
+[66]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1957 \subsubsection*{Ejemplo}\label{ejemplo}}
+                                               
+Overfull \hbox (67.41623pt too wide) in paragraph at lines 1970--2001
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1571) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 2002.
+LaTeX Info: Redefining \% on input line 2002.
+[67]
+<_main_files/figure-latex/survival-actuar-example-1.pdf, id=869, 459.7175pt x 2
+79.0425pt>
+File: _main_files/figure-latex/survival-actuar-example-1.pdf Graphic file (type
+ pdf)
+<use _main_files/figure-latex/survival-actuar-example-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/survival-actuar-example-1.pdf
+  used on input line 2030.
+(pdftex.def)             Requested size: 345.01875pt x 209.42186pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2038--2038
+[]\T1/lmr/bx/n/14.4 Estimador Producto-Límite (Kaplan-
+ []
+
+LaTeX Info: Redefining \. on input line 2042.
+LaTeX Info: Redefining \% on input line 2042.
+
+Overfull \hbox (35.09662pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 MODELOS NO PARAMÉTRICOS PARA LA FUNCIÓN DE SUPERVIVENCIA
+ []
+
+[68]
+Underfull \vbox (badness 2173) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 2060.
+LaTeX Info: Redefining \% on input line 2060.
+[69 <./_main_files/figure-latex/survival-actuar-example-1.pdf>]
+LaTeX Info: Redefining \. on input line 2110.
+LaTeX Info: Redefining \% on input line 2110.
+
+Overfull \hbox (25.58559pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 MODELOS NO PARAMÉTRICOS PARA LA FUNCIÓN DE SUPERVIVENCIA
+ []
+
+[70]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2125 \subsubsection*{Ejemplo}\label{ejemplo-1}}
+                                                 
+LaTeX Info: Redefining \. on input line 2165.
+LaTeX Info: Redefining \% on input line 2165.
+[71]
+<_main_files/figure-latex/unnamed-chunk-25-1.pdf, id=905, 459.7175pt x 279.0425
+pt>
+File: _main_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-25-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-25-1.pdf  used 
+on input line 2165.
+(pdftex.def)             Requested size: 345.01875pt x 209.42186pt.
+LaTeX Info: Redefining \. on input line 2184.
+LaTeX Info: Redefining \% on input line 2184.
+
+Overfull \hbox (31.8522pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 MODELOS NO PARAMÉTRICOS PARA LA FUNCIÓN DE SUPERVIVENCIA
+ []
+
+[72 <./_main_files/figure-latex/unnamed-chunk-25-1.pdf>] [73
+
+]
+Underfull \hbox (badness 2173) in paragraph at lines 2255--2257
+[]\T1/lmr/m/n/10 (+20) Cuando $\OML/lmm/m/it/10 n \OMS/lmsy/m/n/10 ! 1$\T1/lmr/
+m/n/10 (+20) , $[]\OT1/lmr/m/n/10 (+20) (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 (+20
+) )$ \T1/lmr/m/n/10 (+20) tie-ne una dis-tri-bu-ción nor-mal: $[]\OT1/lmr/m/n/1
+0 (+20) (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 (+20) ) \OMS/lmsy/m/n/10 ^^X
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{ejercicio}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2261 ...subsection*{Ejercicio}\label{ejercicio}}
+                                                  
+LaTeX Info: Redefining \. on input line 2271.
+LaTeX Info: Redefining \% on input line 2271.
+
+Overfull \hbox (4.25671pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 ALGUNAS ESTIMACIONES SOBRE MODELOS NO PARAMÉTRICOS
+ []
+
+[74]
+<_main_files/figure-latex/unnamed-chunk-27-1.pdf, id=938, 459.7175pt x 279.0425
+pt>
+File: _main_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-27-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-27-1.pdf  used 
+on input line 2294.
+(pdftex.def)             Requested size: 345.01875pt x 209.42186pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 2301.
+LaTeX Info: Redefining \% on input line 2301.
+
+Overfull \hbox (8.85938pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 0.28.  ESTIMACIÓN DE LA VARIANZA PARA EL ESTIMADOR DE $\OML/lmm
+/m/it/10 S\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 T\OT1/lmr/m/n/10 )$ []
+ []
+
+[75 <./_main_files/figure-latex/unnamed-chunk-27-1.pdf>]pdfTeX warning (ext4): 
+destination with the same identifier (name{ejemplo}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.2342 \subsubsection*{Ejemplo}\label{ejemplo}}
+                                               
+LaTeX Info: Redefining \. on input line 2347.
+LaTeX Info: Redefining \% on input line 2347.
+
+Overfull \hbox (4.25671pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 ALGUNAS ESTIMACIONES SOBRE MODELOS NO PARAMÉTRICOS
+ []
+
+[76]
+LaTeX Info: Redefining \. on input line 2395.
+LaTeX Info: Redefining \% on input line 2395.
+[77]
+LaTeX Info: Redefining \. on input line 2439.
+LaTeX Info: Redefining \% on input line 2439.
+
+Overfull \hbox (10.74554pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 ALGUNAS ESTIMACIONES SOBRE MODELOS NO PARAMÉTRICOS
+ []
+
+[78]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2453 \subsubsection*{Ejemplo}\label{ejemplo-1}}
+                                                 
+<_main_files/figure-latex/unnamed-chunk-29-1.pdf, id=975, 459.7175pt x 279.0425
+pt>
+File: _main_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-29-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-29-1.pdf  used 
+on input line 2464.
+(pdftex.def)             Requested size: 345.01875pt x 209.42186pt.
+
+Underfull \vbox (badness 1127) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 2464.
+LaTeX Info: Redefining \% on input line 2464.
+
+Overfull \hbox (3.5681pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 0.33.  DIAGNÓSTICO PARA EL USO DE MODELOS PARAMÉTRICOS []
+ []
+
+[79]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2480 \subsubsection*{Ejemplo}\label{ejemplo-2}}
+                                                 
+<_main_files/figure-latex/unnamed-chunk-30-1.pdf, id=984, 459.7175pt x 277.035p
+t>
+File: _main_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-30-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-30-1.pdf  used 
+on input line 2485.
+(pdftex.def)             Requested size: 345.01875pt x 207.91522pt.
+
+Underfull \vbox (badness 2512) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 2485.
+LaTeX Info: Redefining \% on input line 2485.
+
+Overfull \hbox (1.23451pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 ALGUNAS ESTIMACIONES SOBRE MODELOS NO PARAMÉTRICOS
+ []
+
+[80 <./_main_files/figure-latex/unnamed-chunk-29-1.pdf>]
+<_main_files/figure-latex/unnamed-chunk-31-1.pdf, id=1009, 459.7175pt x 277.035
+pt>
+File: _main_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-31-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-31-1.pdf  used 
+on input line 2496.
+(pdftex.def)             Requested size: 345.01875pt x 207.91522pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 2496.
+LaTeX Info: Redefining \% on input line 2496.
+
+Overfull \hbox (3.5681pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 0.33.  DIAGNÓSTICO PARA EL USO DE MODELOS PARAMÉTRICOS []
+ []
+
+[81 <./_main_files/figure-latex/unnamed-chunk-30-1.pdf>]pdfTeX warning (ext4): 
+destination with the same identifier (name{modelo-exponencial}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2504 ... Exponencial}\label{modelo-exponencial}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{ejemplo-3}) has been already used, duplica
+te ignored
+<to be read again> 
+                   \relax 
+l.2520 \subsubsection*{Ejemplo}\label{ejemplo-3}}
+                                                 
+LaTeX Info: Redefining \. on input line 2524.
+LaTeX Info: Redefining \% on input line 2524.
+
+Overfull \hbox (7.50113pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 ALGUNAS ESTIMACIONES SOBRE MODELOS NO PARAMÉTRICOS
+ []
+
+[82 <./_main_files/figure-latex/unnamed-chunk-31-1.pdf>]
+<_main_files/figure-latex/unnamed-chunk-32-1.pdf, id=1050, 459.7175pt x 277.035
+pt>
+File: _main_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-32-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-32-1.pdf  used 
+on input line 2525.
+(pdftex.def)             Requested size: 345.01875pt x 207.91522pt.
+pdfTeX warning (ext4): destination with the same identifier (name{modelo-weibul
+l}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2530 ...*{Modelo Weibull}\label{modelo-weibull}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{modelo-log-loguxedstico}) has been already
+ used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2550 ...Ã­stico}\label{modelo-log-loguxedstico}}
+                                                  
+LaTeX Info: Redefining \. on input line 2555.
+LaTeX Info: Redefining \% on input line 2555.
+
+Overfull \hbox (10.05693pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 0.33.  DIAGNÓSTICO PARA EL USO DE MODELOS PARAMÉTRICOS []
+ []
+
+[83 <./_main_files/figure-latex/unnamed-chunk-32-1.pdf>]pdfTeX warning (ext4): 
+destination with the same identifier (name{modelo-log-normal}) has been already
+ used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2570 ...lo Log-Normal}\label{modelo-log-normal}}
+                                                  
+LaTeX Info: Redefining \. on input line 2578.
+LaTeX Info: Redefining \% on input line 2578.
+
+Overfull \hbox (10.3897pt too wide) has occurred while \output is active
+[] \T1/lmr/m/sl/10 ALGUNAS ESTIMACIONES SOBRE MODELOS NO PARAMÉTRICOS
+ []
+
+[84] [85
+
+]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2627 \subsubsection*{Ejemplo}\label{ejemplo}}
+                                               
+LaTeX Info: Redefining \. on input line 2634.
+LaTeX Info: Redefining \% on input line 2634.
+[86]
+LaTeX Info: Redefining \. on input line 2674.
+LaTeX Info: Redefining \% on input line 2674.
+[87]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2715 \subsubsection*{Ejemplo}\label{ejemplo-1}}
+                                                 
+LaTeX Info: Redefining \. on input line 2736.
+LaTeX Info: Redefining \% on input line 2736.
+[88]
+<_main_files/figure-latex/unnamed-chunk-35-1.pdf, id=1101, 459.7175pt x 279.042
+5pt>
+File: _main_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-35-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-35-1.pdf  used 
+on input line 2740.
+(pdftex.def)             Requested size: 345.01875pt x 209.42186pt.
+
+Overfull \hbox (8.49187pt too wide) in paragraph at lines 2748--2776
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 2777.
+LaTeX Info: Redefining \% on input line 2777.
+[89 <./_main_files/figure-latex/unnamed-chunk-35-1.pdf>]
+LaTeX Info: Redefining \. on input line 2804.
+LaTeX Info: Redefining \% on input line 2804.
+[90]pdfTeX warning (ext4): destination with the same identifier (name{ejercicio
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2834 ...subsection*{Ejercicio}\label{ejercicio}}
+                                                  
+Overfull \hbox (2.16983pt too wide) detected at line 2846
+\OML/lmm/m/it/10 H[] \OT1/lmr/m/n/10 : \OML/lmm/m/it/10 S[]\OT1/lmr/m/n/10 (\OM
+L/lmm/m/it/10 t\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 S[]\OT1/lmr/m/n/10 (\OML/lm
+m/m/it/10 t\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 ::: \OT1/lmr/m/n/10 = \OML/lmm/
+m/it/10 S[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 )\OMS/lmsy/m/n/10
+ 8\OML/lmm/m/it/10 t[]H[] \OT1/lmr/m/n/10 : \OML/lmm/m/it/10 S[]\OT1/lmr/m/n/10
+ (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 = \OML/
+lmm/m/it/10 S[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 )[]\OML/lmm/m
+/it/10 r \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 = \OML/lmm/m/it/10 s\OT1/lmr/m/n/10 
+; \OML/lmm/m/it/10 r; s \OT1/lmr/m/n/10 = 1\OML/lmm/m/it/10 ; :::; m
+ []
+
+LaTeX Info: Redefining \. on input line 2849.
+LaTeX Info: Redefining \% on input line 2849.
+[91]
+LaTeX Info: Redefining \. on input line 2871.
+LaTeX Info: Redefining \% on input line 2871.
+[92] [93
+
+] [94] [95
+
+]
+LaTeX Info: Redefining \. on input line 2957.
+LaTeX Info: Redefining \% on input line 2957.
+[96]
+<_main_files/figure-latex/unnamed-chunk-37-1.pdf, id=1157, 448.67625pt x 266.99
+75pt>
+File: _main_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-37-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-37-1.pdf  used 
+on input line 2962.
+(pdftex.def)             Requested size: 345.00938pt x 205.30759pt.
+LaTeX Info: Redefining \. on input line 2996.
+LaTeX Info: Redefining \% on input line 2996.
+[97 <./_main_files/figure-latex/unnamed-chunk-37-1.pdf>]
+LaTeX Info: Redefining \. on input line 3044.
+LaTeX Info: Redefining \% on input line 3044.
+[98]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3086 ...subsection*{Ejemplo 1}\label{ejemplo-1}}
+                                                  
+LaTeX Info: Redefining \. on input line 3091.
+LaTeX Info: Redefining \% on input line 3091.
+[99]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3136 ...subsection*{Ejemplo 2}\label{ejemplo-2}}
+                                                  
+LaTeX Info: Redefining \. on input line 3160.
+LaTeX Info: Redefining \% on input line 3160.
+[100]
+LaTeX Info: Redefining \. on input line 3212.
+LaTeX Info: Redefining \% on input line 3212.
+[101]
+LaTeX Info: Redefining \. on input line 3263.
+LaTeX Info: Redefining \% on input line 3263.
+[102]
+LaTeX Info: Redefining \. on input line 3302.
+LaTeX Info: Redefining \% on input line 3302.
+
+Overfull \hbox (246.16055pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 0.42.  ESTIMACIÓN DE $\OML/lmm/m/it/10 S\OT1/lmr/m/n/10 (\OML/l
+mm/m/it/10 T\OT1/lmr/m/n/10 )$ \T1/lmr/m/sl/10 DESPUÉS DE OBTENER LAS ESTIMACIO
+NES DE LOS PARÁMETROS DEL MODELO DE COX []
+ []
+
+[103]
+<_main_files/figure-latex/unnamed-chunk-38-1.pdf, id=1219, 460.72125pt x 277.03
+5pt>
+File: _main_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-38-1.pdf>
+Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-38-1.pdf  used 
+on input line 3308.
+(pdftex.def)             Requested size: 344.99878pt x 207.45024pt.
+LaTeX Info: Redefining \. on input line 3334.
+LaTeX Info: Redefining \% on input line 3334.
+[104 <./_main_files/figure-latex/unnamed-chunk-38-1.pdf>]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3334
+.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) (./_main.bbl
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (98.15121pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 0.44.  EXTENSIÓN DEL MODELO DE COX A COVARIABLES DEPENDIENTES D
+EL TIEMPO []
+ []
+
+[105]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[106
+
+]) [107]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3376.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3376.
+(./_main.aux
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3376.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3376.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3376.
+ ) 
+Here is how much of TeX's memory you used:
+ 26883 strings out of 492649
+ 466049 string characters out of 6129622
+ 566344 words of memory out of 5000000
+ 29601 multiletter control sequences out of 15000+600000
+ 137895 words of font info for 205 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,19n,54p,1195b,658s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/t
+exlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018/te
+xmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2018/texmf-dist/fonts
+/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips
+/lm/lm-mathsy.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mat
+hex.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2018/texmf-dis
+t/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
+ype1/public/lm/lmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
+ic/lm/lmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2018/texmf-dist/
+fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
+/public/lm/lmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/
+lmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr17.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2018/texmf-dist/f
+onts/type1/public/lm/lmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
+ublic/lm/lmri10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/l
+mri8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmro10.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2018/texmf-di
+st/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
+pe1/public/lm/lmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
+lm/lmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtt8.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on _main.pdf (107 pages, 1083946 bytes).
+PDF statistics:
+ 1657 PDF objects out of 1728 (max. 8388607)
+ 1377 compressed objects within 14 object streams
+ 388 named destinations out of 1000 (max. 500000)
+ 21133 words of extra memory for PDF output out of 24883 (max. 10000000)
+

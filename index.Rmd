@@ -14,6 +14,7 @@ css: styles.css
 github-repo: CarlosFernandoVG/supervivencia_y_series_FC2021-1
 url: 'https\://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1'
 description: "Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México"
+always_allow_html: true
 ---
 
 # Prefacio {-}
@@ -57,7 +58,7 @@ Se recomienda que la consulta de los capítulos se realice de acuerdo al índice
 
 ### Detalles técnicos {-}
 
-Para la creación de este material se hizo uso de varios sistemas de software como $\LaTeX$ y CSS para el diseño de ciertos elementos. Todos los cálculos y gráficas fue creado con el lenguaje de programación `R` ya sea con el uso del paquete `base` o algún otro de los paquetes que se mencionan a continuación. 
+Para la creación de este material se hizo uso de varios sistemas de software como LaTeX y CSS para el diseño de ciertos elementos. Todos los cálculos y gráficas fue creado con el lenguaje de programación `R` ya sea con el uso del paquete `base` o algún otro de los paquetes que se mencionan a continuación. 
 
 ```{css, echo=FALSE}
 .scroll-300 {
