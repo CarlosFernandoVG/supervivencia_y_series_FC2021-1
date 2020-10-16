@@ -329,7 +329,7 @@ donde</p>
 <p><span class="math display">\[
 \mathbf{\mathscr{L}} = \prod_{i=1}^{n}\left\{\frac{f(t_{i})}{S(u_{i})}\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_{i}}=\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}
 \]</span></p>
-<p>Obsérvese que el hecho de dividir la función de verosimilitud entre <span class="math inline">\(S(u_{i})\)</span> se limita a que los datos sean truncados por la izquierda.</p>
+<p>Obsérvese que el hecho de dividir la función de verosimilitud entre <span class="math inline">\(S(u_{i})\)</span> se limita a que los datos sean truncados por la izquierda<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
 </div>
 <div id="truncamiento-por-la-derecha" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> Truncamiento por la Derecha</h2>
@@ -481,7 +481,7 @@ Tiempo de recaida en meses
 <p>Sabemos que los estimadores máximo-verosímiles cumplen la propiedad de invarianza, de modo que:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(\hat{\lambda} = \frac{r}{\sum_{i= 1}^{n}t_{i}} = \frac{6}{\sum_{i= 1}^{10}t_{i}} = \frac{6}{180} = 3.3333333\%\)</span></p></li>
-<li><p><span class="math inline">\(\hat S(16) = e^{-\hat\lambda t} = e^{0.033(16)} = 0.5866463\)</span></p></li>
+<li><p><span class="math inline">\(\hat S(16) = e^{-\hat\lambda t} = e^{-0.033(16)} = 0.5866463\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -544,6 +544,12 @@ r\gamma-\gamma \lambda^\gamma\sum_{i=1}^{n}t_i^\gamma=0
 <div id="ref-klein2006survival">
 <p>Klein, John P, and Melvin L Moeschberger. 2006. <em>Survival Analysis: Techniques for Censored and Truncated Data</em>. Second. Springer Science &amp; Business Media.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>De primera vista, pareciera que la segunda igualdad de la expresión anterior es incorrecta y que debería ser <span class="math inline">\(\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_i}\)</span> lo cual no es correcto. Se recomienda desarrollar la primera igualdad y relacionar lo necesario para obtener <span class="math inline">\(h(t_i)\)</span>.<a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

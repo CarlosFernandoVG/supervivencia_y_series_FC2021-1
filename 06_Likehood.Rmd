@@ -126,7 +126,7 @@ $$
 \mathbf{\mathscr{L}} = \prod_{i=1}^{n}\left\{\frac{f(t_{i})}{S(u_{i})}\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_{i}}=\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}
 $$
 
-Obsérvese que el hecho de dividir la función de verosimilitud entre $S(u_{i})$ se limita a que los datos sean truncados por la izquierda.
+Obsérvese que el hecho de dividir la función de verosimilitud entre $S(u_{i})$ se limita a que los datos sean truncados por la izquierda[^6.1].
 
 ## Truncamiento por la Derecha
 
@@ -190,7 +190,7 @@ Sabemos que los estimadores máximo-verosímiles cumplen la propiedad de invaria
 
 a) $\hat{\lambda} = \frac{r}{\sum_{i= 1}^{n}t_{i}} = \frac{6}{\sum_{i= 1}^{10}t_{i}} = \frac{6}{180} = 3.3333333\%$ 
 
-b) $\hat S(16) = e^{-\hat\lambda t}  = e^{0.033(16)} = 0.5866463$
+b) $\hat S(16) = e^{-\hat\lambda t}  = e^{-0.033(16)} = 0.5866463$
 
 ### Modelo Weibull {-}
 
@@ -256,3 +256,5 @@ $$
 La expresión anterior es una ecuación *no lineal* de $\hat \gamma$, cuya solución es únicamente mediante un método numérico. Una vez que se ha obtenido el valor $\hat \gamma$, éste se sustituye en $\left(\frac{r}{\sum_{i=1}^{n}t_i^{\hat \gamma}}\right)^{\frac{1}{\hat \gamma}}$ para así obtener, finalmente, el valor de $\hat \lambda$.
 
 Ecuaciones *no lineales*, como hemos visto en el modelo *Weibull*, aparecen en la estimación de parámetros de las distribuciones *Log-Normal*, *Log-Logística* y *Gamma*; resulta que, al considerar datos con censura y truncamiento, las estimaciones se complican en los modelos paramétricos. No obstante, tenemos ayuda de las computadoras y software que nos permitirán realizar estimaciones adecuadas.
+
+[^6.1]: De primera vista, pareciera que la segunda igualdad de la expresión anterior es incorrecta y que debería ser $\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_i}$ lo cual no es correcto. Se recomienda desarrollar la primera igualdad y relacionar lo necesario para obtener $h(t_i)$.

@@ -242,7 +242,7 @@ H_0:h(t) = h_0(t)\ \forall \ t\leq \tau&amp;vs&amp; H_a:h(t) \neq h_0(t);\ \mbox
 \]</span></p>
 <p>Recordando que el estimador de la función de riesgo acumulado es <span class="math inline">\(\hat{H}_2(t) = \sum_{t_{i}\leq t}\frac{d_i}{n_i}\)</span>, entonces <span class="math inline">\(\frac{d_i}{n_i}\)</span> es un estimador de la tasa de riesgo en <span class="math inline">\(t_i\)</span>.</p>
 <p>Cuando la hipótesis nula es cierta, el valor esperado de la tasa de riesgo en <span class="math inline">\(t_i\)</span> es <span class="math inline">\(h_0(ti)\)</span>. Ahora, sea <span class="math inline">\(\omega(t)\)</span> la función de pesos tal que <span class="math inline">\(\omega(t) = 0\)</span> si <span class="math inline">\(n_t = 0\)</span>, es decir que no se otorga algún peso cuando no hay elementos en dicho tiempo.</p>
-<p>Considerando el clásico estadístico de prueba <span class="math inline">\(Z(\tau) = O(\tau)-\mathbb{E}(\tau)\)</span> (elementos observados menos esperados)<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> y considerando que <span class="math inline">\(D\)</span> es el número de tiempos en la muestra, se tiene lo siguiente:</p>
+<p>Considerando el clásico estadístico de prueba <span class="math inline">\(Z(\tau) = O(\tau)-\mathbb{E}(\tau)\)</span> (elementos observados menos esperados)<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> y considerando que <span class="math inline">\(D\)</span> es el número de tiempos en la muestra, se tiene lo siguiente:</p>
 <p><span class="math display">\[
 Z(\tau) = O(\tau)-\mathbb{E}(\tau) = \sum_{i = 1}^D\omega(ti)\frac{d_i}{n_i}-\int_0^{\tau}\omega(s)h_0(s)ds
 \]</span>
@@ -250,7 +250,7 @@ Sólo para confirmar, <span class="math inline">\(O(\tau)\)</span> representa el
 <p><span class="math display">\[
 Var(Z(\tau)) = \int_0^{\tau}\omega^2(s)\frac{h_0(s)}{n_s}ds
 \]</span></p>
-<p>Entonces, para muestras grandes el siguiente estadístico tiene una distribución <span class="math inline">\(\chi^2_{(1)}\)</span><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+<p>Entonces, para muestras grandes el siguiente estadístico tiene una distribución <span class="math inline">\(\chi^2_{(1)}\)</span><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 <p><span class="math display">\[
 T = \frac{[Z(\tau)]^2}{Var(Z(\tau))}\sim\chi^2_{(1)}
 \]</span></p>
@@ -1213,9 +1213,9 @@ Cov(d_{ji},...,d_{jk}) = \frac{-n_{ji}\cdot n_{jk}\cdot d_j(n_j-d_j)}{n_j^2(n_j-
 
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p>Ver el parecido con el estadístico utilizado en pruebas de independencia.<a href="pruebas-de-hipótesis.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>¿Qué distribución de conteo tiene la misma varianza que su media?<a href="pruebas-de-hipótesis.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="8">
+<li id="fn8"><p>Ver el parecido con el estadístico utilizado en pruebas de independencia.<a href="pruebas-de-hipótesis.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>¿Qué distribución de conteo tiene la misma varianza que su media?<a href="pruebas-de-hipótesis.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
