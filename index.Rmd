@@ -7,6 +7,8 @@ author:
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
+geometry: "top=1in, left=1in, right=1in, bottom=1in"
+classoption: [a4paper, oneside, openany]
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
