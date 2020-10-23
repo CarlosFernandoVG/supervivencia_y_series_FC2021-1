@@ -242,7 +242,7 @@ Para este caso el sufijo referente a esta distribución es `*weibull`, de tal ma
 + `pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)`: Valores de $F(x)$.
 + `qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)`: Cuantil $t_p$. 
 
-Así como en el caso de la exponencial y en todos los casos posteriores, se respeta el orden de los parámetros por lo que para aplicar los parámetros tal como se vieron en esta sección se puede utilizar esta función de la siguiente manera: `dweibull`($\gamma$, $\lambda$) o sin importar el orden indicando de manera explicita que `shape` = $\gamma$ y `scale` = $\lambda$.
+Así como en el caso de la exponencial y en todos los casos posteriores, se respeta el orden de los parámetros por lo que para aplicar los parámetros tal como se vieron en esta sección se puede utilizar esta función de la siguiente manera: `dweibull`($\gamma$, $1/\lambda$) o sin importar el orden indicando de manera explicita que `shape` = $\gamma$ y `scale` = $1/\lambda$. Esto último debido a que la función de densidad para este modelo en R esta considerada como $f(x) = \frac{\gamma}{\lambda}(\frac{x}{\lambda})^{\gamma-1}e^{-(\frac{x}{\lambda})^\gamma}$.
 
 ## Modelo Log-Normal
 

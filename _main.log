@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  16 OCT 2020 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 OCT 2020 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1536,8 +1536,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{ejemplo}) has
                    \relax 
 l.1188 \subsubsection*{Ejemplo}\label{ejemplo}}
                                                
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1216.
+LaTeX Info: Redefining \% on input line 1216.
 [33 <./_main_files/figure-latex/unnamed-chunk-18-1.pdf>]
 <_main_files/figure-latex/unnamed-chunk-19-1.pdf, id=613, 449.68pt x 265.99374p
 t>
@@ -1546,8 +1546,8 @@ File: _main_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-19-1.pdf  used 
 on input line 1259.
 (pdftex.def)             Requested size: 449.69948pt x 266.00525pt.
-LaTeX Info: Redefining \. on input line 1268.
-LaTeX Info: Redefining \% on input line 1268.
+LaTeX Info: Redefining \. on input line 1264.
+LaTeX Info: Redefining \% on input line 1264.
 [34 <./_main_files/figure-latex/unnamed-chunk-19-1.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 1272--1274
 []\T1/lmtt/m/n/10 pllogis(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE
@@ -1965,7 +1965,7 @@ st/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist
 /fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (77 pages, 986919 bytes).
+Output written on _main.pdf (77 pages, 987714 bytes).
 PDF statistics:
  1478 PDF objects out of 1728 (max. 8388607)
  1236 compressed objects within 13 object streams
