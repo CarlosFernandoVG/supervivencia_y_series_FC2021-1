@@ -265,7 +265,7 @@ tabla <- summary(ajuste)
 Ej2 <- data_frame(time = tabla$time, dk =tabla$n.event , nk =tabla$n.risk) %>%
   mutate(ck =tabla$n.censor, "1-dk/nk" = 1-(dk/nk), "S(t)" = tabla$surv) 
 Ej2_1 <- Ej2
-colnames(Ej2_1)[-1] <- c("$d_k$", "$n_k$", "$c_k$", "$1-\\frac{d_k}{n_k}$", "$S(t)$")
+colnames(Ej2_1)[-1] <- c("$d_j$", "$n_k$", "$c_k$", "$1-\\frac{d_k}{n_k}$", "$S(t)$")
 Ej2_1 %>% kable(escape = FALSE, booktabs = T, align=rep('c')) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```

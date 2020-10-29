@@ -277,7 +277,7 @@ Var(\hat{S}(t)) = \hat{S}^2(t)\sum_{k:u_k \leq t}\frac{Var(\hat{h}_k)}{(1-\hat{h
 <ul>
 <li><p>El estimador del error estándar será: <span class="math inline">\(\sqrt{\hat{Var}(\hat{S}(t))}\)</span>.</p></li>
 <li><p>Cuando <span class="math inline">\(n\rightarrow\infty\)</span>, <span class="math inline">\(\hat{S}(t)\)</span> tiene una distribución normal: <span class="math inline">\(\hat{S}(t)\sim N(S(t), Var(\hat{S}(t)))\)</span>.</p></li>
-<li><p>El intervalo puntual al <span class="math inline">\((1-\alpha)*100\%\)</span> de confianza para <span class="math inline">\(S(t_{0})\)</span> será: <span class="math inline">\(\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}\)</span>.</p></li>
+<li><p>El intervalo puntual al <span class="math inline">\((1-\alpha)*100\%\)</span> de confianza para <span class="math inline">\(S(t_{0})\)</span> será: <span class="math inline">\(\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}\)</span><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p></li>
 </ul>
 <div id="ejercicio" class="section level4 unnumbered">
 <h4>Ejercicio</h4>
@@ -972,6 +972,12 @@ S(t)=(1+\lambda t^{\alpha})^{-1}
 </div>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>Posiblemente al realizar las cuentas, como en el ejemplo que se encuentra en esta sub sección, se obtengan valores negativos en alguno de los límites inferiores del intervalo de confianza. Esto es porque la expresión matemática del intervalo de confianza permite este tipo de valores, pero al tratarse de una función de supervivencia <span class="math inline">\(S(t)\)</span> su rango serán valores en <span class="math inline">\([0,1]\)</span>, por lo que, por convención, se coloca el valor 0 cuando se tiene un número negativo.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

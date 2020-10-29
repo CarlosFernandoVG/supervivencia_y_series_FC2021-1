@@ -66,7 +66,7 @@ $$
 
 + Cuando $n\rightarrow\infty$, $\hat{S}(t)$ tiene una distribución normal: $\hat{S}(t)\sim N(S(t), Var(\hat{S}(t)))$.
 
-+ El intervalo puntual al $(1-\alpha)*100\%$ de confianza para $S(t_{0})$ será: $\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}$.
++ El intervalo puntual al $(1-\alpha)*100\%$ de confianza para $S(t_{0})$ será: $\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}$[^8.1].
 
 #### Ejercicio {-}
 
@@ -428,3 +428,5 @@ La gráfica de diagnóstico es: $log\{exp\{-log\{\hat S(t)\}\}-1\}$ *vs* $log(t)
 Para este modelo, la gráfica que debemos emplear para el diagnóstico es $\Phi^{-1}[1-exp(-log(\hat S(t)))]$ *vs* $log(t)$, donde $\Phi^{-1}$ son los cuantiles de una *Normal estándar*. Una linea recta(aproximadamente) indica una posible distribución Log-Normal en los datos.
 
 Los métodos gráficos que hemos visto son una herramienta que proporcionan indicios sobre la posible distribución de los datos(si nuestro interés es encontrar un modelo paramétrico). Evidentemente una gráfica no **demuestra nada** por lo que tendríamos que realizar pruebas formales de **bondad de ajuste** (pruebas que consideren la censura y/o truncamiento).
+
+[^8.1]: Posiblemente al realizar las cuentas, como en el ejemplo que se encuentra en esta sub sección, se obtengan valores negativos en alguno de los límites inferiores del intervalo de confianza. Esto es porque la expresión matemática del intervalo de confianza permite este tipo de valores, pero al tratarse de una función de supervivencia $S(t)$ su rango serán valores en $[0,1]$, por lo que, por convención, se coloca el valor 0 cuando se tiene un número negativo.
