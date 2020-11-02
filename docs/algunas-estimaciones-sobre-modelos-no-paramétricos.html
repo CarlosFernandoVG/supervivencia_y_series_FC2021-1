@@ -575,7 +575,7 @@ H(t)=\sum_{j:u_{j}\leq t} h_j
 <p><span class="math display">\[
 \hat{H_2}(t)=\sum_{j:u_{j}\leq t} \hat h_j=\sum_{j:u_{j}\leq t}\frac{d_j}{n_j}
 \]</span></p>
-<p>Observe que si tomamos <span class="math inline">\(\hat H_2(t)\)</span>, podemos estimar de otra manera a <span class="math inline">\(S(t)\)</span>. Es decir, <span class="math inline">\(S(t)\)</span>, usando <strong>Nelson-Aalen</strong>, es:</p>
+<p>Observe que si tomamos <span class="math inline">\(\hat H_2(t)\)</span>, podemos estimar de otra manera a <span class="math inline">\(S(t)\)</span>. Es decir, <span class="math inline">\(S(t)\)</span>, usando <strong>Nelson-Aalen</strong>, se obtiene el estimador <em><strong>Fleming-Harrington</strong></em>, el cual es:</p>
 <p><span class="math display">\[
 \hat{S_2}(t) = exp\{-\hat{H_2}(t)\} = exp\left\{-\sum_{j:u_{j}\leq t}\frac{d_j}{n_j}\right\}
 \]</span></p>

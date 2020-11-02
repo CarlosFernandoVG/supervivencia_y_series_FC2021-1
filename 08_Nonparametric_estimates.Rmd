@@ -137,7 +137,7 @@ $$
 $$
 
 
-Observe que si tomamos $\hat H_2(t)$, podemos estimar de otra manera a $S(t)$. Es decir, $S(t)$, usando **Nelson-Aalen**, es:
+Observe que si tomamos $\hat H_2(t)$, podemos estimar de otra manera a $S(t)$. Es decir, $S(t)$, usando **Nelson-Aalen**, se obtiene el estimador _**Fleming-Harrington**_, el cual es:
 
 $$
 \hat{S_2}(t) = exp\{-\hat{H_2}(t)\} = exp\left\{-\sum_{j:u_{j}\leq t}\frac{d_j}{n_j}\right\}
