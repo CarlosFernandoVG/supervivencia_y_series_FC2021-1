@@ -876,7 +876,7 @@ time
 \end{array}
 \]</span></p>
 <p>Entonces <span class="math inline">\([L(t), U(t)]\)</span> serán las bandas al <span class="math inline">\((1-\alpha)*100\%\)</span> de confianza de <span class="math inline">\(S(t)\)</span>. Puede usted decir ¿cuál es la diferencia entre <em>bandas de confianza</em> e <em>intervalos de confianza puntuales</em>?</p>
-<p>Hay dos métodos de aproximación para las bandas de confianza. La primera aproximación fue propuesta por <em>Nair</em> (1984) y esencialmente proporciona límites de confianza que son proporcionales a los intervalos de confianza puntuales, estas bandas son llamadas <em>bandas de probabilidad iguales</em> o <em>bandas EP</em>. Caso contrario, la segunda aproximación, propuesta por <em>Hall</em> y <em>Wellner</em> (1980), establece bandas no proporcionales a los intervalos de confianza puntuales.</p>
+<p>Hay dos métodos de aproximación para las bandas de confianza. La primera aproximación fue propuesta por <em>Nair</em> <span class="citation">(Nair <a href="#ref-nair1984confidence" role="doc-biblioref">1984</a>)</span> y esencialmente proporciona límites de confianza que son proporcionales a los intervalos de confianza puntuales, estas bandas son llamadas <em>bandas de probabilidad iguales</em> o <em>bandas EP</em><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. Caso contrario, la segunda aproximación, propuesta por <a href="http://www.ressources-actuarielles.net/EXT/ISFA/1226.nsf/0/b163cbaba7cf2db9c125776b004d3573/%24FILE/Hall_Wellner_1980.pdf"><em>Hall</em> y <em>Wellner</em></a><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> <span class="citation">(Hall and Wellner <a href="#ref-hall1980confidence" role="doc-biblioref">1980</a>)</span>, establece bandas no proporcionales a los intervalos de confianza puntuales.</p>
 <p>Nuestro interés es obtener las bandas de confianza para <span class="math inline">\(S(t)\)</span>; afortunadamente hoy en día se cuenta con software que nos ayuda en dicha tarea, específicamente en <strong>R</strong> es sencillo obtenerlo.</p>
 </div>
 <div id="diagnóstico-para-el-uso-de-modelos-paramétricos" class="section level2" number="8.6">
@@ -973,10 +973,22 @@ S(t)=(1+\lambda t^{\alpha})^{-1}
 </div>
 </div>
 </div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-hall1980confidence">
+<p>Hall, Wendy J, and Jon A Wellner. 1980. “Confidence Bands for a Survival Curve from Censored Data.” <em>Biometrika</em> 67 (1): 133–43.</p>
+</div>
+<div id="ref-nair1984confidence">
+<p>Nair, Vijayan N. 1984. “Confidence Bands for Survival Functions with Censored Data: A Comparative Study.” <em>Technometrics</em> 26 (3): 265–75.</p>
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="8">
 <li id="fn8"><p>Posiblemente al realizar las cuentas, como en el ejemplo que se encuentra en esta sub sección, se obtengan valores negativos en alguno de los límites inferiores del intervalo de confianza. Esto es porque la expresión matemática del intervalo de confianza permite este tipo de valores, pero al tratarse de una función de supervivencia <span class="math inline">\(S(t)\)</span> su rango serán valores en <span class="math inline">\([0,1]\)</span>, por lo que, por convención, se coloca el valor 0 cuando se tiene un número negativo.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Tanto para estas bandas como las de Hall &amp; Wellner se consideran los <span class="math inline">\(D\)</span> eventos distintos del tiempo <span class="math inline">\(t_1&lt;t_2&lt;\cdots&lt;t_D\)</span>; <span class="math inline">\(t_L&lt;t_U\)</span> el rango de tiempo para las bandas de confianza, por lo que <span class="math inline">\(t_U\)</span> es menor o igual al evento de tiempo más grande. <span class="math inline">\(t_L\)</span>, en este caso es más grande o igual al tiempo de evento más pequeño y para ambas bandas se tiene que <span class="math inline">\(\alpha_L = \frac{n\sigma^2_S(t_L)}{1+n\sigma^2_S(t_L)} \mbox{ y } \alpha_U = \frac{n\sigma^2_S(t_U)}{1+n\sigma^2_S(t_U)}\)</span>.
+Las bandas EP al <span class="math inline">\(100(1-\alpha)\%\)</span> están dadas por <span class="math display">\[\hat{S}(t)-e_{\alpha}(\alpha_L, \alpha_U)\hat{S}(t)\sigma_S(t)\leq S(t)\leq\hat{S}(t)+e_{\alpha}(\alpha_L, \alpha_U)\hat{S}(t)\sigma_S(t)\]</span> para todos los <span class="math inline">\(t_L\leq t\leq t_U\)</span>, donde <span class="math inline">\(e_{\alpha}(\alpha_L, \alpha_U)\)</span> es un cuantil tal que <span class="math inline">\(\alpha = \mathbb{P}\left(\sup\limits_{\alpha_L\leq u\leq \alpha_U}\frac{|W^0(u)|}{[u(1-u)]^{1/2}}&gt; e_{\alpha}\left(\alpha_L, \alpha_U\right)\right)\)</span> donde <span class="math inline">\(W^0(u)\)</span> es un <a href="https://en.wikipedia.org/wiki/Brownian_bridge">puente browninano</a> con <span class="math inline">\(0\leq u\leq1\)</span> y <span class="math inline">\(\hat{S}(t)\sigma_S(t)\)</span> se derivada del estimador de Greenwood.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Las bandas Hall and Wellner al <span class="math inline">\(100(1-\alpha)\%\)</span> están dadas por <span class="math inline">\(\hat{S}(t)-h_{\alpha}(\alpha_L, \alpha_U)\sqrt{n}\left[1+n\sigma^2_S(t)\right]\hat{S}(t)\leq S(t)\leq\hat{S}(t)+h_{\alpha}(\alpha_L, \alpha_U)\sqrt{n}\left[1+n\sigma^2_S(t)\right]\hat{S}(t)\)</span> para todos los <span class="math inline">\(t_L\leq t\leq t_U\)</span> donde los valores críticos <span class="math inline">\(h_\alpha(\alpha_L, \alpha_U)\)</span> esta dado por <span class="math inline">\(\alpha = \mathbb{P}\left(\sup\limits_{\alpha_L\leq u\leq \alpha_U}|W^0(u)|&gt; h_\alpha\left(\alpha_L, \alpha_U\right)\right)\)</span>. En este caso, <span class="math inline">\(t_L\)</span> puede ser cero. Se puede consultar más sobre estas expresiones en el siguiente <a href="https://documentation.sas.com/?cdcId=pgmsascdc&amp;cdcVersion=9.4_3.4&amp;docsetId=statug&amp;docsetTarget=statug_lifetest_details11.htm&amp;locale=ko">enlace</a>.<a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#fnref10" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

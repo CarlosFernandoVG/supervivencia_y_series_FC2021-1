@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 OCT 2020 23:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 NOV 2020 14:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1700,7 +1700,7 @@ has been already used, duplicate ignored
                    \relax 
 l.2173 ...subsection*{Ejercicio}\label{ejercicio}}
                                                   
-<_main_files/figure-latex/unnamed-chunk-27-1.pdf, id=819, 459.7175pt x 279.0425
+<_main_files/figure-latex/unnamed-chunk-27-1.pdf, id=820, 459.7175pt x 279.0425
 pt>
 File: _main_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-27-1.pdf>
@@ -1721,218 +1721,217 @@ l.2254 \subsubsection*{Ejemplo}\label{ejemplo}}
                                                
 LaTeX Info: Redefining \. on input line 2312.
 LaTeX Info: Redefining \% on input line 2312.
-[54]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+[54]
+LaTeX Info: Redefining \. on input line 2359.
+LaTeX Info: Redefining \% on input line 2359.
+[55]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2365 \subsubsection*{Ejemplo}\label{ejemplo-1}}
+l.2366 \subsubsection*{Ejemplo}\label{ejemplo-1}}
                                                  
-LaTeX Info: Redefining \. on input line 2370.
-LaTeX Info: Redefining \% on input line 2370.
-[55]
-<_main_files/figure-latex/unnamed-chunk-29-1.pdf, id=857, 459.7175pt x 279.0425
+<_main_files/figure-latex/unnamed-chunk-29-1.pdf, id=871, 459.7175pt x 279.0425
 pt>
 File: _main_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-29-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-29-1.pdf  used 
-on input line 2376.
+on input line 2377.
 (pdftex.def)             Requested size: 452.99626pt x 274.96278pt.
 pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-2}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2392 \subsubsection*{Ejemplo}\label{ejemplo-2}}
+l.2393 \subsubsection*{Ejemplo}\label{ejemplo-2}}
                                                  
-<_main_files/figure-latex/unnamed-chunk-30-1.pdf, id=858, 459.7175pt x 277.035p
+LaTeX Info: Redefining \. on input line 2393.
+LaTeX Info: Redefining \% on input line 2393.
+[56 <./_main_files/figure-latex/unnamed-chunk-29-1.pdf>]
+<_main_files/figure-latex/unnamed-chunk-30-1.pdf, id=897, 459.7175pt x 277.035p
 t>
 File: _main_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-30-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-30-1.pdf  used 
-on input line 2397.
+on input line 2398.
 (pdftex.def)             Requested size: 452.99626pt x 272.98465pt.
-LaTeX Info: Redefining \. on input line 2397.
-LaTeX Info: Redefining \% on input line 2397.
-[56 <./_main_files/figure-latex/unnamed-chunk-29-1.pdf>]
-<_main_files/figure-latex/unnamed-chunk-31-1.pdf, id=884, 459.7175pt x 277.035p
+<_main_files/figure-latex/unnamed-chunk-31-1.pdf, id=898, 459.7175pt x 277.035p
 t>
 File: _main_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-31-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-31-1.pdf  used 
-on input line 2408.
+on input line 2409.
 (pdftex.def)             Requested size: 452.99626pt x 272.98465pt.
-LaTeX Info: Redefining \. on input line 2414.
-LaTeX Info: Redefining \% on input line 2414.
-[57 <./_main_files/figure-latex/unnamed-chunk-30-1.pdf> <./_main_files/figure-l
-atex/unnamed-chunk-31-1.pdf
-
-pdfTeX warning: pdflatex (file ./_main_files/figure-latex/unnamed-chunk-31-1.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
->]pdfTeX warning (ext4): destination with the same identifier (name{modelo-expo
-nencial}) has been already used, duplicate ignored
+LaTeX Info: Redefining \. on input line 2409.
+LaTeX Info: Redefining \% on input line 2409.
+[57 <./_main_files/figure-latex/unnamed-chunk-30-1.pdf>]pdfTeX warning (ext4): 
+destination with the same identifier (name{modelo-exponencial}) has been alread
+y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2416 ... Exponencial}\label{modelo-exponencial}}
+l.2417 ... Exponencial}\label{modelo-exponencial}}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{ejemplo-3}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.2432 \subsubsection*{Ejemplo}\label{ejemplo-3}}
+l.2433 \subsubsection*{Ejemplo}\label{ejemplo-3}}
                                                  
-<_main_files/figure-latex/unnamed-chunk-32-1.pdf, id=919, 459.7175pt x 277.035p
+<_main_files/figure-latex/unnamed-chunk-32-1.pdf, id=923, 459.7175pt x 277.035p
 t>
 File: _main_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-32-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-32-1.pdf  used 
-on input line 2437.
+on input line 2438.
 (pdftex.def)             Requested size: 452.99626pt x 272.98465pt.
-pdfTeX warning (ext4): destination with the same identifier (name{modelo-weibul
-l}) has been already used, duplicate ignored
+LaTeX Info: Redefining \. on input line 2438.
+LaTeX Info: Redefining \% on input line 2438.
+[58 <./_main_files/figure-latex/unnamed-chunk-31-1.pdf>]pdfTeX warning (ext4): 
+destination with the same identifier (name{modelo-weibull}) has been already us
+ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.2442 ...*{Modelo Weibull}\label{modelo-weibull}}
-                                                  
-LaTeX Info: Redefining \. on input line 2453.
-LaTeX Info: Redefining \% on input line 2453.
-[58 <./_main_files/figure-latex/unnamed-chunk-32-1.pdf>]pdfTeX warning (ext4): 
-destination with the same identifier (name{modelo-log-loguxedstico}) has been a
-lready used, duplicate ignored
+l.2443 ...*{Modelo Weibull}\label{modelo-weibull}}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{modelo-log-loguxedstico}) has been already
+ used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2462 ...ístico}\label{modelo-log-loguxedstico}}
+l.2463 ...ístico}\label{modelo-log-loguxedstico}}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{modelo-log-normal}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.2482 ...lo Log-Normal}\label{modelo-log-normal}}
+l.2483 ...lo Log-Normal}\label{modelo-log-normal}}
                                                   
-LaTeX Info: Redefining \. on input line 2490.
-LaTeX Info: Redefining \% on input line 2490.
-[59]
+LaTeX Info: Redefining \. on input line 2487.
+LaTeX Info: Redefining \% on input line 2487.
+[59 <./_main_files/figure-latex/unnamed-chunk-32-1.pdf>]
+LaTeX Info: Redefining \. on input line 2491.
+LaTeX Info: Redefining \% on input line 2491.
+[60]
 Cap\'{\i }tulo 9.
-[60
+[61
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2539 \subsubsection*{Ejemplo}\label{ejemplo}}
+l.2540 \subsubsection*{Ejemplo}\label{ejemplo}}
                                                
-LaTeX Info: Redefining \. on input line 2581.
-LaTeX Info: Redefining \% on input line 2581.
-[61]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+LaTeX Info: Redefining \. on input line 2582.
+LaTeX Info: Redefining \% on input line 2582.
+[62]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2627 \subsubsection*{Ejemplo}\label{ejemplo-1}}
+l.2628 \subsubsection*{Ejemplo}\label{ejemplo-1}}
                                                  
-LaTeX Info: Redefining \. on input line 2648.
-LaTeX Info: Redefining \% on input line 2648.
-[62]
-<_main_files/figure-latex/unnamed-chunk-35-1.pdf, id=966, 459.7175pt x 279.0425
+LaTeX Info: Redefining \. on input line 2649.
+LaTeX Info: Redefining \% on input line 2649.
+[63]
+<_main_files/figure-latex/unnamed-chunk-35-1.pdf, id=986, 459.7175pt x 279.0425
 pt>
 File: _main_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-35-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-35-1.pdf  used 
-on input line 2652.
+on input line 2653.
 (pdftex.def)             Requested size: 452.99626pt x 274.96278pt.
-LaTeX Info: Redefining \. on input line 2689.
-LaTeX Info: Redefining \% on input line 2689.
-[63 <./_main_files/figure-latex/unnamed-chunk-35-1.pdf>]
-LaTeX Info: Redefining \. on input line 2729.
-LaTeX Info: Redefining \% on input line 2729.
-[64]pdfTeX warning (ext4): destination with the same identifier (name{ejercicio
+LaTeX Info: Redefining \. on input line 2690.
+LaTeX Info: Redefining \% on input line 2690.
+[64 <./_main_files/figure-latex/unnamed-chunk-35-1.pdf>]
+LaTeX Info: Redefining \. on input line 2730.
+LaTeX Info: Redefining \% on input line 2730.
+[65]pdfTeX warning (ext4): destination with the same identifier (name{ejercicio
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2746 ...subsection*{Ejercicio}\label{ejercicio}}
+l.2747 ...subsection*{Ejercicio}\label{ejercicio}}
                                                   
-LaTeX Info: Redefining \. on input line 2783.
-LaTeX Info: Redefining \% on input line 2783.
-[65] [66
+LaTeX Info: Redefining \. on input line 2784.
+LaTeX Info: Redefining \% on input line 2784.
+[66] [67
 
 ]
 Cap\'{\i }tulo 10.
-[67
+[68
 
 ]
-<_main_files/figure-latex/unnamed-chunk-37-1.pdf, id=1006, 448.67625pt x 266.99
+<_main_files/figure-latex/unnamed-chunk-37-1.pdf, id=1026, 448.67625pt x 266.99
 75pt>
 File: _main_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-37-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-37-1.pdf  used 
-on input line 2874.
+on input line 2875.
 (pdftex.def)             Requested size: 448.68884pt x 267.00496pt.
-LaTeX Info: Redefining \. on input line 2885.
-LaTeX Info: Redefining \% on input line 2885.
-[68 <./_main_files/figure-latex/unnamed-chunk-37-1.pdf>]
-LaTeX Info: Redefining \. on input line 2954.
-LaTeX Info: Redefining \% on input line 2954.
-[69]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
+LaTeX Info: Redefining \. on input line 2886.
+LaTeX Info: Redefining \% on input line 2886.
+[69 <./_main_files/figure-latex/unnamed-chunk-37-1.pdf>]
+LaTeX Info: Redefining \. on input line 2955.
+LaTeX Info: Redefining \% on input line 2955.
+[70]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2998 ...subsection*{Ejemplo 1}\label{ejemplo-1}}
+l.2999 ...subsection*{Ejemplo 1}\label{ejemplo-1}}
                                                   
-LaTeX Info: Redefining \. on input line 3026.
-LaTeX Info: Redefining \% on input line 3026.
-[70]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-2
+LaTeX Info: Redefining \. on input line 3027.
+LaTeX Info: Redefining \% on input line 3027.
+[71]pdfTeX warning (ext4): destination with the same identifier (name{ejemplo-2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3048 ...subsection*{Ejemplo 2}\label{ejemplo-2}}
+l.3049 ...subsection*{Ejemplo 2}\label{ejemplo-2}}
                                                   
-LaTeX Info: Redefining \. on input line 3103.
-LaTeX Info: Redefining \% on input line 3103.
-[71]
-LaTeX Info: Redefining \. on input line 3178.
-LaTeX Info: Redefining \% on input line 3178.
+LaTeX Info: Redefining \. on input line 3104.
+LaTeX Info: Redefining \% on input line 3104.
 [72]
-<_main_files/figure-latex/unnamed-chunk-38-1.pdf, id=1057, 460.72125pt x 277.03
+LaTeX Info: Redefining \. on input line 3179.
+LaTeX Info: Redefining \% on input line 3179.
+[73]
+<_main_files/figure-latex/unnamed-chunk-38-1.pdf, id=1078, 460.72125pt x 277.03
 5pt>
 File: _main_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-38-1.pdf>
 Package pdftex.def Info: _main_files/figure-latex/unnamed-chunk-38-1.pdf  used 
-on input line 3220.
+on input line 3221.
 (pdftex.def)             Requested size: 452.96599pt x 272.3717pt.
-LaTeX Info: Redefining \. on input line 3220.
-LaTeX Info: Redefining \% on input line 3220.
-[73]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3246
+LaTeX Info: Redefining \. on input line 3221.
+LaTeX Info: Redefining \% on input line 3221.
+[74]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3247
 .
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \. on input line 3257.
-LaTeX Info: Redefining \% on input line 3257.
-[74 <./_main_files/figure-latex/unnamed-chunk-38-1.pdf>] (./_main.bbl
+LaTeX Info: Redefining \. on input line 3258.
+LaTeX Info: Redefining \% on input line 3258.
+[75 <./_main_files/figure-latex/unnamed-chunk-38-1.pdf>] (./_main.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[75]) [76
+[76]) [77
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3288.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3288.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3289.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3289.
 (./_main.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3288.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3288.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3289.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3289.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3288.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3289.
  ) 
 Here is how much of TeX's memory you used:
- 27458 strings out of 492649
- 469737 string characters out of 6129622
- 575769 words of memory out of 5000000
- 30229 multiletter control sequences out of 15000+600000
- 130794 words of font info for 197 fonts, out of 8000000 for 9000
+ 27485 strings out of 492649
+ 470145 string characters out of 6129622
+ 575827 words of memory out of 5000000
+ 30238 multiletter control sequences out of 15000+600000
+ 131337 words of font info for 203 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,19n,54p,1195b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,19n,54p,1765b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
 /texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018/
 texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2018/texmf-dist/fon
@@ -1965,10 +1964,10 @@ st/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist
 /fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (77 pages, 987714 bytes).
+Output written on _main.pdf (78 pages, 1002859 bytes).
 PDF statistics:
- 1478 PDF objects out of 1728 (max. 8388607)
- 1236 compressed objects within 13 object streams
- 340 named destinations out of 1000 (max. 500000)
+ 1499 PDF objects out of 1728 (max. 8388607)
+ 1256 compressed objects within 13 object streams
+ 346 named destinations out of 1000 (max. 500000)
  19085 words of extra memory for PDF output out of 20736 (max. 10000000)
 
