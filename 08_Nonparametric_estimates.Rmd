@@ -68,6 +68,18 @@ $$
 
 + El intervalo puntual al $(1-\alpha)*100\%$ de confianza para $S(t_{0})$ será: $\hat{S}(t_{0}) \pm Z_{1-\alpha/2} \sqrt{\hat{Var}(\hat{S}(t_0))}$[^8.1].
 
+Para este último punto, pueden existir ocasiones en las que el intervalo de confianza se encuentre fuera del rango $[0,1]$, por lo que existen diferentes aproximaciones para resolver dicho problema. Una de ellas es mejorando la aproximación a la distribución normal (ya que se menciono previamente que : $\hat{S}(t)\sim N(S(t), Var(\hat{S}(t)))$) utilizando la transformación $log-log$, obteniendo así la siguiente expresión:
+
+$$
+\hat{S}(t_{0}) \pm e^{Z_{1-\alpha/2} \frac{\sqrt{\hat{Var}(\hat{S}(t_0))}}{\hat{S}(t_{0})\ln(\hat{S}(t_{0}))}}
+$$
+
+Otra alternativa es utilizando una transformación logarítmica para obtener lo siguiente
+
+$$
+\exp\left(\ln(\hat{S}(t_{0})) \pm Z_{1-\alpha/2} \frac{\sqrt{\hat{Var}(\hat{S}(t_0))}}{\hat{S}(t_{0})}\right)
+$$
+
 #### Ejercicio {-}
 
 Un estudio consistió en medir el tiempo(en meses) en que los pacientes desarrollaron un cierto tipo de tumor. Los resultados que se obtuvieron fueron: 
