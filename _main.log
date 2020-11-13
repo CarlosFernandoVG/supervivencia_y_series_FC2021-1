@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 NOV 2020 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 NOV 2020 16:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1859,7 +1859,7 @@ Cap\'{\i }tulo 10.
 [68
 
 ]
-<_main_files/figure-latex/unnamed-chunk-37-1.pdf, id=1025, 448.67625pt x 266.99
+<_main_files/figure-latex/unnamed-chunk-37-1.pdf, id=1027, 448.67625pt x 266.99
 75pt>
 File: _main_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-37-1.pdf>
@@ -1891,7 +1891,7 @@ LaTeX Info: Redefining \% on input line 3116.
 LaTeX Info: Redefining \. on input line 3191.
 LaTeX Info: Redefining \% on input line 3191.
 [73]
-<_main_files/figure-latex/unnamed-chunk-38-1.pdf, id=1077, 460.72125pt x 277.03
+<_main_files/figure-latex/unnamed-chunk-38-1.pdf, id=1079, 460.72125pt x 277.03
 5pt>
 File: _main_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/unnamed-chunk-38-1.pdf>
@@ -1928,9 +1928,9 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3301.
  ) 
 Here is how much of TeX's memory you used:
- 27485 strings out of 492649
- 470145 string characters out of 6129622
- 575827 words of memory out of 5000000
+ 27486 strings out of 492649
+ 470157 string characters out of 6129622
+ 575863 words of memory out of 5000000
  30238 multiletter control sequences out of 15000+600000
  131337 words of font info for 203 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1967,10 +1967,10 @@ st/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist
 /fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (78 pages, 1006529 bytes).
+Output written on _main.pdf (78 pages, 1007470 bytes).
 PDF statistics:
- 1498 PDF objects out of 1728 (max. 8388607)
- 1255 compressed objects within 13 object streams
- 346 named destinations out of 1000 (max. 500000)
+ 1500 PDF objects out of 1728 (max. 8388607)
+ 1257 compressed objects within 13 object streams
+ 347 named destinations out of 1000 (max. 500000)
  19085 words of extra memory for PDF output out of 20736 (max. 10000000)
 

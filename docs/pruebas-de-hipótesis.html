@@ -194,7 +194,7 @@
 <li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>9.1</b> Comparación de 1 población</a></li>
 <li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>9.2</b> Prueba Log-Rank</a></li>
 <li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>9.3</b> Prueba Generalizada Wilcoxon</a></li>
-<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de m Poblaciones</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de <span class="math inline">\(m\)</span> Poblaciones</a></li>
 </ul></li>
 <li class="part"><span><b>IV Lleno de riesgos</b></span></li>
 <li class="chapter" data-level="10" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>10</b> Modelo de Riesgos Proporcionales</a>
@@ -1185,14 +1185,14 @@ W^2&gt;J_{1-\alpha}
 </div>
 </div>
 <div id="comparación-de-m-poblaciones" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Comparación de m Poblaciones</h2>
+<h2><span class="header-section-number">9.4</span> Comparación de <span class="math inline">\(m\)</span> Poblaciones</h2>
 <p>Si deseamos comparar las funciones de supervivencia de <em>m</em> poblaciones planteamos la siguiente hipótesis:</p>
 <p><span class="math display">\[
 H_0:S_1(t) = S_2(t) = ... = S_m(t) \forall t \mbox{ vs } H_a:S_r(t)\neq S_s(t) \mbox{ p.a } r\neq s; r,s = 1,...,m
 \]</span></p>
-<p>Para realizar la prueba, denotemos <span class="math inline">\(d_{j}\)</span> el vector de fallas al tiempo <span class="math inline">\(t_j\)</span>, <span class="math inline">\(j=1,...,m\)</span> con vector de medias <span class="math inline">\(\mathbb{E}(d_j)\)</span> y matriz de varianzas y covarianzas:</p>
+<p>Para realizar la prueba, denotemos <span class="math inline">\(d_{j}\)</span> el vector de fallas al tiempo <span class="math inline">\(t_j\)</span>, <span class="math inline">\(j=1,...,m\)</span> con vector de medias <span class="math inline">\(\mathbb{E}(d_j)\)</span> y matriz de varianzas<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> y covarianzas:</p>
 <p><span class="math display">\[
-Var(d_{ij}) = \frac{n_{ij}\cdot n_{2j}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)}
+Var(d_{ij}) = \frac{n_{1j}\cdot n_{2j}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)}
 \]</span></p>
 <p><span class="math display">\[
 Cov(d_{ji},...,d_{jk}) = \frac{-n_{ji}\cdot n_{jk}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)} \mbox{ , } i\neq k
@@ -1216,6 +1216,7 @@ Cov(d_{ji},...,d_{jk}) = \frac{-n_{ji}\cdot n_{jk}\cdot d_j(n_j-d_j)}{n_j^2(n_j-
 <ol start="11">
 <li id="fn11"><p>Ver el parecido con el estadístico utilizado en pruebas de independencia.<a href="pruebas-de-hipótesis.html#fnref11" class="footnote-back">↩︎</a></p></li>
 <li id="fn12"><p>¿Qué distribución de conteo tiene la misma varianza que su media?<a href="pruebas-de-hipótesis.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Se tiene <span class="math inline">\(n_{1j}\)</span> y <span class="math inline">\(n_{2j}\)</span> ya que se esta asumiendo que todas las poblaciones tienen una misma distribución, por lo que se esperaría que la varianza fuera la misma que para la población 1.<a href="pruebas-de-hipótesis.html#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

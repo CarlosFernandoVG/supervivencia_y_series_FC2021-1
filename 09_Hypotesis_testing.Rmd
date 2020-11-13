@@ -263,7 +263,7 @@ Donde $J_{1-\alpha}$ es el cuantil $1-\alpha$ de una $\chi^2_{(1)}$.
 
 Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejempo de la sección anterior.
 
-## Comparación de m Poblaciones
+## Comparación de $m$ Poblaciones
  
 Si deseamos comparar las funciones de supervivencia de *m* poblaciones planteamos la siguiente hipótesis:
 
@@ -271,10 +271,10 @@ $$
 H_0:S_1(t) = S_2(t) = ... = S_m(t) \forall t \mbox{ vs } H_a:S_r(t)\neq S_s(t) \mbox{ p.a } r\neq s; r,s = 1,...,m
 $$
 
-Para realizar la prueba, denotemos $d_{j}$ el vector de fallas al tiempo $t_j$, $j=1,...,m$ con vector de medias $\mathbb{E}(d_j)$ y matriz de varianzas y covarianzas:
+Para realizar la prueba, denotemos $d_{j}$ el vector de fallas al tiempo $t_j$, $j=1,...,m$ con vector de medias $\mathbb{E}(d_j)$ y matriz de varianzas[^9.3] y covarianzas:
 
 $$
-Var(d_{ij}) = \frac{n_{ij}\cdot n_{2j}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)}
+Var(d_{ij}) = \frac{n_{1j}\cdot n_{2j}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)}
 $$
 
 $$
@@ -295,3 +295,4 @@ $$
 
 [^9.1]: Ver el parecido con el estadístico utilizado en pruebas de independencia.
 [^9.2]: ¿Qué distribución de conteo tiene la misma varianza que su media?
+[^9.3]: Se tiene $n_{1j}$ y $n_{2j}$ ya que se esta asumiendo que todas las poblaciones tienen una misma distribución, por lo que se esperaría que la varianza fuera la misma que para la población 1.
