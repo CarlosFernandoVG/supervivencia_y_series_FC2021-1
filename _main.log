@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 NOV 2020 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 NOV 2020 13:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1928,11 +1928,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3301.
  ) 
 Here is how much of TeX's memory you used:
- 27486 strings out of 492649
- 470157 string characters out of 6129622
+ 27482 strings out of 492649
+ 470113 string characters out of 6129622
  575863 words of memory out of 5000000
  30238 multiletter control sequences out of 15000+600000
- 131337 words of font info for 203 fonts, out of 8000000 for 9000
+ 131124 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,19n,54p,1765b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
@@ -1967,7 +1967,7 @@ st/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist
 /fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (78 pages, 1007470 bytes).
+Output written on _main.pdf (78 pages, 1007512 bytes).
 PDF statistics:
  1500 PDF objects out of 1728 (max. 8388607)
  1257 compressed objects within 13 object streams

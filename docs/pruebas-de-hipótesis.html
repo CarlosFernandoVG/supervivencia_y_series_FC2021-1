@@ -241,7 +241,7 @@ H_0:h(t) = h_0(t)\ \forall \ t\leq \tau&amp;vs&amp; H_a:h(t) \neq h_0(t);\ \mbox
 \end{array}
 \]</span></p>
 <p>Recordando que el estimador de la función de riesgo acumulado es <span class="math inline">\(\hat{H}_2(t) = \sum_{t_{i}\leq t}\frac{d_i}{n_i}\)</span>, entonces <span class="math inline">\(\frac{d_i}{n_i}\)</span> es un estimador de la tasa de riesgo en <span class="math inline">\(t_i\)</span>.</p>
-<p>Cuando la hipótesis nula es cierta, el valor esperado de la tasa de riesgo en <span class="math inline">\(t_i\)</span> es <span class="math inline">\(h_0(ti)\)</span>. Ahora, sea <span class="math inline">\(\omega(t)\)</span> la función de pesos tal que <span class="math inline">\(\omega(t) = 0\)</span> si <span class="math inline">\(n_t = 0\)</span>, es decir que no se otorga algún peso cuando no hay elementos en dicho tiempo.</p>
+<p>Cuando la hipótesis nula es cierta, el valor esperado de la tasa de riesgo en <span class="math inline">\(t_i\)</span> es <span class="math inline">\(h_0(t_i)\)</span>. Ahora, sea <span class="math inline">\(\omega(t)\)</span> la función de pesos tal que <span class="math inline">\(\omega(t) = 0\)</span> si <span class="math inline">\(n_t = 0\)</span>, es decir que no se otorga algún peso cuando no hay elementos en dicho tiempo.</p>
 <p>Considerando el clásico estadístico de prueba <span class="math inline">\(Z(\tau) = O(\tau)-\mathbb{E}(\tau)\)</span> (elementos observados menos esperados)<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> y considerando que <span class="math inline">\(D\)</span> es el número de tiempos en la muestra, se tiene lo siguiente:</p>
 <p><span class="math display">\[
 Z(\tau) = O(\tau)-\mathbb{E}(\tau) = \sum_{i = 1}^D\omega(ti)\frac{d_i}{n_i}-\int_0^{\tau}\omega(s)h_0(s)ds
@@ -1181,28 +1181,28 @@ W^2&gt;J_{1-\alpha}
 <p>Donde <span class="math inline">\(J_{1-\alpha}\)</span> es el cuantil <span class="math inline">\(1-\alpha\)</span> de una <span class="math inline">\(\chi^2_{(1)}\)</span>.</p>
 <div id="ejercicio" class="section level4 unnumbered">
 <h4>Ejercicio</h4>
-<p>Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejempo de la sección anterior.</p>
+<p>Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejemplo de la sección anterior.</p>
 </div>
 </div>
 <div id="comparación-de-m-poblaciones" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Comparación de <span class="math inline">\(m\)</span> Poblaciones</h2>
-<p>Si deseamos comparar las funciones de supervivencia de <em>m</em> poblaciones planteamos la siguiente hipótesis:</p>
+<p>Si deseamos comparar las funciones de supervivencia de <span class="math inline">\(m\)</span> poblaciones planteamos la siguiente hipótesis:</p>
 <p><span class="math display">\[
 H_0:S_1(t) = S_2(t) = ... = S_m(t) \forall t \mbox{ vs } H_a:S_r(t)\neq S_s(t) \mbox{ p.a } r\neq s; r,s = 1,...,m
 \]</span></p>
-<p>Para realizar la prueba, denotemos <span class="math inline">\(d_{j}\)</span> el vector de fallas al tiempo <span class="math inline">\(t_j\)</span>, <span class="math inline">\(j=1,...,m\)</span> con vector de medias <span class="math inline">\(\mathbb{E}(d_j)\)</span> y matriz de varianzas<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> y covarianzas:</p>
+<p>Para realizar la prueba, denotemos <span class="math inline">\(d_{i}\)</span> el vector de fallas al tiempo <span class="math inline">\(t_i\)</span>, <span class="math inline">\(i=1,...,k\)</span> con vector de medias <span class="math inline">\(\mathbb{E}(d_i)\)</span> y las entradas de la matriz de varianzas<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> y covarianzas de la siguiente manera:</p>
 <p><span class="math display">\[
-Var(d_{ij}) = \frac{n_{1j}\cdot n_{2j}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)}
+Var(d_{ji}) = \frac{n_{1i}\cdot n_{2i}\cdot d_i(n_i-d_i)}{n_i^2(n_i-1)}
 \]</span></p>
 <p><span class="math display">\[
-Cov(d_{ji},...,d_{jk}) = \frac{-n_{ji}\cdot n_{jk}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)} \mbox{ , } i\neq k
+Cov(d_{ji},...,d_{hi}) = \frac{-n_{ji}\cdot n_{hi}\cdot d_i(n_i-d_i)}{n_i^2(n_i-1)} \mbox{ , } j \neq h
 \]</span></p>
-<p>Donde <span class="math inline">\(i\)</span> denota el Grupo y <span class="math inline">\(j\)</span> es el tiempo. Ahora bien, sumando sobre los tiempos de falla <span class="math inline">\(t_j\)</span>:</p>
+<p>Donde <span class="math inline">\(j\)</span> y <span class="math inline">\(h\)</span> denota el Grupo e <span class="math inline">\(i\)</span> es el tiempo. Ahora bien, sumando sobre los tiempos de falla <span class="math inline">\(t_i\)</span>:</p>
 <p><span class="math display">\[
-\underline{D} = \sum_{j = 1}^k\{\underline{d}_j - \mathbb{E}(d_j)\}
+\underline{D} = \sum_{i = 1}^k\{\underline{d}_i - \mathbb{E}(d_i)\}
 \]</span></p>
 <p><span class="math display">\[
-\underline{V} = \sum_{j=1}^kVar(\underline{d}_j)
+\underline{V} = \sum_{i=1}^kVar(\underline{d}_i)
 \]</span></p>
 <p><strong>Mantel-Haenszel</strong> propone probar la hipótesis de <span class="math inline">\(m\)</span> supervivencias iguales usando la forma cuadrática <span class="math inline">\(O = D^{t}V^{-1}D\)</span>, donde <span class="math inline">\(V^{-1}\)</span> es la inversa generalizada de <span class="math inline">\(V\)</span> que bajo <span class="math inline">\(H_0\)</span> se distribuye <span class="math inline">\(\chi^2_{(m-1)}\)</span>.</p>
 

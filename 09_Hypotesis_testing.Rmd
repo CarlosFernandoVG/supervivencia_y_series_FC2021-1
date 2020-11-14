@@ -18,7 +18,7 @@ $$
 
 Recordando que el estimador de la función de riesgo acumulado es $\hat{H}_2(t) = \sum_{t_{i}\leq t}\frac{d_i}{n_i}$, entonces $\frac{d_i}{n_i}$ es un estimador de la tasa de riesgo en $t_i$.
 
-Cuando la hipótesis nula es cierta, el valor esperado de la tasa de riesgo en $t_i$ es $h_0(ti)$. Ahora, sea $\omega(t)$ la función de pesos tal que $\omega(t) = 0$ si $n_t = 0$, es decir que no se otorga algún peso cuando no hay elementos en dicho tiempo.
+Cuando la hipótesis nula es cierta, el valor esperado de la tasa de riesgo en $t_i$ es $h_0(t_i)$. Ahora, sea $\omega(t)$ la función de pesos tal que $\omega(t) = 0$ si $n_t = 0$, es decir que no se otorga algún peso cuando no hay elementos en dicho tiempo.
 
 Considerando el clásico estadístico de prueba $Z(\tau) = O(\tau)-\mathbb{E}(\tau)$ (elementos observados menos esperados) [^9.1] y considerando que $D$ es el número de tiempos en la muestra, se tiene lo siguiente:
 
@@ -261,34 +261,34 @@ Donde $J_{1-\alpha}$ es el cuantil $1-\alpha$ de una $\chi^2_{(1)}$.
 
 #### Ejercicio {-}
 
-Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejempo de la sección anterior.
+Realice la prueba generalizada de Wilcoxon de acuerdo a los datos del ejemplo de la sección anterior.
 
 ## Comparación de $m$ Poblaciones
  
-Si deseamos comparar las funciones de supervivencia de *m* poblaciones planteamos la siguiente hipótesis:
+Si deseamos comparar las funciones de supervivencia de $m$ poblaciones planteamos la siguiente hipótesis:
 
 $$
 H_0:S_1(t) = S_2(t) = ... = S_m(t) \forall t \mbox{ vs } H_a:S_r(t)\neq S_s(t) \mbox{ p.a } r\neq s; r,s = 1,...,m
 $$
 
-Para realizar la prueba, denotemos $d_{j}$ el vector de fallas al tiempo $t_j$, $j=1,...,m$ con vector de medias $\mathbb{E}(d_j)$ y matriz de varianzas[^9.3] y covarianzas:
+Para realizar la prueba, denotemos $d_{i}$ el vector de fallas al tiempo $t_i$, $i=1,...,k$ con vector de medias $\mathbb{E}(d_i)$ y las entradas de la matriz de varianzas[^9.3] y covarianzas de la siguiente manera:
 
 $$
-Var(d_{ij}) = \frac{n_{1j}\cdot n_{2j}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)}
-$$
-
-$$
-Cov(d_{ji},...,d_{jk}) = \frac{-n_{ji}\cdot n_{jk}\cdot d_j(n_j-d_j)}{n_j^2(n_j-1)} \mbox{ , } i\neq k
-$$
-
-Donde $i$ denota el Grupo y $j$ es el tiempo. Ahora bien, sumando sobre los tiempos de falla $t_j$:
-
-$$
-\underline{D} = \sum_{j = 1}^k\{\underline{d}_j - \mathbb{E}(d_j)\}
+Var(d_{ji}) = \frac{n_{1i}\cdot n_{2i}\cdot d_i(n_i-d_i)}{n_i^2(n_i-1)}
 $$
 
 $$
-\underline{V} = \sum_{j=1}^kVar(\underline{d}_j)
+Cov(d_{ji},...,d_{hi}) = \frac{-n_{ji}\cdot n_{hi}\cdot d_i(n_i-d_i)}{n_i^2(n_i-1)} \mbox{ , } j \neq h
+$$
+
+Donde $j$ y $h$ denota el Grupo e $i$ es el tiempo. Ahora bien, sumando sobre los tiempos de falla $t_i$:
+
+$$
+\underline{D} = \sum_{i = 1}^k\{\underline{d}_i - \mathbb{E}(d_i)\}
+$$
+
+$$
+\underline{V} = \sum_{i=1}^kVar(\underline{d}_i)
 $$
 
 **Mantel-Haenszel** propone probar la hipótesis de $m$ supervivencias iguales usando la forma cuadrática $O = D^{t}V^{-1}D$, donde $V^{-1}$ es la inversa generalizada de $V$ que bajo $H_0$ se distribuye $\chi^2_{(m-1)}$.
