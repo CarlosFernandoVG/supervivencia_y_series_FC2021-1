@@ -114,7 +114,7 @@ h4 {
 }
 
 .book .book-summary {
-  background: white;
+  background: linear-gradient(to top, rgba(6, 82, 221,1.0), 1%,rgba(236, 240, 241,1.0));
   border-right: #d9d9d9 solid 1pt;
 }
 
