@@ -1,8 +1,5 @@
-bookdown::bs4_book:
-  theme:
-    primary: "#274E82"
-  repo: https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1
 bookdown::gitbook:
+  css: styles.css
   split_by: chapter
   config:
     toc:

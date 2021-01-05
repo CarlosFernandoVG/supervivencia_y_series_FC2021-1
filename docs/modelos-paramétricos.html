@@ -1,81 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia</title>
-<meta name="author" content="Sofía Villers Gómez">
-<meta name="author" content="Carlos Fernando Vásquez Guerra">
-<meta name="author" content="Luis Angel Ramirez Teodoro">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6.4/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.3.9000/tabs.js"></script><script src="libs/bs3compat-0.2.3.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet">
-<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet">
-<script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="styles.css">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia</title>
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 Modelos Paramétricos | Modelos de Supervivencia" />
+  
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  
+
+<meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="Carlos Fernando Vásquez Guerra" />
+<meta name="author" content="Luis Angel Ramirez Teodoro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="par-poblacionales.html"/>
+<link rel="next" href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"/>
+<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Modelos de Supervivencia</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Prefacio</a></li>
-<li class="book-part">Todo es cuestion de tiempo</li>
-<li><a class="" href="motivaci%C3%B3n.html">Motivación</a></li>
-<li><a class="" href="an%C3%A1lisis-de-supervivencia.html">Análisis de Supervivencia</a></li>
-<li><a class="" href="datos-censurados.html"><span class="header-section-number">1</span> Datos Censurados</a></li>
-<li><a class="" href="datos-truncados.html"><span class="header-section-number">2</span> Datos Truncados</a></li>
-<li class="book-part">Estudio paramétrico</li>
-<li><a class="" href="funciones-para-el-an%C3%A1lisis-de-supervivencia.html"><span class="header-section-number">3</span> Funciones para el Análisis de Supervivencia</a></li>
-<li><a class="" href="par-poblacionales.html"><span class="header-section-number">4</span> Parámetros Poblacionales</a></li>
-<li><a class="active" href="modelos-param%C3%A9tricos.html"><span class="header-section-number">5</span> Modelos Paramétricos</a></li>
-<li><a class="" href="la-funci%C3%B3n-de-verosimilitud-con-censura-y-truncamiento.html"><span class="header-section-number">6</span> La Función de Verosimilitud con Censura y Truncamiento</a></li>
-<li class="book-part">Estudio no paramétrico</li>
-<li><a class="" href="modelos-no-param%C3%A9tricos-para-la-funci%C3%B3n-de-supervivencia.html"><span class="header-section-number">7</span> Modelos No Paramétricos para la Función de Supervivencia</a></li>
-<li><a class="" href="algunas-estimaciones-sobre-modelos-no-param%C3%A9tricos.html"><span class="header-section-number">8</span> Algunas Estimaciones sobre Modelos No Paramétricos</a></li>
-<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de Hipótesis</a></li>
-<li class="book-part">Lleno de riesgos</li>
-<li><a class="" href="modelo-de-riesgos-proporcionales.html"><span class="header-section-number">10</span> Modelo de Riesgos Proporcionales</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis de Supervivencia</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i>Estructura</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i>Detalles técnicos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
+</ul></li>
+<li class="part"><span><b>I Todo es cuestion de tiempo</b></span></li>
+<li class="chapter" data-level="" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-supervivencia.html"><a href="análisis-de-supervivencia.html"><i class="fa fa-check"></i>Análisis de Supervivencia</a></li>
+<li class="chapter" data-level="1" data-path="datos-censurados.html"><a href="datos-censurados.html"><i class="fa fa-check"></i><b>1</b> Datos Censurados</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-i"><i class="fa fa-check"></i><b>1.1</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="1.2" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-ii"><i class="fa fa-check"></i><b>1.2</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="1.3" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-iii"><i class="fa fa-check"></i><b>1.3</b> Censura por la Derecha Tipo III</a></li>
+<li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
+<li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="part"><span><b>II Estudio paramétrico</b></span></li>
+<li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-supervivencia"><i class="fa fa-check"></i><b>3.1</b> Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction"><i class="fa fa-check"></i><b>3.2</b> Función de Riesgo</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-1"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-1"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-riesgo-acumulado"><i class="fa fa-check"></i><b>3.3</b> Función de Riesgo Acumulado</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-2"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-2"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="par-poblacionales.html"><a href="par-poblacionales.html"><i class="fa fa-check"></i><b>4</b> Parámetros Poblacionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="par-poblacionales.html"><a href="par-poblacionales.html#media"><i class="fa fa-check"></i><b>4.1</b> Media</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-3"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-3"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="par-poblacionales.html"><a href="par-poblacionales.html#varianza"><i class="fa fa-check"></i><b>4.2</b> Varianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-4"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-4"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="par-poblacionales.html"><a href="par-poblacionales.html#función-de-media-residual"><i class="fa fa-check"></i><b>4.3</b> Función de Media Residual</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-5"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-5"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="par-poblacionales.html"><a href="par-poblacionales.html#cuantiles-de-orden-p"><i class="fa fa-check"></i><b>4.4</b> Cuantiles de Orden <span class="math inline">\(p\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i><b>5.1</b> Modelo Exponencial</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i><b>5.2</b> Modelo Weibull</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-normal"><i class="fa fa-check"></i><b>5.3</b> Modelo Log-Normal</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-logístico"><i class="fa fa-check"></i><b>5.4</b> Modelo Log-Logístico</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma"><i class="fa fa-check"></i><b>5.5</b> Modelo Gamma</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma-generalizada"><i class="fa fa-check"></i><b>5.6</b> Modelo Gamma Generalizada</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><i class="fa fa-check"></i><b>6</b> La Función de Verosimilitud con Censura y Truncamiento</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#caso-general"><i class="fa fa-check"></i><b>6.1</b> Caso General</a></li>
+<li class="chapter" data-level="6.2" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-i-1"><i class="fa fa-check"></i><b>6.2</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="6.3" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-ii-1"><i class="fa fa-check"></i><b>6.3</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="6.4" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-aleatoria"><i class="fa fa-check"></i><b>6.4</b> Censura Aleatoria</a></li>
+<li class="chapter" data-level="6.5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-izquierda"><i class="fa fa-check"></i><b>6.5</b> Truncamiento por la Izquierda</a></li>
+<li class="chapter" data-level="6.6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-derecha"><i class="fa fa-check"></i><b>6.6</b> Truncamiento por la Derecha</a></li>
+<li class="chapter" data-level="6.7" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#estimaciones-para-algunos-modelos"><i class="fa fa-check"></i><b>6.7</b> Estimaciones para Algunos Modelos</a>
+<ul>
+<li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
+<li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Estudio no paramétrico</b></span></li>
+<li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida"><i class="fa fa-check"></i><b>7.1</b> Método Actuarial (Tabla de Vida)</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier"><i class="fa fa-check"></i><b>7.2</b> Estimador Producto-Límite (Kaplan-Meier)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m"><i class="fa fa-check"></i><b>7.2.1</b> Construcción del Estimador K-M</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><i class="fa fa-check"></i><b>8</b> Algunas Estimaciones sobre Modelos No Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st"><i class="fa fa-check"></i><b>8.1</b> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida"><i class="fa fa-check"></i><b>8.1.1</b> Tabla de Vida</a></li>
+<li class="chapter" data-level="8.1.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier"><i class="fa fa-check"></i><b>8.1.2</b> Kaplan-Meier</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada"><i class="fa fa-check"></i><b>8.2</b> Estimadores de la Función de Riesgo Acumulada</a></li>
+<li class="chapter" data-level="8.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media"><i class="fa fa-check"></i><b>8.3</b> Estimación Puntual de la Media</a></li>
+<li class="chapter" data-level="8.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles"><i class="fa fa-check"></i><b>8.4</b> Estimación de Cuantiles</a></li>
+<li class="chapter" data-level="8.5" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.5</b> Bandas de Confianza para la Función de Supervivencia</a></li>
+<li class="chapter" data-level="8.6" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos"><i class="fa fa-check"></i><b>8.6</b> Diagnóstico para el Uso de Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia"><i class="fa fa-check"></i><b>8.6.1</b> Gráficas de las Funciones de Supervivencia</a></li>
+<li class="chapter" data-level="8.6.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p"><i class="fa fa-check"></i><b>8.6.2</b> Gráfica <span class="math inline">\(P-P\)</span></a></li>
+<li class="chapter" data-level="8.6.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q"><i class="fa fa-check"></i><b>8.6.3</b> Gráfica <span class="math inline">\(Q-Q\)</span></a></li>
+<li class="chapter" data-level="8.6.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.6.4</b> Linearización de la Función de Supervivencia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de Hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>9.1</b> Comparación de 1 población</a></li>
+<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>9.2</b> Prueba Log-Rank</a></li>
+<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>9.3</b> Prueba Generalizada Wilcoxon</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de <span class="math inline">\(m\)</span> Poblaciones</a></li>
+</ul></li>
+<li class="part"><span><b>IV Lleno de riesgos</b></span></li>
+<li class="chapter" data-level="10" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>10</b> Modelo de Riesgos Proporcionales</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#inferencia-sobre-theta"><i class="fa fa-check"></i><b>10.1</b> Inferencia sobre <span class="math inline">\(\theta\)</span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-semiparamétrica-verosimilitud-parcial."><i class="fa fa-check"></i><b>10.2</b> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
+<li class="chapter" data-level="10.3" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimador-de-breslow-h_0t-y-s_0t"><i class="fa fa-check"></i><b>10.3</b> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</a></li>
+<li class="chapter" data-level="10.4" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#significancia-de-los-parámetros-prueba-de-wald"><i class="fa fa-check"></i><b>10.4</b> Significancia de los parámetros (Prueba de Wald)</a></li>
+<li class="chapter" data-level="10.5" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox"><i class="fa fa-check"></i><b>10.5</b> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
+<li class="chapter" data-level="10.6" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#verificación-de-ajuste-de-modelo"><i class="fa fa-check"></i><b>10.6</b> Verificación de ajuste de Modelo</a></li>
+<li class="chapter" data-level="10.7" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fa fa-check"></i><b>10.7</b> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
+
 </ul>
 
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1">View book source <i class="fab fa-github"></i></a></p>
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="modelos-paramétricos" class="section level1" number="5">
-<h1>
-<span class="header-section-number">Capítulo 5</span> Modelos Paramétricos<a class="anchor" aria-label="anchor" href="#modelos-param%C3%A9tricos"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos de Supervivencia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelos-paramétricos" class="section level1" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Modelos Paramétricos</h1>
 <p>Existen varios modelos paramétricos que se emplean en el análisis de supervivencia, esto se debe a que pueden representar de manera adecuada el comportamiento de ciertos fenómenos. La motivación para usar un modelo en particular es, por lo general, empírica; o bien, con base en la información que proporcione algún modelo <strong>No paramétrico</strong>. Las familias paramétricas más importantes son: <em>Exponencial, Weibull, Log-Normal, Log-logística</em> y <em>Gamma</em>.</p>
 <div id="modelo-exponencial" class="section level2" number="5.1">
-<h2>
-<span class="header-section-number">5.1</span> Modelo Exponencial<a class="anchor" aria-label="anchor" href="#modelo-exponencial"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">5.1</span> Modelo Exponencial</h2>
 <p>El modelo exponencial es el más importante debido a su amplia aplicación, por ejemplo, puede emplearse en estudios para determinar el tiempo de vida útil de algunos artículos manufacturados. Este modelo juega un papel fundamental análogo a la <em>distribución normal</em> en la inferencia estadística tradicional.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math display">\[
 f(t)=h(t)S(t)=\lambda exp(-\lambda t)=\lambda e^{-\lambda t}
 \]</span>
-Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Un parámetro de escala modifica la escala o &lt;em&gt;dispersión&lt;/em&gt; de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una &lt;em&gt;log-logistica&lt;/em&gt;. En el siguiente &lt;a href="https://en.wikipedia.org/wiki/Scale_parameter"&gt;enlace&lt;/a&gt; se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.&lt;/p&gt;'><sup>4</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
+Para esta distribución <span class="math inline">\(\lambda\)</span> es un parámetro que modifica la escala de la distribución. Este es comúnmente llamado <strong><em>tasa</em></strong> definido por <span class="math inline">\(1/s\)</span> donde <span class="math inline">\(s\)</span> es el verdadero parámetro de escala<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> de la distribución. Es muy común utilizar este parámetro en lugar del parámetro de escala ya que simplifica la expresión matemática.</p>
 <p><strong>Función de Supervivencia</strong></p>
 <p><span class="math display">\[
 S(t)=exp\left(-\int_0^{t}h(u)du\right)=exp\left(-\int_0^{t}\lambda du\right)=exp(-\lambda t)=e^{-\lambda t}
@@ -101,27 +266,21 @@ Var[T]=\mathbb{E}[T^2]-\mathbb{E}[T]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\
 \]</span></p>
 <p><strong>Gráficas</strong></p>
 <p>A continuación se muestran gráficas de una <span class="math inline">\(Exponencial\)</span> con <span class="math inline">\(\lambda=0.5\)</span></p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>En el lenguaje de programación <code>R</code> se pueden obtener resultados de esta distribución como una muestra pseudo aleatoria y aproximaciones numéricas para la distribución y densidad de esta así como la obtención de los cuantiles.</p>
 <p>En general, el sufijo para esta distribución es <code>*exp</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
 <ul>
-<li>
-<code><a href="https://rdrr.io/r/stats/Exponential.html">rexp(n, rate = 1)</a></code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Exponential.html">dexp(x, rate = 1, log = FALSE)</a></code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Exponential.html">pexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE)</a></code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Exponential.html">qexp(p, rate = 1, lower.tail = TRUE, log.p = FALSE)</a></code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+<li><code>rexp(n, rate = 1)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dexp(x, rate = 1, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qexp(p, rate = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
-<p>Algo que hay que recordar es que al utilizar la función, por ejemplo, <code><a href="https://rdrr.io/r/stats/Exponential.html">rexp(n, r)</a></code> se respeta el orden de los parámetros por lo que <code>r</code> será el valor correspondiente a la tasa y no parámetro de escala es decir el valor <span class="math inline">\(r = \lambda\)</span>. Se menciona esta por que puede ser común que se confunda <code>r</code> con <span class="math inline">\(1/\lambda\)</span>, por lo que se recomienda tener precaución.</p>
+<p>Algo que hay que recordar es que al utilizar la función, por ejemplo, <code>rexp(n, r)</code> se respeta el orden de los parámetros por lo que <code>r</code> será el valor correspondiente a la tasa y no parámetro de escala es decir el valor <span class="math inline">\(r = \lambda\)</span>. Se menciona esta por que puede ser común que se confunda <code>r</code> con <span class="math inline">\(1/\lambda\)</span>, por lo que se recomienda tener precaución.</p>
 </div>
 <div id="modelo-weibull" class="section level2" number="5.2">
-<h2>
-<span class="header-section-number">5.2</span> Modelo Weibull<a class="anchor" aria-label="anchor" href="#modelo-weibull"><i class="fas fa-link"></i></a>
-</h2>
-<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.&lt;/p&gt;"><sup>5</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
+<h2><span class="header-section-number">5.2</span> Modelo Weibull</h2>
+<p>El modelo Weibull es una generalización del modelo exponencial, se agrega un parámetro de forma<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> <span class="math inline">\(\gamma\)</span> y se mantiene el parámetro de escala <span class="math inline">\(\lambda\)</span>. Este modelo es uno de los más utilizados para tiempos de falla: tiene utilidad en la vida de algunos artículos manufacturados, así como en los tiempos de aparición de tumores en medicina.</p>
 <p><strong>Función de Densidad</strong>
 <span class="math display">\[
 f(t)=\lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}=h(t)S(t)
@@ -150,28 +309,22 @@ Var[T]=\frac{1}{\lambda^2}\Gamma\left(\frac{2}{\gamma}+1\right)-\left(\frac{1}{\
 Debe resultar sencillo para el alumno demostrar las igualdades de la esperanza y varianza.</p>
 <p><strong>Gráficas</strong></p>
 <p>Las dos gráficas siguientes muestran curvas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para el modelo Weibull con <span class="math inline">\(\lambda=1\)</span> y <span class="math inline">\(\gamma=2,4\)</span>:</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Y para el modelo Weibull con <span class="math inline">\(\lambda=1\)</span> y <span class="math inline">\(\gamma=0.5,1\)</span> se tienen las siguientes gráficas:</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Como bien hemos dicho, si suponemos una función de riesgo monótona creciente ó decreciente la distribución Weibull puede ser generada. Concretamente, si <span class="math inline">\(\gamma&gt;1\)</span> entonces <span class="math inline">\(h(t)\)</span> es estrictamente creciente, si <span class="math inline">\(\gamma&lt;1\)</span> entonces <span class="math inline">\(h(t)\)</span> es estrictamente decreciente. Cuando <span class="math inline">\(\gamma=1\)</span> se tiene la distribución exponencial.</p>
 <p><strong>R</strong></p>
 <p>Para este caso el sufijo referente a esta distribución es <code>*weibull</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
 <ul>
-<li>
-<code><a href="https://rdrr.io/r/stats/Weibull.html">rweibull(n, shape, scale = 1)</a></code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Weibull.html">dweibull(x, shape, scale = 1, log = FALSE)</a></code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Weibull.html">pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</a></code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Weibull.html">qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</a></code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+<li><code>rweibull(n, shape, scale = 1)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dweibull(x, shape, scale = 1, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>Así como en el caso de la exponencial y en todos los casos posteriores, se respeta el orden de los parámetros por lo que para aplicar los parámetros tal como se vieron en esta sección se puede utilizar esta función de la siguiente manera: <code>dweibull</code>(<span class="math inline">\(\gamma\)</span>, <span class="math inline">\(1/\lambda\)</span>) o sin importar el orden indicando de manera explicita que <code>shape</code> = <span class="math inline">\(\gamma\)</span> y <code>scale</code> = <span class="math inline">\(1/\lambda\)</span>. Esto último debido a que la función de densidad para este modelo en R esta considerada como <span class="math inline">\(f(x) = \frac{\gamma}{\lambda}(\frac{x}{\lambda})^{\gamma-1}e^{-(\frac{x}{\lambda})^\gamma}\)</span>.</p>
 </div>
 <div id="modelo-log-normal" class="section level2" number="5.3">
-<h2>
-<span class="header-section-number">5.3</span> Modelo Log-Normal<a class="anchor" aria-label="anchor" href="#modelo-log-normal"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">5.3</span> Modelo Log-Normal</h2>
 <p>El modelo Log-Normal tiene estrecha relación con la distribución <em>Normal</em>. De hecho, el tiempo de supervivencia <span class="math inline">\(T\)</span> se dice que sigue una distribución Log-Normal, si <span class="math inline">\(Y=ln(T)\)</span> se distribuye <span class="math inline">\(N(\mu,\sigma^2)\)</span>.</p>
 <p>La distribución Log-Normal se ha utilizado como modelo en el tiempo de falla de aislantes eléctricos y en el tiempo de aparición de cáncer pulmonar. También se utiliza en poblaciones que son una mezcla de tiempos de vida cortos y largos. A pesar de esto, este modelo es criticado por ser decreciente para valores grandes de <span class="math inline">\(t\)</span>, lo cual parece inadecaudo en algunas situaciones.</p>
 <p><strong>Función de Densidad</strong></p>
@@ -208,23 +361,18 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 <p>La demostración de las igualdades de media y varianza se dejan al alumno.</p>
 <p><strong>Gráficas</strong></p>
 <p>A continuación algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Normal:</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>Para esta distribución el sufijo respectivo será <code>*lnorm</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
 <ul>
-<li>
-<code><a href="https://rdrr.io/r/stats/Lognormal.html">rlnorm(n, meanlog = 0, sdlog = 1)</a></code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Lognormal.html">dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)</a></code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Lognormal.html">plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</a></code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Lognormal.html">qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</a></code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+<li><code>rlnorm(n, meanlog = 0, sdlog = 1)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>En este caso, es evidente que <code>meanlog</code> correspondería al parámetro de escala <span class="math inline">\(\mu\)</span> y <code>sdlog</code> al parámetro de forma <span class="math inline">\(\sigma\)</span>. Finalmente se menciona que estos parámetros no se deben confundir explícitamente con los de una distribución normal.</p>
 <div id="ejemplo-6" class="section level4 unnumbered">
-<h4>Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-6"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Ejemplo</h4>
 <p>El tiempo de muerte en días después de un trasplante de médula sigue una distribución <span class="math inline">\(log-normal\)</span> con <span class="math inline">\(\mu = 3.177, \sigma = 2.084\)</span>. Calcular lo siguiente</p>
 <ol style="list-style-type: decimal">
 <li>La media y la mediano tiempo de muerte</li>
@@ -232,7 +380,7 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 </ol>
 <p>Soluciones</p>
 <ol style="list-style-type: decimal">
-<li>
+<li></li>
 </ol>
 <ul>
 <li>Mediana: <span class="math inline">\(t_{0.5} =e^{\mu}\)</span> cuando <span class="math inline">\(T\sim log-normal \implies\)</span> Mediana de tiempo de muerte: <span class="math inline">\(t_{0.5} = e^{3.177} = 23.97\)</span>.</li>
@@ -240,15 +388,12 @@ Var[T]=exp(2\mu+2\sigma^2)-exp(2\mu+\sigma^2)
 </ul>
 <p>Entonces si sobrevivieron 23.97, queda una gran cantidad de días donde, en promedio son 210.29.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>
-<span class="math inline">\(S(200) = 1-\Phi\left(\frac{\ln(200)-3.177}{2.084}\right) = 1-0.8438 = 0.15436\)</span>.</li>
+<li><span class="math inline">\(S(200) = 1-\Phi\left(\frac{\ln(200)-3.177}{2.084}\right) = 1-0.8438 = 0.15436\)</span>.</li>
 </ol>
 </div>
 </div>
 <div id="modelo-log-logístico" class="section level2" number="5.4">
-<h2>
-<span class="header-section-number">5.4</span> Modelo Log-Logístico<a class="anchor" aria-label="anchor" href="#modelo-log-log%C3%ADstico"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">5.4</span> Modelo Log-Logístico</h2>
 <p>El modelo Log-Logístico es derivado de la distribución <em>Logística</em>. Se dice que <span class="math inline">\(T\)</span> tiene distribución Log-Logística si <span class="math inline">\(Y=ln(T)\)</span> sigue una distribución Logística con parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma ^2\)</span>.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math display">\[
@@ -266,25 +411,19 @@ h(t)=\frac{f(t)}{S(t)}=\frac{\alpha \lambda (\lambda t)^{\alpha-1}}{1+(\lambda t
 <p>La función de riesgo es monótona decreciente para <span class="math inline">\(\alpha \leq 1\)</span>, y para <span class="math inline">\(\alpha&gt; 1\)</span> la función de riesgo crece hasta alcanzar un máximo en <span class="math inline">\(t=(\frac{\alpha-1}{\lambda})^{\frac{1}{\alpha}}\)</span> y luego decrece a cero cuando <span class="math inline">\(t \rightarrow \infty\)</span>.</p>
 <p><strong>Gráficas</strong></p>
 <p>Algunos ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para la distribución Log-Logística:</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>Para esta distribución se recomienda descargar y utilizar el paquete <code>actuar</code>, en la cual vienen un conjunto de funciones similares a las anteriores, de hecho el sufijo respectivo será <code>*llogis</code> y, de manera análoga a las anteriores funciones, se tiene lo siguiente:</p>
 <ul>
-<li>
-<code>rllogis(n, shape, rate = 1, scale = 1/rate)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
-<li>
-<code>dllogis(x, shape, rate = 1, scale = 1/rate, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
-<li>
-<code>pllogis(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
-<li>
-<code>qllogis(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+<li><code>rllogis(n, shape, rate = 1, scale = 1/rate)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dllogis(x, shape, rate = 1, scale = 1/rate, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pllogis(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qllogis(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>En este caso, como en la exponencial y la weibull, <code>rate</code> correspondería al parámetro <span class="math inline">\(\lambda\)</span> y <code>shape</code> al parámetro de forma <span class="math inline">\(\alpha\)</span>.</p>
 </div>
 <div id="modelo-gamma" class="section level2" number="5.5">
-<h2>
-<span class="header-section-number">5.5</span> Modelo Gamma<a class="anchor" aria-label="anchor" href="#modelo-gamma"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">5.5</span> Modelo Gamma</h2>
 <p>La distribución Gamma, que incluye a las distribuciones <em>exponencial</em> y <em>ji-cuadrada</em>, ha sido utilizada como un modelo para problemas de confiabilidad industrial, hepatogramas en adultos normales y en pacientes con cirrosis, en supervivencia de plaquetas, entre otros. Este modelo tiene dos parámetros: <span class="math inline">\(\beta\)</span> es el parámetro de forma y <span class="math inline">\(\lambda\)</span> es el parámetro que modifica de escala; estrictamente hablando <span class="math inline">\(\lambda\)</span> es la tasa: <span class="math inline">\(\lambda =\frac{1}{s}\)</span> donde <span class="math inline">\(s\)</span> sería el verdadero parámetro de escala.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math inline">\(f(t)\)</span> está dada por:</p>
@@ -295,7 +434,7 @@ f(t)=\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-\lambda t); \ \ \  \lamb
 <p><span class="math display">\[
 S(t)=1-Ig(\lambda t, \beta)
 \]</span></p>
-<p>donde<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Esta función se llama &lt;em&gt;función gamma incompleta&lt;/em&gt; y en algunas fuentes se puede encontrar esta en particular como &lt;em&gt;&lt;strong&gt;lower incomplete gamma function&lt;/strong&gt;&lt;/em&gt;. Cuando se tiene &lt;span class="math inline"&gt;\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)&lt;/span&gt; se le conoce como &lt;em&gt;&lt;strong&gt;upper incomplete gamma function&lt;/strong&gt;&lt;/em&gt;, la cual es una &lt;a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html"&gt;generalización&lt;/a&gt; de la función gamma: &lt;span class="math inline"&gt;\(\Gamma(x, 0) = \Gamma(x)\)&lt;/span&gt;. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente &lt;a href="https://dlmf.nist.gov/8.2"&gt;enlace&lt;/a&gt;. Algunas veces esta función es conocida directamente como función gamma incompleta como en &lt;span class="citation"&gt;(Klein and Moeschberger &lt;a href="modelo-de-riesgos-proporcionales.html#ref-klein2006survival" role="doc-biblioref"&gt;2006&lt;/a&gt;)&lt;/span&gt;&lt;/p&gt;'><sup>6</sup></a>:</p>
+<p>donde<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>:</p>
 <p><span class="math display">\[
 Ig(t,\beta)=\frac{1}{\Gamma(\beta)}\int_0^{t}u^{\beta-1}e^{-u}du
 \]</span>
@@ -306,8 +445,7 @@ h(t)=\frac{f(t)}{S(t)}=\frac{\frac{\lambda^\beta}{\Gamma(\beta)}t^{\beta-1}exp(-
 \]</span></p>
 <p>Esta función de riesgo tiene distintos comportamientos:</p>
 <ul>
-<li>Es <strong>monótona creciente</strong> para <span class="math inline">\(\beta&gt;1\)</span>. En este caso sucede que <span class="math inline">\(h(0)=0\)</span> y <span class="math inline">\(\underset{t\rightarrow\infty}{h(t)} \rightarrow \lambda\)</span>. Además, la moda de la distribución es <span class="math inline">\(t = \frac{\beta-1}{\lambda}\)</span>
-</li>
+<li>Es <strong>monótona creciente</strong> para <span class="math inline">\(\beta&gt;1\)</span>. En este caso sucede que <span class="math inline">\(h(0)=0\)</span> y <span class="math inline">\(\underset{t\rightarrow\infty}{h(t)} \rightarrow \lambda\)</span>. Además, la moda de la distribución es <span class="math inline">\(t = \frac{\beta-1}{\lambda}\)</span></li>
 <li>Es <strong>monótona decreciente</strong> con <span class="math inline">\(\beta &lt;1\)</span>. En tal caso <span class="math inline">\(h(0) = \infty\)</span> y <span class="math inline">\(\underset{t\rightarrow\infty}{h(t)} \rightarrow \lambda\)</span>.</li>
 </ul>
 <p><strong>Parámetros</strong></p>
@@ -321,25 +459,19 @@ Var[T]=\frac{\beta}{\lambda^2}
 <p>Las demostraciones de las igualdades de la esperanza y varianza se quedan de ejercicio al alumno.</p>
 <p><strong>Gráficas</strong></p>
 <p>Se muestran ejemplos de las gráficas de <span class="math inline">\(f(t)\)</span> y <span class="math inline">\(h(t)\)</span> para el modelo Gamma:</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>R</strong></p>
 <p>Para esta distribución el sufijo respectivo será <code>*gamma</code>, de tal manera que se tienen las siguientes funciones mencionando la interpretación de sus resultados:</p>
 <ul>
-<li>
-<code><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma(n, shape, rate = 1, scale = 1/rate)</a></code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/GammaDist.html">dgamma(x, shape, rate = 1, scale = 1/rate, log = FALSE)</a></code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/GammaDist.html">pgamma(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</a></code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/GammaDist.html">qgamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</a></code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+<li><code>rgamma(n, shape, rate = 1, scale = 1/rate)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dgamma(x, shape, rate = 1, scale = 1/rate, log = FALSE)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pgamma(q, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qgamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>Como en el caso de la exponencial, se recomienda tener precaución ya que el parámetro <code>rate</code> es el que corresponde al parámetro <span class="math inline">\(\lambda\)</span> en este trabajo.</p>
 </div>
 <div id="modelo-gamma-generalizada" class="section level2" number="5.6">
-<h2>
-<span class="header-section-number">5.6</span> Modelo Gamma Generalizada<a class="anchor" aria-label="anchor" href="#modelo-gamma-generalizada"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">5.6</span> Modelo Gamma Generalizada</h2>
 <p>Finalmente, se presenta el modelo Gamma Generalizada con dos parámetros de forma y un parámetro de que modifica la escala <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> y <span class="math inline">\(\lambda\)</span> respectivamente.</p>
 <p><strong>Función de Densidad</strong></p>
 <p><span class="math inline">\(f(t)\)</span> está dada por:</p>
@@ -352,30 +484,22 @@ S(t)=1-Ig((\lambda t)^\alpha, \beta)
 \]</span></p>
 <p>Esta distribución se reduce a las siguientes</p>
 <ul>
-<li>
-<span class="math inline">\(Exponencial\)</span> cuando <span class="math inline">\(\beta = \alpha = 1\)</span>.</li>
-<li>
-<span class="math inline">\(Weibull\)</span> cuando <span class="math inline">\(\beta = 1\)</span>.</li>
-<li>
-<span class="math inline">\(Gamma\)</span> cuando <span class="math inline">\(\alpha = 1\)</span>.</li>
+<li><span class="math inline">\(Exponencial\)</span> cuando <span class="math inline">\(\beta = \alpha = 1\)</span>.</li>
+<li><span class="math inline">\(Weibull\)</span> cuando <span class="math inline">\(\beta = 1\)</span>.</li>
+<li><span class="math inline">\(Gamma\)</span> cuando <span class="math inline">\(\alpha = 1\)</span>.</li>
 <li>Tiende a la log-normal cuando <span class="math inline">\(\beta\rightarrow\infty\)</span>.</li>
 </ul>
 <p><strong>R</strong></p>
 <p>Para esta distribución se recomienda descargar y utilizar el paquete <code>ggamma</code>, en la cual vienen un conjunto de funciones similares a las anteriores. Aquí el respectivo sufijo será <code>*ggamma</code> y, de manera análoga a las anteriores funciones, se tiene lo siguiente:</p>
 <ul>
-<li>
-<code>rggamma(n, a, b, k)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
-<li>
-<code>dggamma(x, a, b, k, log = F)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
-<li>
-<code>pggamma(p, a, b, k, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
-<li>
-<code>qggamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
+<li><code>rggamma(n, a, b, k)</code>: Muestra pseudo aleatoria de tamaño <span class="math inline">\(n\)</span>.</li>
+<li><code>dggamma(x, a, b, k, log = F)</code>: Valores de <span class="math inline">\(f(x)\)</span>.</li>
+<li><code>pggamma(p, a, b, k, lower.tail = TRUE, log.p = FALSE)</code>: Valores de <span class="math inline">\(F(x)\)</span>.</li>
+<li><code>qggamma(p, shape, rate = 1, scale = 1/rate, lower.tail = TRUE, log.p = FALSE)</code>: Cuantil <span class="math inline">\(t_p\)</span>.</li>
 </ul>
 <p>Para este caso, se tiene una parametrización de uso común en distintas fuentes. <code>a</code> = <span class="math inline">\(\frac{1}{\lambda}\)</span>, <code>b</code> = <span class="math inline">\(\alpha\)</span> y <code>k</code> = <span class="math inline">\(\beta\)</span>.</p>
 <div id="ejemplo-7" class="section level4 unnumbered">
-<h4>Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-7"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Ejemplo</h4>
 <p>El tiempo de vida en meses de cierta especie de ratón sigue una distribución <span class="math inline">\(gamma(\beta = 3, \lambda = 0.2)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li>Calcular la probabilidad de que un ratón sobreviva más de 18 meses.</li>
@@ -384,58 +508,81 @@ S(t)=1-Ig((\lambda t)^\alpha, \beta)
 </ol>
 <p>Soluciones</p>
 <ol style="list-style-type: decimal">
-<li>
-<span class="math inline">\(S(18) = 1-F(18) = 1-\)</span> 0.6972532 = 0.3027468</li>
-<li>
-<span class="math inline">\(F(12) =\)</span> 0.4302913</li>
-<li>
-<span class="math inline">\(\mathbb{E}(T) = \frac{\beta}{\lambda} = \frac{3}{0.2} = 15\)</span> meses.</li>
+<li><span class="math inline">\(S(18) = 1-F(18) = 1-\)</span> 0.6972532 = 0.3027468</li>
+<li><span class="math inline">\(F(12) =\)</span> 0.4302913</li>
+<li><span class="math inline">\(\mathbb{E}(T) = \frac{\beta}{\lambda} = \frac{3}{0.2} = 15\)</span> meses.</li>
 </ol>
 <p>Cabe señalar que hasta este punto <strong>no hemos introducido datos censurados a los modelos</strong>.</p>
 
 </div>
 </div>
 </div>
-
-  <div class="chapter-nav">
-<div class="prev"><a href="par-poblacionales.html"><span class="header-section-number">4</span> Parámetros Poblacionales</a></div>
-<div class="next"><a href="la-funci%C3%B3n-de-verosimilitud-con-censura-y-truncamiento.html"><span class="header-section-number">6</span> La Función de Verosimilitud con Censura y Truncamiento</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#modelos-param%C3%A9tricos"><span class="header-section-number">5</span> Modelos Paramétricos</a></li>
-<li><a class="nav-link" href="#modelo-exponencial"><span class="header-section-number">5.1</span> Modelo Exponencial</a></li>
-<li><a class="nav-link" href="#modelo-weibull"><span class="header-section-number">5.2</span> Modelo Weibull</a></li>
-<li><a class="nav-link" href="#modelo-log-normal"><span class="header-section-number">5.3</span> Modelo Log-Normal</a></li>
-<li><a class="nav-link" href="#modelo-log-log%C3%ADstico"><span class="header-section-number">5.4</span> Modelo Log-Logístico</a></li>
-<li><a class="nav-link" href="#modelo-gamma"><span class="header-section-number">5.5</span> Modelo Gamma</a></li>
-<li><a class="nav-link" href="#modelo-gamma-generalizada"><span class="header-section-number">5.6</span> Modelo Gamma Generalizada</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1/blob/master/05_ParametricModels.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1/edit/master/05_ParametricModels.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Un parámetro de escala modifica la escala o <em>dispersión</em> de la distribución ya sea que entre mayor sea este parámetro mayor dispersión se tendrá o se tenga el caso contrario como en una <em>log-logistica</em>. En el siguiente <a href="https://en.wikipedia.org/wiki/Scale_parameter">enlace</a> se puede encontrar mayor información sobre esto así como animaciones para un mejor entendimiento.<a href="modelos-paramétricos.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Un parámetro de forma es aquel que no es de escala ni de localización o una función de estos, ya que su único propósito es modificar la forma de la distribución de manera distinta a estos anteriores, es decir que no sólo traslada o afecta la variabilidad de la misma.<a href="modelos-paramétricos.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Esta función se llama <em>función gamma incompleta</em> y en algunas fuentes se puede encontrar esta en particular como <em><strong>lower incomplete gamma function</strong></em>. Cuando se tiene <span class="math inline">\(\int_x^{\infty}u^{\beta-1}e^{-u}du = \Gamma(x, \beta)\)</span> se le conoce como <em><strong>upper incomplete gamma function</strong></em>, la cual es una <a href="https://mathworld.wolfram.com/IncompleteGammaFunction.html">generalización</a> de la función gamma: <span class="math inline">\(\Gamma(x, 0) = \Gamma(x)\)</span>. Originalmente esta función no tiene el cociente que se esta utilizando en este caso, esto es un efecto de normalizar la función como se puede ver en el siguiente <a href="https://dlmf.nist.gov/8.2">enlace</a>. Algunas veces esta función es conocida directamente como función gamma incompleta como en <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span><a href="modelos-paramétricos.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-    </nav>
-</div>
+            </section>
 
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Supervivencia</strong>" was written by Sofía Villers Gómez, Carlos Fernando Vásquez Guerra, Luis Angel Ramirez Teodoro. </p>
+          </div>
+        </div>
+      </div>
+<a href="par-poblacionales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -449,4 +596,5 @@ S(t)=1-Ig((\lambda t)^\alpha, \beta)
   })();
 </script>
 </body>
+
 </html>

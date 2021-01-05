@@ -1,75 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 6 La Función de Verosimilitud con Censura y Truncamiento | Modelos de Supervivencia</title>
-<meta name="author" content="Sofía Villers Gómez">
-<meta name="author" content="Carlos Fernando Vásquez Guerra">
-<meta name="author" content="Luis Angel Ramirez Teodoro">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6.4/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.3.9000/tabs.js"></script><script src="libs/bs3compat-0.2.3.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet">
-<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet">
-<script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="styles.css">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 La Función de Verosimilitud con Censura y Truncamiento | Modelos de Supervivencia</title>
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 La Función de Verosimilitud con Censura y Truncamiento | Modelos de Supervivencia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 La Función de Verosimilitud con Censura y Truncamiento | Modelos de Supervivencia" />
+  
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  
+
+<meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="Carlos Fernando Vásquez Guerra" />
+<meta name="author" content="Luis Angel Ramirez Teodoro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelos-paramétricos.html"/>
+<link rel="next" href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"/>
+<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Modelos de Supervivencia</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Prefacio</a></li>
-<li class="book-part">Todo es cuestion de tiempo</li>
-<li><a class="" href="motivaci%C3%B3n.html">Motivación</a></li>
-<li><a class="" href="an%C3%A1lisis-de-supervivencia.html">Análisis de Supervivencia</a></li>
-<li><a class="" href="datos-censurados.html"><span class="header-section-number">1</span> Datos Censurados</a></li>
-<li><a class="" href="datos-truncados.html"><span class="header-section-number">2</span> Datos Truncados</a></li>
-<li class="book-part">Estudio paramétrico</li>
-<li><a class="" href="funciones-para-el-an%C3%A1lisis-de-supervivencia.html"><span class="header-section-number">3</span> Funciones para el Análisis de Supervivencia</a></li>
-<li><a class="" href="par-poblacionales.html"><span class="header-section-number">4</span> Parámetros Poblacionales</a></li>
-<li><a class="" href="modelos-param%C3%A9tricos.html"><span class="header-section-number">5</span> Modelos Paramétricos</a></li>
-<li><a class="active" href="la-funci%C3%B3n-de-verosimilitud-con-censura-y-truncamiento.html"><span class="header-section-number">6</span> La Función de Verosimilitud con Censura y Truncamiento</a></li>
-<li class="book-part">Estudio no paramétrico</li>
-<li><a class="" href="modelos-no-param%C3%A9tricos-para-la-funci%C3%B3n-de-supervivencia.html"><span class="header-section-number">7</span> Modelos No Paramétricos para la Función de Supervivencia</a></li>
-<li><a class="" href="algunas-estimaciones-sobre-modelos-no-param%C3%A9tricos.html"><span class="header-section-number">8</span> Algunas Estimaciones sobre Modelos No Paramétricos</a></li>
-<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de Hipótesis</a></li>
-<li class="book-part">Lleno de riesgos</li>
-<li><a class="" href="modelo-de-riesgos-proporcionales.html"><span class="header-section-number">10</span> Modelo de Riesgos Proporcionales</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis de Supervivencia</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i>Estructura</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i>Detalles técnicos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
+</ul></li>
+<li class="part"><span><b>I Todo es cuestion de tiempo</b></span></li>
+<li class="chapter" data-level="" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-supervivencia.html"><a href="análisis-de-supervivencia.html"><i class="fa fa-check"></i>Análisis de Supervivencia</a></li>
+<li class="chapter" data-level="1" data-path="datos-censurados.html"><a href="datos-censurados.html"><i class="fa fa-check"></i><b>1</b> Datos Censurados</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-i"><i class="fa fa-check"></i><b>1.1</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="1.2" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-ii"><i class="fa fa-check"></i><b>1.2</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="1.3" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-iii"><i class="fa fa-check"></i><b>1.3</b> Censura por la Derecha Tipo III</a></li>
+<li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
+<li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="part"><span><b>II Estudio paramétrico</b></span></li>
+<li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-supervivencia"><i class="fa fa-check"></i><b>3.1</b> Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction"><i class="fa fa-check"></i><b>3.2</b> Función de Riesgo</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-1"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-1"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-riesgo-acumulado"><i class="fa fa-check"></i><b>3.3</b> Función de Riesgo Acumulado</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-2"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-2"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="par-poblacionales.html"><a href="par-poblacionales.html"><i class="fa fa-check"></i><b>4</b> Parámetros Poblacionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="par-poblacionales.html"><a href="par-poblacionales.html#media"><i class="fa fa-check"></i><b>4.1</b> Media</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-3"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-3"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="par-poblacionales.html"><a href="par-poblacionales.html#varianza"><i class="fa fa-check"></i><b>4.2</b> Varianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-4"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-4"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="par-poblacionales.html"><a href="par-poblacionales.html#función-de-media-residual"><i class="fa fa-check"></i><b>4.3</b> Función de Media Residual</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-5"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-5"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="par-poblacionales.html"><a href="par-poblacionales.html#cuantiles-de-orden-p"><i class="fa fa-check"></i><b>4.4</b> Cuantiles de Orden <span class="math inline">\(p\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i><b>5.1</b> Modelo Exponencial</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i><b>5.2</b> Modelo Weibull</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-normal"><i class="fa fa-check"></i><b>5.3</b> Modelo Log-Normal</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-logístico"><i class="fa fa-check"></i><b>5.4</b> Modelo Log-Logístico</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma"><i class="fa fa-check"></i><b>5.5</b> Modelo Gamma</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma-generalizada"><i class="fa fa-check"></i><b>5.6</b> Modelo Gamma Generalizada</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><i class="fa fa-check"></i><b>6</b> La Función de Verosimilitud con Censura y Truncamiento</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#caso-general"><i class="fa fa-check"></i><b>6.1</b> Caso General</a></li>
+<li class="chapter" data-level="6.2" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-i-1"><i class="fa fa-check"></i><b>6.2</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="6.3" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-ii-1"><i class="fa fa-check"></i><b>6.3</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="6.4" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-aleatoria"><i class="fa fa-check"></i><b>6.4</b> Censura Aleatoria</a></li>
+<li class="chapter" data-level="6.5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-izquierda"><i class="fa fa-check"></i><b>6.5</b> Truncamiento por la Izquierda</a></li>
+<li class="chapter" data-level="6.6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-derecha"><i class="fa fa-check"></i><b>6.6</b> Truncamiento por la Derecha</a></li>
+<li class="chapter" data-level="6.7" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#estimaciones-para-algunos-modelos"><i class="fa fa-check"></i><b>6.7</b> Estimaciones para Algunos Modelos</a>
+<ul>
+<li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
+<li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Estudio no paramétrico</b></span></li>
+<li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida"><i class="fa fa-check"></i><b>7.1</b> Método Actuarial (Tabla de Vida)</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier"><i class="fa fa-check"></i><b>7.2</b> Estimador Producto-Límite (Kaplan-Meier)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m"><i class="fa fa-check"></i><b>7.2.1</b> Construcción del Estimador K-M</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><i class="fa fa-check"></i><b>8</b> Algunas Estimaciones sobre Modelos No Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st"><i class="fa fa-check"></i><b>8.1</b> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida"><i class="fa fa-check"></i><b>8.1.1</b> Tabla de Vida</a></li>
+<li class="chapter" data-level="8.1.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier"><i class="fa fa-check"></i><b>8.1.2</b> Kaplan-Meier</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada"><i class="fa fa-check"></i><b>8.2</b> Estimadores de la Función de Riesgo Acumulada</a></li>
+<li class="chapter" data-level="8.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media"><i class="fa fa-check"></i><b>8.3</b> Estimación Puntual de la Media</a></li>
+<li class="chapter" data-level="8.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles"><i class="fa fa-check"></i><b>8.4</b> Estimación de Cuantiles</a></li>
+<li class="chapter" data-level="8.5" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.5</b> Bandas de Confianza para la Función de Supervivencia</a></li>
+<li class="chapter" data-level="8.6" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos"><i class="fa fa-check"></i><b>8.6</b> Diagnóstico para el Uso de Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia"><i class="fa fa-check"></i><b>8.6.1</b> Gráficas de las Funciones de Supervivencia</a></li>
+<li class="chapter" data-level="8.6.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p"><i class="fa fa-check"></i><b>8.6.2</b> Gráfica <span class="math inline">\(P-P\)</span></a></li>
+<li class="chapter" data-level="8.6.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q"><i class="fa fa-check"></i><b>8.6.3</b> Gráfica <span class="math inline">\(Q-Q\)</span></a></li>
+<li class="chapter" data-level="8.6.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.6.4</b> Linearización de la Función de Supervivencia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de Hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>9.1</b> Comparación de 1 población</a></li>
+<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>9.2</b> Prueba Log-Rank</a></li>
+<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>9.3</b> Prueba Generalizada Wilcoxon</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de <span class="math inline">\(m\)</span> Poblaciones</a></li>
+</ul></li>
+<li class="part"><span><b>IV Lleno de riesgos</b></span></li>
+<li class="chapter" data-level="10" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>10</b> Modelo de Riesgos Proporcionales</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#inferencia-sobre-theta"><i class="fa fa-check"></i><b>10.1</b> Inferencia sobre <span class="math inline">\(\theta\)</span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-semiparamétrica-verosimilitud-parcial."><i class="fa fa-check"></i><b>10.2</b> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
+<li class="chapter" data-level="10.3" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimador-de-breslow-h_0t-y-s_0t"><i class="fa fa-check"></i><b>10.3</b> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</a></li>
+<li class="chapter" data-level="10.4" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#significancia-de-los-parámetros-prueba-de-wald"><i class="fa fa-check"></i><b>10.4</b> Significancia de los parámetros (Prueba de Wald)</a></li>
+<li class="chapter" data-level="10.5" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox"><i class="fa fa-check"></i><b>10.5</b> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
+<li class="chapter" data-level="10.6" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#verificación-de-ajuste-de-modelo"><i class="fa fa-check"></i><b>10.6</b> Verificación de ajuste de Modelo</a></li>
+<li class="chapter" data-level="10.7" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fa fa-check"></i><b>10.7</b> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
+
 </ul>
 
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1">View book source <i class="fab fa-github"></i></a></p>
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="la-función-de-verosimilitud-con-censura-y-truncamiento" class="section level1" number="6">
-<h1>
-<span class="header-section-number">Capítulo 6</span> La Función de Verosimilitud con Censura y Truncamiento<a class="anchor" aria-label="anchor" href="#la-funci%C3%B3n-de-verosimilitud-con-censura-y-truncamiento"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos de Supervivencia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="la-función-de-verosimilitud-con-censura-y-truncamiento" class="section level1" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> La Función de Verosimilitud con Censura y Truncamiento</h1>
 <p>Cuando se conoce la distribución de <span class="math inline">\(T\)</span>, hacer estimaciones (usualmente por el método de máxima verosimilitud) sobre parámetros poblacionales resulta de suma importancia, pues a partir de ellos no sólo podemos conocer <em>estimadores</em> de la media, varianza o cuantiles; sino que también podemos conocer <span class="math inline">\(\hat S(t)\)</span>, <span class="math inline">\(\hat h(t)\)</span>, etc. En la sección anterior revisamos los modelos paramétricos más usados en análisis de supervivencia, sin embargo, no contemplamos datos censurados o truncados en dichos modelos. En este apartado veremos la función de verosimilitud considerando censura y truncamiento, y con base en esta función haremos estimaciones para algunas distribuciones.</p>
 <div id="caso-general" class="section level2" number="6.1">
-<h2>
-<span class="header-section-number">6.1</span> Caso General<a class="anchor" aria-label="anchor" href="#caso-general"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.1</span> Caso General</h2>
 <p>De acuerdo al tipo de observación, se tienen las siguientes contribuciones a la función de verosimilitud:</p>
 <p><span class="math display">\[
 \begin{array}{ll}
@@ -95,9 +260,7 @@ donde</p>
 <p>Cuando hay datos truncados, se sustituye <span class="math inline">\(f(t_{i})\)</span> por <span class="math inline">\(\frac{f(t_{i})}{S(u_{i})}\)</span> y <span class="math inline">\(S(C_{i})\)</span> por <span class="math inline">\(\frac{S(C_{i})}{S(_{u_{i}})}\)</span>.</p>
 </div>
 <div id="censura-por-la-derecha-tipo-i-1" class="section level2" number="6.2">
-<h2>
-<span class="header-section-number">6.2</span> Censura por la Derecha Tipo I<a class="anchor" aria-label="anchor" href="#censura-por-la-derecha-tipo-i-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.2</span> Censura por la Derecha Tipo I</h2>
 <p>Suponga que se tiene una muestra aleatoria de <span class="math inline">\(n\)</span> individuos con tiempos de vida <span class="math inline">\(T_1,T_2,..., T_n\)</span>(v.a.i.i.d) y que está asociado a cada individuo un tiempo fijo de censura <span class="math inline">\(C_i&gt;0\)</span>. Se observa a <span class="math inline">\(T_i\)</span> solamente si <span class="math inline">\(T_i\leq C_i\)</span>, por lo que los datos son parejas: <span class="math inline">\((t_i,\delta_i)\)</span>, <span class="math inline">\(i=1,2,...,n\)</span> donde <span class="math inline">\(t_i=min(T_i,C_i)\)</span> y:</p>
 <p><span class="math display">\[
 \delta_{i} = \left\{
@@ -122,9 +285,7 @@ donde</p>
 \]</span></p>
 </div>
 <div id="censura-por-la-derecha-tipo-ii-1" class="section level2" number="6.3">
-<h2>
-<span class="header-section-number">6.3</span> Censura por la Derecha Tipo II<a class="anchor" aria-label="anchor" href="#censura-por-la-derecha-tipo-ii-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.3</span> Censura por la Derecha Tipo II</h2>
 <p>Supongamos que se observan los <span class="math inline">\(r\)</span> tiempos de falla <span class="math inline">\(T_{(1)}&lt; T_{(2)}&lt; ...&lt;T_{(r)}\)</span> más pequeños, dejando a <span class="math inline">\(n-r\)</span> tiempos censurados por la derecha, de una muestra de tamaño <span class="math inline">\(n\)</span>. De modo que, los datos serán los <span class="math inline">\(r\)</span> tiempos de fallo más pequeños de <span class="math inline">\(T_{1}, T_{2},...,T_{n}\)</span>.</p>
 <p><span class="math inline">\(T\)</span> tiene f.d.p <span class="math inline">\(f(t)\)</span> y función de supervivencia <span class="math inline">\(S(t)\)</span>. Entonces la f.d.p. conjunta de <span class="math inline">\(T_{(1)}, T_{(2)}, ...,T_{(r)}\)</span> es:</p>
 <p><span class="math display">\[
@@ -147,9 +308,7 @@ donde</p>
 <p>que es la función de verosimilitud con datos censurados por la derecha tipo 1 revisada en la sección anterior.</p>
 </div>
 <div id="censura-aleatoria" class="section level2" number="6.4">
-<h2>
-<span class="header-section-number">6.4</span> Censura Aleatoria<a class="anchor" aria-label="anchor" href="#censura-aleatoria"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.4</span> Censura Aleatoria</h2>
 <p>Supongamos que para cada individuo se tienen <span class="math inline">\(T_i\)</span> y <span class="math inline">\(C_i\)</span> variables aleatorias independientes, con funciones de densidad <span class="math inline">\(f_{T}(t)\)</span> y <span class="math inline">\(f_{C}(t)\)</span>, y con funciones de superviviencia <span class="math inline">\(S_{T}(t)\)</span> y <span class="math inline">\(S_{C}(t)\)</span> respectivamente. Sean <span class="math inline">\((T_i,C_i)\)</span>, <span class="math inline">\(i=1,2,...,n\)</span> parejas de observaciones independientes, la variable que observamos es <span class="math inline">\(t_i=min(T_i,C_i)\)</span> y se define:</p>
 <p><span class="math display">\[
 \delta_{i} = \left\{
@@ -167,20 +326,16 @@ donde</p>
 <p>Similar al caso se censura por la derecha tipo 2, se puede demostrar que la expresión anterior es proporcional a <span class="math inline">\(\prod^{n}_{i=1}f_T(t_{i})^{\delta_{i}}S_T(t_{i})^{1-\delta_{i}}\)</span>.</p>
 </div>
 <div id="truncamiento-por-la-izquierda" class="section level2" number="6.5">
-<h2>
-<span class="header-section-number">6.5</span> Truncamiento por la Izquierda<a class="anchor" aria-label="anchor" href="#truncamiento-por-la-izquierda"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.5</span> Truncamiento por la Izquierda</h2>
 <p>Consideremos los tiempos de fallo truncados por la izquierda, es decir, <span class="math inline">\(T_{i}\)</span> tal que <span class="math inline">\(T_{i}\geq u_{i}\)</span> para ser observado (<span class="math inline">\(u_{i}\)</span> es el valor de truncamiento).</p>
 <p>En este caso, las observaciones serán <span class="math inline">\((u_{i}, t_{i},\delta_{i})\)</span> con <span class="math inline">\(t_{i}\geq u_{i}\)</span> tiempo de fallo y <span class="math inline">\(\delta_{i}\)</span> indicador de censura por la derecha. Por lo que:</p>
 <p><span class="math display">\[
 \mathbf{\mathscr{L}} = \prod_{i=1}^{n}\left\{\frac{f(t_{i})}{S(u_{i})}\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_{i}}=\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}
 \]</span></p>
-<p>Obsérvese que el hecho de dividir la función de verosimilitud entre <span class="math inline">\(S(u_{i})\)</span> se limita a que los datos sean truncados por la izquierda<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;De primera vista, pareciera que la segunda igualdad de la expresión anterior es incorrecta y que debería ser &lt;span class="math inline"&gt;\(\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_i}\)&lt;/span&gt; lo cual no es correcto. Se recomienda desarrollar la primera igualdad y relacionar lo necesario para obtener &lt;span class="math inline"&gt;\(h(t_i)\)&lt;/span&gt;.&lt;/p&gt;'><sup>7</sup></a>.</p>
+<p>Obsérvese que el hecho de dividir la función de verosimilitud entre <span class="math inline">\(S(u_{i})\)</span> se limita a que los datos sean truncados por la izquierda<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
 </div>
 <div id="truncamiento-por-la-derecha" class="section level2" number="6.6">
-<h2>
-<span class="header-section-number">6.6</span> Truncamiento por la Derecha<a class="anchor" aria-label="anchor" href="#truncamiento-por-la-derecha"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.6</span> Truncamiento por la Derecha</h2>
 <p>Consideremos tiempos de fallo <span class="math inline">\(T_{i}\)</span> tal que <span class="math inline">\(T_{i} \leq v_{i}\)</span> para que sea observado. Entonces las observaciones serán <span class="math inline">\((t_{i}, v_{i})\)</span> para todo <span class="math inline">\(i = 1,...,n\)</span>.</p>
 <p>Por lo que:</p>
 <p><span class="math display">\[
@@ -188,12 +343,9 @@ donde</p>
 \]</span></p>
 </div>
 <div id="estimaciones-para-algunos-modelos" class="section level2" number="6.7">
-<h2>
-<span class="header-section-number">6.7</span> Estimaciones para Algunos Modelos<a class="anchor" aria-label="anchor" href="#estimaciones-para-algunos-modelos"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">6.7</span> Estimaciones para Algunos Modelos</h2>
 <div id="modelo-exponencial-1" class="section level3 unnumbered">
-<h3>Modelo Exponencial<a class="anchor" aria-label="anchor" href="#modelo-exponencial-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Modelo Exponencial</h3>
 <p>Sean los tiempos de fallo <span class="math inline">\(T_{i}\)</span> independientes y provenientes de una distribución exponencial:</p>
 <ul>
 <li><span class="math inline">\(f(t) = \lambda e^{-\lambda t}\)</span></li>
@@ -218,18 +370,19 @@ donde</p>
 \]</span></p>
 <p>Observe que si <em>no hay datos censurados</em> entonces <span class="math inline">\(\sum_{i = 1}^{n}\delta_{i}=n\)</span>, por lo que <span class="math inline">\(\hat{\lambda}=\frac{1}{\bar t}\)</span>, y este es el estimador que conocemos desde el curso de inferencia.</p>
 <div id="ejemplo-8" class="section level4 unnumbered">
-<h4>Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-8"><i class="fas fa-link"></i></a>
-</h4>
-<p>El siguiente ejercicio fue basado en el ejercicio 3.6 del libro <span class="citation">(Klein and Moeschberger <a href="modelo-de-riesgos-proporcionales.html#ref-klein2006survival" role="doc-biblioref">2006</a>)</span>. Los siguientes datos consisten en los tiempos de recaída y los tiempos de muerte después de la recaída de 10 pacientes con trasplante de médula ósea. Suponga que el tiempo hasta la recaída tiene una distribución exponencial con la tasa de riesgo <span class="math inline">\(\lambda\)</span>.</p>
-<div class="inline-table"><table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead><tr>
+<h4>Ejemplo</h4>
+<p>El siguiente ejercicio fue basado en el ejercicio 3.6 del libro <span class="citation">(Klein and Moeschberger <a href="#ref-klein2006survival" role="doc-biblioref">2006</a>)</span>. Los siguientes datos consisten en los tiempos de recaída y los tiempos de muerte después de la recaída de 10 pacientes con trasplante de médula ósea. Suponga que el tiempo hasta la recaída tiene una distribución exponencial con la tasa de riesgo <span class="math inline">\(\lambda\)</span>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
 <th style="text-align:center;">
 Paciente
 </th>
 <th style="text-align:center;">
 Tiempo de recaida en meses
 </th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td style="text-align:center;">
@@ -312,12 +465,14 @@ Tiempo de recaida en meses
 </td>
 </tr>
 </tbody>
-<tfoot><tr>
+<tfoot>
+<tr>
 <td style="padding: 0; border: 0;" colspan="100%">
 <sup></sup> Los datos censurados están representados con un ‘+’
 </td>
-</tr></tfoot>
-</table></div>
+</tr>
+</tfoot>
+</table>
 <ul>
 <li><ol style="list-style-type: lower-alpha">
 <li>Calcule la tasa de recaída.</li>
@@ -334,8 +489,7 @@ Tiempo de recaida en meses
 </div>
 </div>
 <div id="modelo-weibull-1" class="section level3 unnumbered">
-<h3>Modelo Weibull<a class="anchor" aria-label="anchor" href="#modelo-weibull-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Modelo Weibull</h3>
 <p>Supongamos que se tienen los tiempos de fallo <span class="math inline">\(T_{i}\)</span> con censura, provenientes de una distribución Weibull:</p>
 <ul>
 <li><span class="math inline">\(f(t) = \lambda \gamma(\lambda t)^{\gamma-1}e^{-(\lambda t)^\gamma}\)</span></li>
@@ -388,52 +542,76 @@ r\gamma-\gamma \lambda^\gamma\sum_{i=1}^{n}t_i^\gamma=0
 
 
 
-
-  <div class="chapter-nav">
-<div class="prev"><a href="modelos-param%C3%A9tricos.html"><span class="header-section-number">5</span> Modelos Paramétricos</a></div>
-<div class="next"><a href="modelos-no-param%C3%A9tricos-para-la-funci%C3%B3n-de-supervivencia.html"><span class="header-section-number">7</span> Modelos No Paramétricos para la Función de Supervivencia</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#la-funci%C3%B3n-de-verosimilitud-con-censura-y-truncamiento"><span class="header-section-number">6</span> La Función de Verosimilitud con Censura y Truncamiento</a></li>
-<li><a class="nav-link" href="#caso-general"><span class="header-section-number">6.1</span> Caso General</a></li>
-<li><a class="nav-link" href="#censura-por-la-derecha-tipo-i-1"><span class="header-section-number">6.2</span> Censura por la Derecha Tipo I</a></li>
-<li><a class="nav-link" href="#censura-por-la-derecha-tipo-ii-1"><span class="header-section-number">6.3</span> Censura por la Derecha Tipo II</a></li>
-<li><a class="nav-link" href="#censura-aleatoria"><span class="header-section-number">6.4</span> Censura Aleatoria</a></li>
-<li><a class="nav-link" href="#truncamiento-por-la-izquierda"><span class="header-section-number">6.5</span> Truncamiento por la Izquierda</a></li>
-<li><a class="nav-link" href="#truncamiento-por-la-derecha"><span class="header-section-number">6.6</span> Truncamiento por la Derecha</a></li>
-<li>
-<a class="nav-link" href="#estimaciones-para-algunos-modelos"><span class="header-section-number">6.7</span> Estimaciones para Algunos Modelos</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#modelo-exponencial-1">Modelo Exponencial</a></li>
-<li><a class="nav-link" href="#modelo-weibull-1">Modelo Weibull</a></li>
-</ul>
-</li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1/blob/master/06_Likehood.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1/edit/master/06_Likehood.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
+<h3>References</h3>
+<div id="refs" class="references hanging-indent">
+<div id="ref-klein2006survival">
+<p>Klein, John P, and Melvin L Moeschberger. 2006. <em>Survival Analysis: Techniques for Censored and Truncated Data</em>. Second. Springer Science &amp; Business Media.</p>
 </div>
-    </nav>
 </div>
-
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>De primera vista, pareciera que la segunda igualdad de la expresión anterior es incorrecta y que debería ser <span class="math inline">\(\prod_{i=1}^{n}\left\{h(t_{i})\right\}^{\delta_{i}}\left\{\frac{S(t_{i})}{S(u_{i})}\right\}^{1-\delta_i}\)</span> lo cual no es correcto. Se recomienda desarrollar la primera igualdad y relacionar lo necesario para obtener <span class="math inline">\(h(t_i)\)</span>.<a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-</div> <!-- .container -->
+            </section>
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Supervivencia</strong>" was written by Sofía Villers Gómez, Carlos Fernando Vásquez Guerra, Luis Angel Ramirez Teodoro. </p>
+          </div>
+        </div>
+      </div>
+<a href="modelos-paramétricos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -447,4 +625,5 @@ r\gamma-\gamma \lambda^\gamma\sum_{i=1}^{n}t_i^\gamma=0
   })();
 </script>
 </body>
+
 </html>

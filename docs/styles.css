@@ -1,7 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
 body{
     text-align: justify;
+    background: linear-gradient(to top, rgba(6, 82, 221,1.0), 1%,rgba(236, 240, 241,1.0));
 }
-p.caption {
-  color: #777;
-  margin-top: 10px;
+
+/*----- Toolbar line at top----- */
+
+/* The next two rules make the horizontal line go straight across in top navbar */
+
+.summary > li:first-child {
+	height: 50px;
+	padding-top: 10px;
+	border-bottom: 1px solid transparent;
 }
+
+.book .book-summary ul.summary li.divider {
+	height: 0px;
+}
+
+/* TOC book title */
+
+.summary > li:first-child a {
+    font-size: 11.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: normal !important;
+    color: #172d61 !important;
+    letter-spacing: 1pt;
+
+}
+
+.book .book-header.fixed {
+  border-bottom: 1px solid transparent;
+}
+
+.book .book-header .btn {
+  color: #001d5799;
+}
+
+.book .book-header .btn:hover {
+  color: #001d57;
+}
+
+
+/*------------- Body and header text---------------- */
+.book.font-family-1 {
+  font-family: 'Titillium Web', sans-serif;
+  color: #404040;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h2, h3 {   
+  font-family: 'Titillium-Web', sans-serif;
+}
+.title {
+  font-family: 'Titillium-Web', sans-serif;
+}
+
+.subtitle {
+  font-family: 'Titillium-Web', sans-serif;
+}
+
+h1 {
+  color: #3758a6;
+  font-size: 41px !important;
+}
+
+h2 {
+  color: #11234f;
+}
+
+h3 {
+  font-size: 1.1em;
+  color: #11234f90;
+}
+
+h4 {
+  font-size: 1.1em;
+  color: #11234f90;
+}
+
+.title {
+  font-family: 'Titillium-Web', sans-serif;
+  font-size: 3em !important;
+  color: #3758a6;
+  text-transform: none !important;
+}
+
+.subtitle {
+  font-family: 'Titillium-Web', sans-serif;
+  color: #3758a6 !important;
+}
+
+
+/*-----Body Links-------*/
+
+.book .book-body .page-wrapper .page-inner section.normal a {
+  color: #3758a6;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:hover {
+ color: #3758a6; /* darker color when hovering */
+ text-decoration: underline;
+}
+
+/*------------ TOC --------------*/
+.summary{
+  font-family: 'Titillium-Web', sans-serif;
+}
+
+.book .book-summary {
+  background: white;
+  border-right: #d9d9d9 solid 1pt;
+}
+
+/* numbers */
+
+li a b  {
+  padding-right: 1em;
+}
+
+/* list items*/
+.book .book-summary ul.summary li a, 
+.book .book-summary ul.summary li span {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #4c5975;
+}
+
+.summary a:hover {
+  color: #2a3140 !important;
+} 
+
+/*active TOC links*/
+.book .book-summary ul.summary li.active>a { 
+  color: #2465ff !important;
+} 
+    
+/* parts */
+li.appendix span, li.part span { 
+  margin-top: 1em;
+  color: #2d3d5e;
+  opacity: 1 !important;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+  font-size: 11px !important;
+  font-weight: bold;
+  white-space: normal !important;
+}
+
+/* ----- For Large Screens -----*/
+
+
+@media (min-width: 1900px) {
+  
+  .book .book-header.fixed {
+    left: 500px;
+}
+  
+  /* Content width */
+  .book.with-summary .book-body {
+      left: 500px;
+  }
+  
+  /* TOC */
+  .book .book-summary {
+    width: 500px;
+    left: -500px;
+  }
+
+  .book.with-summary .book-header.fixed {
+      left: 500px;
+      
+  }
+}
+
+
+@media (min-width: 1500px) {
+  
+  /* Content width */
+  .book.with-summary .book-body {
+      left: 400px;
+  }
+  
+  /* TOC */
+  .book .book-summary {
+    width: 400px;
+    left: -400px;
+
+  }
+
+  .book.with-summary .book-header.fixed {
+      left: 400px;
+  }
+}
+
+
+@media (min-width: 1400px) {
+  
+  /* Content width */
+  .book.with-summary .book-body {
+      left: 350px;
+  }
+  
+  /* TOC */
+  .book .book-summary {
+      width: 350px;
+      left: -400px;
+  }
+
+  .book.with-summary .book-header.fixed {
+      left: 350px;
+  }
+} 

@@ -1,90 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 10 Modelo de Riesgos Proporcionales | Modelos de Supervivencia</title>
-<meta name="author" content="Sofía Villers Gómez">
-<meta name="author" content="Carlos Fernando Vásquez Guerra">
-<meta name="author" content="Luis Angel Ramirez Teodoro">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6.4/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.3.9000/tabs.js"></script><script src="libs/bs3compat-0.2.3.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet">
-<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet">
-<script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="styles.css">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 10 Modelo de Riesgos Proporcionales | Modelos de Supervivencia</title>
+  <meta name="description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 10 Modelo de Riesgos Proporcionales | Modelos de Supervivencia" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+  
+  <meta property="og:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 10 Modelo de Riesgos Proporcionales | Modelos de Supervivencia" />
+  
+  <meta name="twitter:description" content="Material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
+  
+
+<meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="Carlos Fernando Vásquez Guerra" />
+<meta name="author" content="Luis Angel Ramirez Teodoro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pruebas-de-hipótesis.html"/>
+
+<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Modelos de Supervivencia</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Prefacio</a></li>
-<li class="book-part">Todo es cuestion de tiempo</li>
-<li><a class="" href="motivaci%C3%B3n.html">Motivación</a></li>
-<li><a class="" href="an%C3%A1lisis-de-supervivencia.html">Análisis de Supervivencia</a></li>
-<li><a class="" href="datos-censurados.html"><span class="header-section-number">1</span> Datos Censurados</a></li>
-<li><a class="" href="datos-truncados.html"><span class="header-section-number">2</span> Datos Truncados</a></li>
-<li class="book-part">Estudio paramétrico</li>
-<li><a class="" href="funciones-para-el-an%C3%A1lisis-de-supervivencia.html"><span class="header-section-number">3</span> Funciones para el Análisis de Supervivencia</a></li>
-<li><a class="" href="par-poblacionales.html"><span class="header-section-number">4</span> Parámetros Poblacionales</a></li>
-<li><a class="" href="modelos-param%C3%A9tricos.html"><span class="header-section-number">5</span> Modelos Paramétricos</a></li>
-<li><a class="" href="la-funci%C3%B3n-de-verosimilitud-con-censura-y-truncamiento.html"><span class="header-section-number">6</span> La Función de Verosimilitud con Censura y Truncamiento</a></li>
-<li class="book-part">Estudio no paramétrico</li>
-<li><a class="" href="modelos-no-param%C3%A9tricos-para-la-funci%C3%B3n-de-supervivencia.html"><span class="header-section-number">7</span> Modelos No Paramétricos para la Función de Supervivencia</a></li>
-<li><a class="" href="algunas-estimaciones-sobre-modelos-no-param%C3%A9tricos.html"><span class="header-section-number">8</span> Algunas Estimaciones sobre Modelos No Paramétricos</a></li>
-<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de Hipótesis</a></li>
-<li class="book-part">Lleno de riesgos</li>
-<li><a class="active" href="modelo-de-riesgos-proporcionales.html"><span class="header-section-number">10</span> Modelo de Riesgos Proporcionales</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis de Supervivencia</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i>Estructura</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i>Detalles técnicos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
+</ul></li>
+<li class="part"><span><b>I Todo es cuestion de tiempo</b></span></li>
+<li class="chapter" data-level="" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i>Motivación</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-supervivencia.html"><a href="análisis-de-supervivencia.html"><i class="fa fa-check"></i>Análisis de Supervivencia</a></li>
+<li class="chapter" data-level="1" data-path="datos-censurados.html"><a href="datos-censurados.html"><i class="fa fa-check"></i><b>1</b> Datos Censurados</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-i"><i class="fa fa-check"></i><b>1.1</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="1.2" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-ii"><i class="fa fa-check"></i><b>1.2</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="1.3" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-derecha-tipo-iii"><i class="fa fa-check"></i><b>1.3</b> Censura por la Derecha Tipo III</a></li>
+<li class="chapter" data-level="1.4" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-la-izquierda"><i class="fa fa-check"></i><b>1.4</b> Censura por la Izquierda</a></li>
+<li class="chapter" data-level="1.5" data-path="datos-censurados.html"><a href="datos-censurados.html#censura-por-intervalos"><i class="fa fa-check"></i><b>1.5</b> Censura por Intervalos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datos-truncados.html"><a href="datos-truncados.html"><i class="fa fa-check"></i><b>2</b> Datos Truncados</a></li>
+<li class="part"><span><b>II Estudio paramétrico</b></span></li>
+<li class="chapter" data-level="3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html"><i class="fa fa-check"></i><b>3</b> Funciones para el Análisis de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-supervivencia"><i class="fa fa-check"></i><b>3.1</b> Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#RiskFunction"><i class="fa fa-check"></i><b>3.2</b> Función de Riesgo</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-1"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-1"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#función-de-riesgo-acumulado"><i class="fa fa-check"></i><b>3.3</b> Función de Riesgo Acumulado</a>
+<ul>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-continuo-2"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="funciones-para-el-análisis-de-supervivencia.html"><a href="funciones-para-el-análisis-de-supervivencia.html#caso-discreto-2"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="par-poblacionales.html"><a href="par-poblacionales.html"><i class="fa fa-check"></i><b>4</b> Parámetros Poblacionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="par-poblacionales.html"><a href="par-poblacionales.html#media"><i class="fa fa-check"></i><b>4.1</b> Media</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-3"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-3"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="par-poblacionales.html"><a href="par-poblacionales.html#varianza"><i class="fa fa-check"></i><b>4.2</b> Varianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-4"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-4"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="par-poblacionales.html"><a href="par-poblacionales.html#función-de-media-residual"><i class="fa fa-check"></i><b>4.3</b> Función de Media Residual</a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-5"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-5"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="par-poblacionales.html"><a href="par-poblacionales.html#cuantiles-de-orden-p"><i class="fa fa-check"></i><b>4.4</b> Cuantiles de Orden <span class="math inline">\(p\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-continuo-6"><i class="fa fa-check"></i>Caso continuo</a></li>
+<li class="chapter" data-level="" data-path="par-poblacionales.html"><a href="par-poblacionales.html#caso-discreto-6"><i class="fa fa-check"></i>Caso discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html"><i class="fa fa-check"></i><b>5</b> Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-exponencial"><i class="fa fa-check"></i><b>5.1</b> Modelo Exponencial</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-weibull"><i class="fa fa-check"></i><b>5.2</b> Modelo Weibull</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-normal"><i class="fa fa-check"></i><b>5.3</b> Modelo Log-Normal</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-log-logístico"><i class="fa fa-check"></i><b>5.4</b> Modelo Log-Logístico</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma"><i class="fa fa-check"></i><b>5.5</b> Modelo Gamma</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-paramétricos.html"><a href="modelos-paramétricos.html#modelo-gamma-generalizada"><i class="fa fa-check"></i><b>5.6</b> Modelo Gamma Generalizada</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><i class="fa fa-check"></i><b>6</b> La Función de Verosimilitud con Censura y Truncamiento</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#caso-general"><i class="fa fa-check"></i><b>6.1</b> Caso General</a></li>
+<li class="chapter" data-level="6.2" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-i-1"><i class="fa fa-check"></i><b>6.2</b> Censura por la Derecha Tipo I</a></li>
+<li class="chapter" data-level="6.3" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-por-la-derecha-tipo-ii-1"><i class="fa fa-check"></i><b>6.3</b> Censura por la Derecha Tipo II</a></li>
+<li class="chapter" data-level="6.4" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#censura-aleatoria"><i class="fa fa-check"></i><b>6.4</b> Censura Aleatoria</a></li>
+<li class="chapter" data-level="6.5" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-izquierda"><i class="fa fa-check"></i><b>6.5</b> Truncamiento por la Izquierda</a></li>
+<li class="chapter" data-level="6.6" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#truncamiento-por-la-derecha"><i class="fa fa-check"></i><b>6.6</b> Truncamiento por la Derecha</a></li>
+<li class="chapter" data-level="6.7" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#estimaciones-para-algunos-modelos"><i class="fa fa-check"></i><b>6.7</b> Estimaciones para Algunos Modelos</a>
+<ul>
+<li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-exponencial-1"><i class="fa fa-check"></i>Modelo Exponencial</a></li>
+<li class="chapter" data-level="" data-path="la-función-de-verosimilitud-con-censura-y-truncamiento.html"><a href="la-función-de-verosimilitud-con-censura-y-truncamiento.html#modelo-weibull-1"><i class="fa fa-check"></i>Modelo Weibull</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Estudio no paramétrico</b></span></li>
+<li class="chapter" data-level="7" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><i class="fa fa-check"></i><b>7</b> Modelos No Paramétricos para la Función de Supervivencia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#método-actuarial-tabla-de-vida"><i class="fa fa-check"></i><b>7.1</b> Método Actuarial (Tabla de Vida)</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#estimador-producto-límite-kaplan-meier"><i class="fa fa-check"></i><b>7.2</b> Estimador Producto-Límite (Kaplan-Meier)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modelos-no-paramétricos-para-la-función-de-supervivencia.html"><a href="modelos-no-paramétricos-para-la-función-de-supervivencia.html#construcción-del-estimador-k-m"><i class="fa fa-check"></i><b>7.2.1</b> Construcción del Estimador K-M</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><i class="fa fa-check"></i><b>8</b> Algunas Estimaciones sobre Modelos No Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-la-varianza-para-el-estimador-de-st"><i class="fa fa-check"></i><b>8.1</b> Estimación de la Varianza para el Estimador de <span class="math inline">\(S(t)\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#tabla-de-vida"><i class="fa fa-check"></i><b>8.1.1</b> Tabla de Vida</a></li>
+<li class="chapter" data-level="8.1.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#kaplan-meier"><i class="fa fa-check"></i><b>8.1.2</b> Kaplan-Meier</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimadores-de-la-función-de-riesgo-acumulada"><i class="fa fa-check"></i><b>8.2</b> Estimadores de la Función de Riesgo Acumulada</a></li>
+<li class="chapter" data-level="8.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-puntual-de-la-media"><i class="fa fa-check"></i><b>8.3</b> Estimación Puntual de la Media</a></li>
+<li class="chapter" data-level="8.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#estimación-de-cuantiles"><i class="fa fa-check"></i><b>8.4</b> Estimación de Cuantiles</a></li>
+<li class="chapter" data-level="8.5" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#bandas-de-confianza-para-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.5</b> Bandas de Confianza para la Función de Supervivencia</a></li>
+<li class="chapter" data-level="8.6" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#diagnóstico-para-el-uso-de-modelos-paramétricos"><i class="fa fa-check"></i><b>8.6</b> Diagnóstico para el Uso de Modelos Paramétricos</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráficas-de-las-funciones-de-supervivencia"><i class="fa fa-check"></i><b>8.6.1</b> Gráficas de las Funciones de Supervivencia</a></li>
+<li class="chapter" data-level="8.6.2" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-p-p"><i class="fa fa-check"></i><b>8.6.2</b> Gráfica <span class="math inline">\(P-P\)</span></a></li>
+<li class="chapter" data-level="8.6.3" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#gráfica-q-q"><i class="fa fa-check"></i><b>8.6.3</b> Gráfica <span class="math inline">\(Q-Q\)</span></a></li>
+<li class="chapter" data-level="8.6.4" data-path="algunas-estimaciones-sobre-modelos-no-paramétricos.html"><a href="algunas-estimaciones-sobre-modelos-no-paramétricos.html#linearización-de-la-función-de-supervivencia"><i class="fa fa-check"></i><b>8.6.4</b> Linearización de la Función de Supervivencia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de Hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-1-población"><i class="fa fa-check"></i><b>9.1</b> Comparación de 1 población</a></li>
+<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-log-rank"><i class="fa fa-check"></i><b>9.2</b> Prueba Log-Rank</a></li>
+<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#prueba-generalizada-wilcoxon"><i class="fa fa-check"></i><b>9.3</b> Prueba Generalizada Wilcoxon</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#comparación-de-m-poblaciones"><i class="fa fa-check"></i><b>9.4</b> Comparación de <span class="math inline">\(m\)</span> Poblaciones</a></li>
+</ul></li>
+<li class="part"><span><b>IV Lleno de riesgos</b></span></li>
+<li class="chapter" data-level="10" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html"><i class="fa fa-check"></i><b>10</b> Modelo de Riesgos Proporcionales</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#inferencia-sobre-theta"><i class="fa fa-check"></i><b>10.1</b> Inferencia sobre <span class="math inline">\(\theta\)</span></a></li>
+<li class="chapter" data-level="10.2" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-semiparamétrica-verosimilitud-parcial."><i class="fa fa-check"></i><b>10.2</b> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
+<li class="chapter" data-level="10.3" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimador-de-breslow-h_0t-y-s_0t"><i class="fa fa-check"></i><b>10.3</b> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</a></li>
+<li class="chapter" data-level="10.4" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#significancia-de-los-parámetros-prueba-de-wald"><i class="fa fa-check"></i><b>10.4</b> Significancia de los parámetros (Prueba de Wald)</a></li>
+<li class="chapter" data-level="10.5" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox"><i class="fa fa-check"></i><b>10.5</b> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
+<li class="chapter" data-level="10.6" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#verificación-de-ajuste-de-modelo"><i class="fa fa-check"></i><b>10.6</b> Verificación de ajuste de Modelo</a></li>
+<li class="chapter" data-level="10.7" data-path="modelo-de-riesgos-proporcionales.html"><a href="modelo-de-riesgos-proporcionales.html#extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fa fa-check"></i><b>10.7</b> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
+
 </ul>
 
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1">View book source <i class="fab fa-github"></i></a></p>
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="modelo-de-riesgos-proporcionales" class="section level1" number="10">
-<h1>
-<span class="header-section-number">Capítulo 10</span> Modelo de Riesgos Proporcionales<a class="anchor" aria-label="anchor" href="#modelo-de-riesgos-proporcionales"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos de Supervivencia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelo-de-riesgos-proporcionales" class="section level1" number="10">
+<h1><span class="header-section-number">Capítulo 10</span> Modelo de Riesgos Proporcionales</h1>
 <p>Cuando se desea comparar 2 o más grupos de tiempos-evento, si los grupos son “similares” entonces se les pueden aplicar los métodos no paramétricos vistos. Usualmente los individuos en los grupos tienen características adicionales que pueden afectar el resultado, por ejemplo, variables como: edad, género, nivel socioeconómico, consumo del alcohol, ritmo cardiaco, nivel de colesterol, etcétera.</p>
 <p>Dichas variables pueden usarse como <strong>covariables</strong> (variables explicativas, factores de riesgo, variables independientes) en un modelo que explique la variable respuesta. Así, después de ajustar las covariables, la comparación de tiempos de supervivencia entre grupos deberá tener menos sesgo y ser más precisa que la simple comparación de tiempos de supervivencia.</p>
 <p>Otro problema a resolver será predecir la distribución del tiempo de ocurrencia de cierto evento a partir de un conjunto de covariables.</p>
 <p>Los datos estarán dados de la siguiente forma: <span class="math inline">\((t_i, \delta_i,x_i)\)</span> con <span class="math inline">\(i = 1,...n\)</span>, donde:</p>
 <ul>
-<li>
-<span class="math inline">\(i\)</span>: individuos.</li>
-<li>
-<span class="math inline">\(t_i\)</span>: tiempo de falla o censura.</li>
-<li>
-<span class="math inline">\(\delta_i\)</span>: indicador de falla o censura.</li>
-<li>
-<span class="math inline">\(x_i\)</span>: conjunto de covariables.</li>
+<li><span class="math inline">\(i\)</span>: individuos.</li>
+<li><span class="math inline">\(t_i\)</span>: tiempo de falla o censura.</li>
+<li><span class="math inline">\(\delta_i\)</span>: indicador de falla o censura.</li>
+<li><span class="math inline">\(x_i\)</span>: conjunto de covariables.</li>
 </ul>
 <p>Nota:</p>
 <ul>
-<li>
-<span class="math inline">\(X_i =(X_{i1}, X_{i2}, ..., X_{ip})\)</span>; donde <span class="math inline">\(p\)</span>= número de covariables.</li>
-<li>
-<span class="math inline">\(X_i\)</span> puede depender del tiempo, es decir, <span class="math inline">\(X_{ik}\)</span> es una v.a que cambia en el tiempo (peso, colesterol, etc.).</li>
+<li><span class="math inline">\(X_i =(X_{i1}, X_{i2}, ..., X_{ip})\)</span>; donde <span class="math inline">\(p\)</span>= número de covariables.</li>
+<li><span class="math inline">\(X_i\)</span> puede depender del tiempo, es decir, <span class="math inline">\(X_{ik}\)</span> es una v.a que cambia en el tiempo (peso, colesterol, etc.).</li>
 </ul>
 <p>Sea <span class="math inline">\(h_i(t|X_i)\)</span> la función de riesgo al tiempo <span class="math inline">\(t\)</span> del individuo <span class="math inline">\(i\)</span> dadas las covariables <span class="math inline">\(X_i\)</span> (vector de riesgo). El <strong>modelo</strong> propuesto por Cox (1972) es:</p>
 <p><span class="math display">\[
@@ -92,79 +253,71 @@ h_i(t) = \varphi(X_i ;\theta)\cdot h_0(t)
 \]</span>
 Donde:</p>
 <ul>
-<li>
-<span class="math inline">\(\theta=(\theta_1,..., \theta_p)\)</span> es el vector de <span class="math inline">\(p\)</span> parámetros asociados a las covariables (coeficientes de regresión).</li>
-<li>
-<span class="math inline">\(\varphi(\cdot,\cdot)\)</span> es la <em>función liga</em> de las covariables con el tiempo t.</li>
-<li>
-<span class="math inline">\(h_{0}(t)\)</span> es la función de riesgo <em>base</em>.</li>
+<li><span class="math inline">\(\theta=(\theta_1,..., \theta_p)\)</span> es el vector de <span class="math inline">\(p\)</span> parámetros asociados a las covariables (coeficientes de regresión).</li>
+<li><span class="math inline">\(\varphi(\cdot,\cdot)\)</span> es la <em>función liga</em> de las covariables con el tiempo t.</li>
+<li><span class="math inline">\(h_{0}(t)\)</span> es la función de riesgo <em>base</em>.</li>
 </ul>
 <p>La función <span class="math inline">\(\varphi(\cdot,\cdot)\)</span> debe satisfacer que <span class="math inline">\(\varphi(0,\theta) =1\)</span>, esto para que, en ausencia de covariables, se tenga que <span class="math inline">\(h_i(t) = h_0(t)\)</span>.</p>
-<p>La forma más común de <span class="math inline">\(\varphi(X_i, \theta)\)</span> es <span class="math inline">\(\varphi(X_i, \theta) = e^{X_i^{'} \theta}\)</span> (Supone que <span class="math inline">\(X_i\)</span> no tiene intercepto), entonces:</p>
+<p>La forma más común de <span class="math inline">\(\varphi(X_i, \theta)\)</span> es <span class="math inline">\(\varphi(X_i, \theta) = e^{X_i^{&#39;} \theta}\)</span> (Supone que <span class="math inline">\(X_i\)</span> no tiene intercepto), entonces:</p>
 <p><span class="math display">\[
-h_i(t) = e^{X_i^{'} \theta}\cdot h_0(t)
+h_i(t) = e^{X_i^{&#39;} \theta}\cdot h_0(t)
 \]</span></p>
 <p>Si aplicamos <em>logaritmo</em> tenemos que:</p>
 <p><span class="math display">\[
-\ln(h_i(t)) = X_i^{'}\theta + \ln(h_0(t))
+\ln(h_i(t)) = X_i^{&#39;}\theta + \ln(h_0(t))
 \]</span></p>
 <p><span class="math display" id="eq:cox-covariables-linear">\[\begin{equation}
-\Longrightarrow X_i^{'}\cdot\theta = ln \left({\frac{h_i(t)}{h_0(t)}}\right)
+\Longrightarrow X_i^{&#39;}\cdot\theta = ln \left({\frac{h_i(t)}{h_0(t)}}\right)
 \tag{10.1}
 \end{equation}\]</span></p>
 <p>Es decir, el cociente de la función de riesgo del individuo <span class="math inline">\(i\)</span> con respecto al riesgo base será igual a una forma lineal de las covariables.</p>
 <p>El nombre de riesgos proporcionales se deriva del cociente de las funciones de riesgo de dos individuos:</p>
 <p><span class="math display">\[
-\frac{h_i(t)}{h_j(t)} = \frac{e^{X_i^{'} \theta}\cdot h_0(t)}{e^{X_j^{'} \theta} \cdot h_0(t)} = e^{(X_i-X_j)' \theta}
+\frac{h_i(t)}{h_j(t)} = \frac{e^{X_i^{&#39;} \theta}\cdot h_0(t)}{e^{X_j^{&#39;} \theta} \cdot h_0(t)} = e^{(X_i-X_j)&#39; \theta}
 \]</span></p>
-<p>A la expresión anterior se le conoce como <strong>riesgo relativo</strong> y es constante en el tiempo, cuyo valor depende simplemente de la diferencia entre valores de las covariables de los dos individuos<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;No hay dependencia con el tiempo.&lt;/p&gt;"><sup>14</sup></a>.</p>
+<p>A la expresión anterior se le conoce como <strong>riesgo relativo</strong> y es constante en el tiempo, cuyo valor depende simplemente de la diferencia entre valores de las covariables de los dos individuos<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>.</p>
 <p>Si <span class="math inline">\(X_{1i} = 1\)</span> y <span class="math inline">\(X_{1j} = 0\)</span>, representan tratamiento y placebo respectivamente, y si todas las demás covariables se mantienen constantes, entonces <span class="math inline">\(e^{\theta_1}\)</span> es el riesgo de que se presente la falla con el tratamiento relativo a que se presente la falla con el placebo.</p>
 <p><span class="math display">\[\frac{h_i(t)}{h_j(t)} = e^{\theta_1}\]</span>
 Bajo el modelo de riesgos proporcionales, las funciones de supervivencia y densidad del individuo <span class="math inline">\(i\)</span> son:
-<span class="math display">\[S_i(t)=\{S_0(t)\}^{exp(X_i'\theta)}\]</span>
-<span class="math display">\[f_i(t)=e^{(X_i'\theta)}h_0(t)\{S_0(t)\}^{exp(X_i'\theta)}\]</span></p>
+<span class="math display">\[S_i(t)=\{S_0(t)\}^{exp(X_i&#39;\theta)}\]</span>
+<span class="math display">\[f_i(t)=e^{(X_i&#39;\theta)}h_0(t)\{S_0(t)\}^{exp(X_i&#39;\theta)}\]</span></p>
 <p>donde <span class="math inline">\(S_0(t)=exp\{-H_0(t)\}\)</span> es la función de supervivencia base y <span class="math inline">\(H_0(t)\)</span> la función de riesgo acumulado base.
 Una consecuencia del supuesto de proporcionalidad entre los riesgos de dos individuos <span class="math inline">\(i,j\)</span> con covariables <span class="math inline">\(X_i,X_j\)</span> es que las funciones de riesgo y supervivencia <strong>no se intersectan</strong>.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>NOTA</strong>: Si <span class="math inline">\(S_0(t)\)</span> es miembro de una familia paramétrica, por lo general, <span class="math inline">\(S_i(t)\)</span> no es miembro de la misma familia. Véase los siguientes ejemplos</p>
 <ul>
 <li><p>Riesgo base Weibull: <span class="math inline">\(h_0(t) = \lambda\alpha t^{\alpha-1}\)</span>
 <span class="math display">\[
 \begin{array}{cc}
-\implies h_i(t) = \lambda \alpha t^{\alpha-1}e^{X_i^{'}\theta} = \lambda e^{X_i^{'}\theta}\alpha t^{\alpha-1}&amp;\therefore h_i\sim Weibull(\alpha, \lambda e^{X_i^{'}\theta})
+\implies h_i(t) = \lambda \alpha t^{\alpha-1}e^{X_i^{&#39;}\theta} = \lambda e^{X_i^{&#39;}\theta}\alpha t^{\alpha-1}&amp;\therefore h_i\sim Weibull(\alpha, \lambda e^{X_i^{&#39;}\theta})
 \end{array}
 \]</span></p></li>
 <li><p>Riesgo base log-logistico: <span class="math inline">\(h_0(t) = \frac{\alpha \lambda t^{\alpha-1}}{(1+\lambda t^{\alpha})}\)</span>
 <span class="math display">\[
-\implies h_i(t) = \frac{e^{Xi^{'}\theta}\alpha t^{\alpha -1}}{(1+\lambda t^{\alpha})}
+\implies h_i(t) = \frac{e^{Xi^{&#39;}\theta}\alpha t^{\alpha -1}}{(1+\lambda t^{\alpha})}
 \]</span></p></li>
 <li><p>Riesgo base Gamma: <span class="math inline">\(S_0(t) = 1-lg(\lambda t, \beta)\)</span>
 <span class="math display">\[
-S_i(t) = \{S_0(t)\}^{e^{X_i^{'}\theta}} = \left(1-lg(\lambda t, \beta)\right)^{e^{X_i^{'}\theta}}
+S_i(t) = \{S_0(t)\}^{e^{X_i^{&#39;}\theta}} = \left(1-lg(\lambda t, \beta)\right)^{e^{X_i^{&#39;}\theta}}
 \]</span></p></li>
 </ul>
 <div id="inferencia-sobre-theta" class="section level2" number="10.1">
-<h2>
-<span class="header-section-number">10.1</span> Inferencia sobre <span class="math inline">\(\theta\)</span><a class="anchor" aria-label="anchor" href="#inferencia-sobre-theta"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">10.1</span> Inferencia sobre <span class="math inline">\(\theta\)</span></h2>
 <p>La inferencia para los modelos de riesgos proporcionales paramétricos se hacen por máxima verosimiliutd.</p>
 <p>Sea <span class="math inline">\((t_i, \delta_i, X_i)\)</span></p>
 <ul>
 <li>i : individuos.</li>
-<li>
-<span class="math inline">\(t_i\)</span>: tiempo de fallo o censura.</li>
-<li>
-<span class="math inline">\(\delta_i\)</span>: Indicador de fallo o censura.</li>
-<li>
-<span class="math inline">\(X_i\)</span>: Covariables.</li>
+<li><span class="math inline">\(t_i\)</span>: tiempo de fallo o censura.</li>
+<li><span class="math inline">\(\delta_i\)</span>: Indicador de fallo o censura.</li>
+<li><span class="math inline">\(X_i\)</span>: Covariables.</li>
 </ul>
 <p>Sean <span class="math inline">\(h_0(t|\alpha, \lambda)\)</span> y <span class="math inline">\(S_0(t|\alpha, \lambda)\)</span> funciones de riesgo y supervivencia base.</p>
 <p>Entonces la función de verosimilitud para <span class="math inline">\((\theta, \alpha, \lambda)\)</span> será:</p>
 <p><span class="math display">\[
 \begin{split}
 \mathscr{L}(\theta, \alpha, \lambda) &amp; =\prod_{i = 1}^{n}\{f_i(t)\}^{\delta_{i}}\{S_i(t)\}^{1-\delta_{i}}\\
- &amp; =\prod_{i = 1}^{n}\left\{e^{X_i^{'}\theta}h_0(t)S_0(t)^{e^{X_i^{'}\theta}}\right\}^{\delta_{i}}\left\{S_0(t)^{e^{X_i^{'}\theta}}\right\}^{1-\delta_i}\\
- &amp; =\prod_{i = 1}^{n}\left\{e^{X_i^{'}\theta}h_0(t)\}^{\delta_{i}}\{S_0(t)^{e^{X_i^{'}\theta}}\right\}
+ &amp; =\prod_{i = 1}^{n}\left\{e^{X_i^{&#39;}\theta}h_0(t)S_0(t)^{e^{X_i^{&#39;}\theta}}\right\}^{\delta_{i}}\left\{S_0(t)^{e^{X_i^{&#39;}\theta}}\right\}^{1-\delta_i}\\
+ &amp; =\prod_{i = 1}^{n}\left\{e^{X_i^{&#39;}\theta}h_0(t)\}^{\delta_{i}}\{S_0(t)^{e^{X_i^{&#39;}\theta}}\right\}
 \end{split}
 \]</span></p>
 <ul>
@@ -174,9 +327,7 @@ S_i(t) = \{S_0(t)\}^{e^{X_i^{'}\theta}} = \left(1-lg(\lambda t, \beta)\right)^{e
 </ul>
 </div>
 <div id="estimación-semiparamétrica-verosimilitud-parcial." class="section level2" number="10.2">
-<h2>
-<span class="header-section-number">10.2</span> Estimación Semiparamétrica (Verosimilitud parcial).<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-semiparam%C3%A9trica-verosimilitud-parcial."><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">10.2</span> Estimación Semiparamétrica (Verosimilitud parcial).</h2>
 <p>El modelo de riesgos proporcionales semiparamétrico surge cuando la función de riesgo base <span class="math inline">\(h_0(t)\)</span> se considera como una parámetro desconocido, y en este caso es necesario hacer inferencia para <span class="math inline">\(\theta\)</span> y <span class="math inline">\(h_0(t)\)</span>. El parámetro de interés más importante del modelo es <span class="math inline">\(\theta\)</span> y entonces <span class="math inline">\(h_0(t)\)</span> es considerado un parámetro de ruido.</p>
 <p>Supongamos que los datos consisten en el vector de observaciones <span class="math inline">\(T = (T_1, ..., T_n)\)</span> de la densidad <span class="math inline">\(f(t|\theta,\eta)\)</span> donde <span class="math inline">\(\theta\)</span> es el vector de parámetros de interés y <span class="math inline">\(\eta\)</span> es parámetro de ruido.</p>
 <p>Sean <span class="math inline">\(t_{(1)}&lt;t_{(2)}&lt;...&lt;t_{(D)}\)</span> los tiempos de fallo observados de manera exacta.</p>
@@ -184,37 +335,31 @@ S_i(t) = \{S_0(t)\}^{e^{X_i^{'}\theta}} = \left(1-lg(\lambda t, \beta)\right)^{e
 <p>Definimos <span class="math inline">\(R(t_{(j)})\)</span> como el conjunto de todos los individuos en riesgo justo antes de <span class="math inline">\(t_{(j)}\)</span>.</p>
 <p>Entonces la <strong>verosimilitud parcial</strong> para <span class="math inline">\(\theta\)</span> es</p>
 <p><span class="math display">\[
-_p\mathscr{L}(\theta) = \prod_{j = 1}^{D}\frac{h_{j}(t_{(j)})}{\sum\limits_{i\in R(t_{(j)})}h_{i}(t_{(j)})} = \prod_{j = 1}^{D}\frac{\exp\left(X_{(j)}^{'}\theta\right)}{\sum\limits_{i\in R(t_{(j)})}\exp\left(X_{i}^{'}\theta\right)}
+_p\mathscr{L}(\theta) = \prod_{j = 1}^{D}\frac{h_{j}(t_{(j)})}{\sum\limits_{i\in R(t_{(j)})}h_{i}(t_{(j)})} = \prod_{j = 1}^{D}\frac{\exp\left(X_{(j)}^{&#39;}\theta\right)}{\sum\limits_{i\in R(t_{(j)})}\exp\left(X_{i}^{&#39;}\theta\right)}
 \]</span></p>
 <p>OBS :</p>
 <ul>
-<li>
-<span class="math inline">\(_p\mathscr{L}(\theta)\)</span> no depende de <span class="math inline">\(h_0(t)\)</span>
-</li>
+<li><span class="math inline">\(_p\mathscr{L}(\theta)\)</span> no depende de <span class="math inline">\(h_0(t)\)</span></li>
 <li>El numerador depende sólo de la información del individuo que falla.</li>
 <li>El denominador usa información de todos los individuos que aún no han experimentado fallo incluyendo censurados.</li>
 <li>La verosimilitud parcial se trata como cualquier función de verosimilitud (aplica logaritmo, derivada igual a cero,…)</li>
-<li>
-<span class="math inline">\(\theta\)</span> es un vector de dimensión <span class="math inline">\(p\implies\)</span> se obtendrán <span class="math inline">\(p\)</span> derivadas parciales. La mayoría de los paquetes usan algoritmos de Newton-Raphson para resolver el sistema de ecuaciones simultaneas.</li>
+<li><span class="math inline">\(\theta\)</span> es un vector de dimensión <span class="math inline">\(p\implies\)</span> se obtendrán <span class="math inline">\(p\)</span> derivadas parciales. La mayoría de los paquetes usan algoritmos de Newton-Raphson para resolver el sistema de ecuaciones simultaneas.</li>
 <li>Pruebas de hipótesis e intervalos de confianza para <span class="math inline">\(\theta\)</span> se pueden obtener con distribución asintótica normal con media <span class="math inline">\(\theta\)</span> y matriz de varianzas y covarianzas.</li>
 </ul>
 </div>
 <div id="estimador-de-breslow-h_0t-y-s_0t" class="section level2" number="10.3">
-<h2>
-<span class="header-section-number">10.3</span> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)<a class="anchor" aria-label="anchor" href="#estimador-de-breslow-h_0t-y-s_0t"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">10.3</span> Estimador de Breslow (<span class="math inline">\(H_{0}(t)\)</span> y <span class="math inline">\(S_{0}(t)\)</span>)</h2>
 <p>Si la funciones base son también de interés, se puede utilizar el estimador propuesto por Berslow (1974) que es una generalización del estimador de <em>Nelson-Aalen</em>.</p>
-<p><span class="math display">\[\hat{H_{0}}(t) = \sum_{i:t_i\leq t}\left \{\frac{\delta_i}{\sum_{j = 1}^nY_j(t_i)e^{X_j^{'}\hat{\theta}}} \right \} = \frac{\mbox{Fallecidos}}{\mbox{Individuos en riesgo}}\]</span>
+<p><span class="math display">\[\hat{H_{0}}(t) = \sum_{i:t_i\leq t}\left \{\frac{\delta_i}{\sum_{j = 1}^nY_j(t_i)e^{X_j^{&#39;}\hat{\theta}}} \right \} = \frac{\mbox{Fallecidos}}{\mbox{Individuos en riesgo}}\]</span>
 donde <span class="math inline">\(Y_i(t) = \mathbb{1}_{\{t_i\geq t\}}\)</span> indicadora si <span class="math inline">\(\hat{\theta} = 0\)</span> y <span class="math inline">\(\hat{H_0}(t)\)</span> es el estimador de Nelson-Aalen visto previamente.</p>
-<p><span class="math display">\[\therefore \hat{S_0(t)}  = exp\{-\hat{H_0}(t)\} = e^{\sum_{i:t_i\leq t}\left \{\frac{\delta_i}{\sum_{j = 1}^nY_j(t_i)e^{X_j^{'}\hat{\theta}}} \right \}}\]</span></p>
+<p><span class="math display">\[\therefore \hat{S_0(t)}  = exp\{-\hat{H_0}(t)\} = e^{\sum_{i:t_i\leq t}\left \{\frac{\delta_i}{\sum_{j = 1}^nY_j(t_i)e^{X_j^{&#39;}\hat{\theta}}} \right \}}\]</span></p>
 <p><strong>Notas</strong></p>
 <ol style="list-style-type: decimal">
 <li>En el caso de que se presenten <strong>empates</strong> (múltiples individuos con el mismo tiempo de fallo) la <span class="math inline">\(_p\mathscr{L}(\theta)\)</span> debe ajustarse para que se considere la naturaleza discreta de las observaciones.</li>
 <li>El modelo de riesgos proporcionales permite la incorporación de covariables dependientes en el tiempo.</li>
 </ol>
 <div id="ejemplo-1-2" class="section level4 unnumbered">
-<h4>Ejemplo 1<a class="anchor" aria-label="anchor" href="#ejemplo-1-2"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Ejemplo 1</h4>
 <p>Un estudio sobre la supervivencia clasifica según la raza en: blanco, negro e hispano. Entonces las variable <span class="math inline">\(X_1\)</span> toma los siguientes valores:</p>
 <p><span class="math display">\[
 \begin{array}{ll}
@@ -238,8 +383,7 @@ X_2 = 1 \mbox{ si es negro, 0 en otro caso}\\
 </ul>
 <p>Riesgos relativos:</p>
 <ul>
-<li>Entre negro e hispano: <span class="math inline">\(\frac{h(t|X_1 = 0, X_2 = 1)}{h(t|X_1 = 0, X_2 = 0)} = \frac{h_0(t)e^{\beta_2}}{h_{0}(t)}=e^{\beta_2}\)</span>
-</li>
+<li>Entre negro e hispano: <span class="math inline">\(\frac{h(t|X_1 = 0, X_2 = 1)}{h(t|X_1 = 0, X_2 = 0)} = \frac{h_0(t)e^{\beta_2}}{h_{0}(t)}=e^{\beta_2}\)</span></li>
 </ul>
 <p>Es decir, <span class="math inline">\(e^{\beta_2}\)</span> son las veces que el riesgo que tienen los negros en comparación con los hispanos.</p>
 <ul>
@@ -247,8 +391,7 @@ X_2 = 1 \mbox{ si es negro, 0 en otro caso}\\
 </ul>
 </div>
 <div id="ejemplo-2-2" class="section level4 unnumbered">
-<h4>Ejemplo 2<a class="anchor" aria-label="anchor" href="#ejemplo-2-2"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Ejemplo 2</h4>
 <p>Un estudio con 863 pacientes con trasplante de hígado. Dos de las variable que se recabaron de los pacientes fueron, género y raza. Entonces los pacientes en el estudio se dividieron en las siguientes categorías</p>
 <p><span class="math display">\[
 \begin{array}{ll}
@@ -285,7 +428,7 @@ Z_3 = Z_1\cdot Z_2 \mbox{ Esta variable tomará el valor 1 si es mujer negra, y 
 <p>Y el modelo para la función de riesgo será: <span class="math inline">\(h(t|Z) = h_0exp\{\theta_1Z_1+\theta_2Z_2+\theta_3Z_1Z_2\}\)</span>.</p>
 <p>Los estimadores máximo verosímil son
 <span class="math inline">\(\hat{\theta_1} = -.2484, \hat{\theta_2} =-.0888, \hat{\theta_3} = .7435\)</span>.
-Hay que notar que la interpretación de las <span class="math inline">\(\theta's\)</span> será diferente y en este caso el parámetro de interés será el de la interacción (<span class="math inline">\(\theta_3\)</span>)</p>
+Hay que notar que la interpretación de las <span class="math inline">\(\theta&#39;s\)</span> será diferente y en este caso el parámetro de interés será el de la interacción (<span class="math inline">\(\theta_3\)</span>)</p>
 <p>Riesgos relativos :</p>
 <p><span class="math display">\[\frac{\mbox{Hombre negro}}{\mbox{Mujer blanca}} = \frac{h_0(t)exp\{-0.0888\}}{h_0exp\{-0.2484\}} = e^{-(0.0888+0.2484)} = e^{-.1596} = 1.17\]</span></p>
 <p>Véase que es el mismo resultado que se obtuvo en el modelo anterior, por lo que se sigue conservando el mismo riesgo independiente del modelo.</p>
@@ -299,8 +442,7 @@ Hay que notar que la interpretación de las <span class="math inline">\(\theta's
 <p>Una variable categórica con k clases se transforma en <span class="math inline">\(k-1\)</span> variables binarias.</p>
 </div>
 <div id="ejemplo-1-3" class="section level4 unnumbered">
-<h4>Ejemplo 1<a class="anchor" aria-label="anchor" href="#ejemplo-1-3"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Ejemplo 1</h4>
 <p>X: Color de cabello {negro, cafe, rojo, blanco}. Tenemos una variable con 4 categorías. Por lo que la transformaremos en 3 variables binarias</p>
 <p><span class="math display">\[
 \begin{array}{l}
@@ -313,25 +455,21 @@ X_3 = \mbox{1 si es rojo, 0.e.o.c} \\
 </div>
 </div>
 <div id="significancia-de-los-parámetros-prueba-de-wald" class="section level2" number="10.4">
-<h2>
-<span class="header-section-number">10.4</span> Significancia de los parámetros (Prueba de Wald)<a class="anchor" aria-label="anchor" href="#significancia-de-los-par%C3%A1metros-prueba-de-wald"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">10.4</span> Significancia de los parámetros (Prueba de Wald)</h2>
 <p>¿Son significativos <span class="math inline">\(\hat{\theta_1}, \hat{\theta_2}, \hat{\theta_3}\)</span> en ejemplo numero 2?</p>
 <p>Similar al caso de regresión lineal, la significancia de los parámetros radica en la importancia del riesgo proporcionado por las covariables asociadas a parámetros. Y en caso de no ser significativos los parámetros, las covariables se podrían eliminar del modelo.</p>
 <p><strong>Prueba de hipótesis:</strong> Nos interesa hacer pruebas sobre <span class="math inline">\(\theta\)</span>, de manera general:</p>
 <p><span class="math display">\[H_0:\theta_1 = \theta_{H_0}\mbox{ vs }H_1:\theta_1\neq \theta_{H_0}\]</span>
 donde <span class="math inline">\(\theta = (\theta_1^t, \theta_2^t) = (\theta_1, \theta_2, ..., \theta_p)\)</span></p>
 <ul>
-<li>
-<span class="math inline">\(\theta_1:\)</span> Es el vector de <span class="math inline">\(q*1\)</span> (<span class="math inline">\(q\)</span> parámetros de interés)</li>
-<li>
-<span class="math inline">\(\theta_2:\)</span> Los parámetros restantes (<span class="math inline">\(p-q\)</span>)</li>
+<li><span class="math inline">\(\theta_1:\)</span> Es el vector de <span class="math inline">\(q*1\)</span> (<span class="math inline">\(q\)</span> parámetros de interés)</li>
+<li><span class="math inline">\(\theta_2:\)</span> Los parámetros restantes (<span class="math inline">\(p-q\)</span>)</li>
 </ul>
 <p>Partimos la matriz de información : <span class="math inline">\(I = \begin{pmatrix}I_{11} &amp; I_{12} \\ I_{21} &amp; I_{22}\end{pmatrix}\)</span></p>
 <p>Donde <span class="math inline">\(I_{11}\)</span>, <span class="math inline">\(I_{22}\)</span> segundas derivadas de la función de verosimilitud.</p>
 <p>La <strong>Prueba de Wald</strong> se define como:</p>
 <p><span class="math display">\[
-X_w^2 =(\hat{\theta_1}-\hat{\theta_{H_0}})^{'}[I^{*}(\theta)]^{-1}(\hat{\theta_1}-\hat{\theta_{H_0}})
+X_w^2 =(\hat{\theta_1}-\hat{\theta_{H_0}})^{&#39;}[I^{*}(\theta)]^{-1}(\hat{\theta_1}-\hat{\theta_{H_0}})
 \]</span></p>
 <p>Donde <span class="math inline">\(I^{*}(\theta)\)</span> es la matriz <span class="math inline">\(q*q\)</span> superior de <span class="math inline">\(I\)</span>.</p>
 <ul>
@@ -340,20 +478,15 @@ X_w^2 =(\hat{\theta_1}-\hat{\theta_{H_0}})^{'}[I^{*}(\theta)]^{-1}(\hat{\theta_1
 </ul>
 <p><span class="math display">\[AIC  = -2log{\mathscr{L}}+kp\]</span></p>
 <ul>
-<li>
-<span class="math inline">\(\mathscr{L}\)</span>: Función de verosimilitud.</li>
-<li>
-<span class="math inline">\(k\)</span>: Cte.(usualmente igual a 2).</li>
-<li>
-<span class="math inline">\(p\)</span>: # de parámetros en el modelo.</li>
+<li><span class="math inline">\(\mathscr{L}\)</span>: Función de verosimilitud.</li>
+<li><span class="math inline">\(k\)</span>: Cte.(usualmente igual a 2).</li>
+<li><span class="math inline">\(p\)</span>: # de parámetros en el modelo.</li>
 </ul>
-<p>Para la construcción del modelo usando el modelo de riesgos proporcionales de Cox, se puede usar el estadístico de Wald para seleccionar covariables significativas<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Recordar que por la ecuación &lt;a href="modelo-de-riesgos-proporcionales.html#eq:cox-covariables-linear"&gt;(10.1)&lt;/a&gt;, el modelo esta asumiendo una forma lineal de las covariables.&lt;/p&gt;'><sup>15</sup></a> y considerando el valor del AIC para evaluar la mejora en el modelo<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Para un mayor número de variables el &lt;span class="math inline"&gt;\(AIC\uparrow\)&lt;/span&gt; pero para variables más significativas &lt;span class="math inline"&gt;\(AIC\downarrow\)&lt;/span&gt;.&lt;/p&gt;'><sup>16</sup></a>.</p>
+<p>Para la construcción del modelo usando el modelo de riesgos proporcionales de Cox, se puede usar el estadístico de Wald para seleccionar covariables significativas<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> y considerando el valor del AIC para evaluar la mejora en el modelo<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>.</p>
 </div>
 <div id="estimación-de-st-después-de-obtener-las-estimaciones-de-los-parámetros-del-modelo-de-cox" class="section level2" number="10.5">
-<h2>
-<span class="header-section-number">10.5</span> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-de-st-despu%C3%A9s-de-obtener-las-estimaciones-de-los-par%C3%A1metros-del-modelo-de-cox"><i class="fas fa-link"></i></a>
-</h2>
-<p>Hasta el momento se han dado estimadores para <span class="math inline">\(\theta\)</span> y pruebas sobre dicho parámetro; es decir, teniendo el modelo de riesgos proporcionales <span class="math inline">\(h(t|X) = h_0(t)e^{X^{'}\theta}\)</span> y ajustando dicho modelo a nuestros datos obtenemos <span class="math inline">\(\hat{\theta}\)</span>. Ahora lo que se desea es la función de supervivencia con el conjunto de covariables <span class="math inline">\(X_i\)</span>.Para ello sea <span class="math inline">\(t_1&lt;t_2, \dots&lt;t_D\)</span> todos los tiempos de falla y <span class="math inline">\(d_i\)</span> el número de fallas del tiempo <span class="math inline">\(t_i\)</span>. Entonces</p>
+<h2><span class="header-section-number">10.5</span> Estimación de <span class="math inline">\(S(t)\)</span> después de obtener las estimaciones de los parámetros del modelo de Cox</h2>
+<p>Hasta el momento se han dado estimadores para <span class="math inline">\(\theta\)</span> y pruebas sobre dicho parámetro; es decir, teniendo el modelo de riesgos proporcionales <span class="math inline">\(h(t|X) = h_0(t)e^{X^{&#39;}\theta}\)</span> y ajustando dicho modelo a nuestros datos obtenemos <span class="math inline">\(\hat{\theta}\)</span>. Ahora lo que se desea es la función de supervivencia con el conjunto de covariables <span class="math inline">\(X_i\)</span>.Para ello sea <span class="math inline">\(t_1&lt;t_2, \dots&lt;t_D\)</span> todos los tiempos de falla y <span class="math inline">\(d_i\)</span> el número de fallas del tiempo <span class="math inline">\(t_i\)</span>. Entonces</p>
 <p><span class="math display">\[
 \omega(t_i, \hat{\theta}) = \sum_{j\in R(t_i)}\exp\left\{\sum_{h=1}^D\hat{\theta}_hX_{jh}\right\}
 \]</span></p>
@@ -367,16 +500,14 @@ X_w^2 =(\hat{\theta_1}-\hat{\theta_{H_0}})^{'}[I^{*}(\theta)]^{-1}(\hat{\theta_1
 \]</span></p>
 <p>Para estimar la función de supervivencia para un individuo con covariables <span class="math inline">\(X^{*}\)</span> se utilizará el siguiente estimador</p>
 <p><span class="math display">\[
-\hat{S}(t|X^{*})=\hat{S}_0(t)\exp\left\{\hat{\theta^{'}}X^{*}\right\}
+\hat{S}(t|X^{*})=\hat{S}_0(t)\exp\left\{\hat{\theta^{&#39;}}X^{*}\right\}
 \]</span>
 La siguiente gráfica es un ejemplo comparativo de dos estimaciones de funciones de supervivencia, una con el método de Kaplan-Meier y Cox.</p>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="verificación-de-ajuste-de-modelo" class="section level2" number="10.6">
-<h2>
-<span class="header-section-number">10.6</span> Verificación de ajuste de Modelo<a class="anchor" aria-label="anchor" href="#verificaci%C3%B3n-de-ajuste-de-modelo"><i class="fas fa-link"></i></a>
-</h2>
-<p>Mediante gráficos de las funciones de supervivencia buscamos las funciones de supervivencia para los distintos valores de <span class="math inline">\(X\)</span>’s donde <strong>no</strong> se crucen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Por el hecho de que se busca &lt;strong&gt;proporcionalidad&lt;/strong&gt; y, por lo tanto, que la segregación separe completamente a la población.&lt;/p&gt;"><sup>17</sup></a>.</p>
+<h2><span class="header-section-number">10.6</span> Verificación de ajuste de Modelo</h2>
+<p>Mediante gráficos de las funciones de supervivencia buscamos las funciones de supervivencia para los distintos valores de <span class="math inline">\(X\)</span>’s donde <strong>no</strong> se crucen<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>.</p>
 <p>En caso de que el modelo de Cox no cumpla con el supuesto de proporcionalidad se puede corregir el modelo mediante:</p>
 <ol style="list-style-type: decimal">
 <li><p>Agregar más covariables</p></li>
@@ -386,9 +517,7 @@ La siguiente gráfica es un ejemplo comparativo de dos estimaciones de funciones
 </ol>
 </div>
 <div id="extensión-del-modelo-de-cox-a-covariables-dependientes-del-tiempo" class="section level2" number="10.7">
-<h2>
-<span class="header-section-number">10.7</span> Extensión del modelo de Cox a covariables dependientes del tiempo<a class="anchor" aria-label="anchor" href="#extensi%C3%B3n-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">10.7</span> Extensión del modelo de Cox a covariables dependientes del tiempo</h2>
 <p>Sea <span class="math inline">\(X(t)=[X_1(t),...,X_p(t)]\)</span> es el conjunto de covariables o factores de riesgo al tiempo <span class="math inline">\(t\)</span> que podrían afectar la distribución de la variable de supervivencia.</p>
 <p>Entonces <span class="math inline">\(X_k(t)\)</span>´s son covariables dependientes del tiempo cuyos valores cambian o permanecen constantes (como el caso anterior). Supondremos que los valores de estas covariables son predecibles (el valor es conocido).</p>
 <p>Ejemplos de este tipo de variables son presión arterial, colesterol, tamaño del tumor, etc.</p>
@@ -421,16 +550,16 @@ y se realiza la prueba de hipótesis para <span class="math inline">\(\beta_2=0\
 <p>la cuál dependerá del tiempo si <span class="math inline">\(\beta_2 \ne 0\)</span>.</p>
 
 <div id="refs" class="references hanging-indent">
-<div id="ref-collett2015modelling">
+<div>
 <p>Collett, David. 2015. <em>Modelling Survival Data in Medical Research</em>. CRC press.</p>
 </div>
-<div id="ref-hall1980confidence">
+<div>
 <p>Hall, Wendy J, and Jon A Wellner. 1980. “Confidence Bands for a Survival Curve from Censored Data.” <em>Biometrika</em> 67 (1): 133–43.</p>
 </div>
-<div id="ref-klein2006survival">
+<div>
 <p>Klein, John P, and Melvin L Moeschberger. 2006. <em>Survival Analysis: Techniques for Censored and Truncated Data</em>. Second. Springer Science &amp; Business Media.</p>
 </div>
-<div id="ref-nair1984confidence">
+<div>
 <p>Nair, Vijayan N. 1984. “Confidence Bands for Survival Functions with Censored Data: A Comparative Study.” <em>Technometrics</em> 26 (3): 265–75.</p>
 </div>
 </div>
@@ -459,47 +588,73 @@ y se realiza la prueba de hipótesis para <span class="math inline">\(\beta_2=0\
 
 
 
-
-  <div class="chapter-nav">
-<div class="prev"><a href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de Hipótesis</a></div>
-<div class="empty"></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#modelo-de-riesgos-proporcionales"><span class="header-section-number">10</span> Modelo de Riesgos Proporcionales</a></li>
-<li><a class="nav-link" href="#inferencia-sobre-theta"><span class="header-section-number">10.1</span> Inferencia sobre \(\theta\)</a></li>
-<li><a class="nav-link" href="#estimaci%C3%B3n-semiparam%C3%A9trica-verosimilitud-parcial."><span class="header-section-number">10.2</span> Estimación Semiparamétrica (Verosimilitud parcial).</a></li>
-<li><a class="nav-link" href="#estimador-de-breslow-h_0t-y-s_0t"><span class="header-section-number">10.3</span> Estimador de Breslow (\(H_{0}(t)\) y \(S_{0}(t)\))</a></li>
-<li><a class="nav-link" href="#significancia-de-los-par%C3%A1metros-prueba-de-wald"><span class="header-section-number">10.4</span> Significancia de los parámetros (Prueba de Wald)</a></li>
-<li><a class="nav-link" href="#estimaci%C3%B3n-de-st-despu%C3%A9s-de-obtener-las-estimaciones-de-los-par%C3%A1metros-del-modelo-de-cox"><span class="header-section-number">10.5</span> Estimación de \(S(t)\) después de obtener las estimaciones de los parámetros del modelo de Cox</a></li>
-<li><a class="nav-link" href="#verificaci%C3%B3n-de-ajuste-de-modelo"><span class="header-section-number">10.6</span> Verificación de ajuste de Modelo</a></li>
-<li><a class="nav-link" href="#extensi%C3%B3n-del-modelo-de-cox-a-covariables-dependientes-del-tiempo"><span class="header-section-number">10.7</span> Extensión del modelo de Cox a covariables dependientes del tiempo</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1/blob/master/10_Proportional_risks.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1/edit/master/10_Proportional_risks.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
+<div class="footnotes">
+<hr />
+<ol start="14">
+<li id="fn14"><p>No hay dependencia con el tiempo.<a href="modelo-de-riesgos-proporcionales.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Recordar que por la ecuación <a href="modelo-de-riesgos-proporcionales.html#eq:cox-covariables-linear">(10.1)</a>, el modelo esta asumiendo una forma lineal de las covariables.<a href="modelo-de-riesgos-proporcionales.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Para un mayor número de variables el <span class="math inline">\(AIC\uparrow\)</span> pero para variables más significativas <span class="math inline">\(AIC\downarrow\)</span>.<a href="modelo-de-riesgos-proporcionales.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>Por el hecho de que se busca <strong>proporcionalidad</strong> y, por lo tanto, que la segregación separe completamente a la población.<a href="modelo-de-riesgos-proporcionales.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-    </nav>
-</div>
+            </section>
 
-</div>
-</div> <!-- .container -->
+          </div>
+        </div>
+      </div>
+<a href="pruebas-de-hipótesis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Supervivencia</strong>" was written by Sofía Villers Gómez, Carlos Fernando Vásquez Guerra, Luis Angel Ramirez Teodoro. </p>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "github", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -513,4 +668,5 @@ y se realiza la prueba de hipótesis para <span class="math inline">\(\beta_2=0\
   })();
 </script>
 </body>
+
 </html>
